@@ -28265,77 +28265,148 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = __webpack_require__(18);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _TermsAndConditions = __webpack_require__(348);
+
+var _TermsAndConditions2 = _interopRequireDefault(_TermsAndConditions);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var AskAQuestion = function AskAQuestion() {
-  return _react2.default.createElement(
-    'div',
-    null,
-    _react2.default.createElement(
-      'div',
-      null,
-      'Ask a Question'
-    ),
-    _react2.default.createElement(
-      'div',
-      null,
-      'Required fields are marked with *'
-    ),
-    _react2.default.createElement('hr', null),
-    _react2.default.createElement(
-      'div',
-      null,
-      'Question*'
-    ),
-    _react2.default.createElement(
-      'div',
-      null,
-      'Maximum of 255 characters.'
-    ),
-    _react2.default.createElement('textarea', { placeholder: 'Ask a question...' }),
-    _react2.default.createElement('hr', null),
-    _react2.default.createElement(
-      'div',
-      null,
-      'Nickname*'
-    ),
-    _react2.default.createElement('input', { placeholder: 'Example: jackie27' }),
-    _react2.default.createElement('hr', null),
-    _react2.default.createElement(
-      'div',
-      null,
-      'Location'
-    ),
-    _react2.default.createElement('input', { placeholder: 'Example: Seattle, WA' }),
-    _react2.default.createElement('hr', null),
-    _react2.default.createElement(
-      'div',
-      null,
-      'Email*'
-    ),
-    _react2.default.createElement('input', { placeholder: 'Example: youremail@example.com' }),
-    _react2.default.createElement('hr', null),
-    _react2.default.createElement(
-      'div',
-      null,
-      'I agree to the terms & conditions'
-    ),
-    _react2.default.createElement(
-      'div',
-      null,
-      'You may receive emails regarding this submission. Any emails will include the ability to opt out of future communications.'
-    ),
-    _react2.default.createElement(
-      'button',
-      null,
-      'Post question'
-    )
-  );
-};
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var AskAQuestion = function (_React$Component) {
+  _inherits(AskAQuestion, _React$Component);
+
+  function AskAQuestion(props) {
+    _classCallCheck(this, AskAQuestion);
+
+    var _this = _possibleConstructorReturn(this, (AskAQuestion.__proto__ || Object.getPrototypeOf(AskAQuestion)).call(this, props));
+
+    _this.state = {
+      TCPopup: false
+    };
+    _this.showPopup = _this.showPopup.bind(_this);
+    return _this;
+  }
+
+  _createClass(AskAQuestion, [{
+    key: 'showPopup',
+    value: function showPopup() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'h2',
+          { className: 'CTQandA', id: 'CTaskQTitle' },
+          'Ask a Question'
+        ),
+        _react2.default.createElement(
+          'button',
+          { id: 'CTxButton' },
+          _react2.default.createElement(
+            'div',
+            { id: 'CTxFont' },
+            '\u2715'
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { id: 'CTtinyWords', style: { marginBottom: -13, marginLeft: 8 } },
+          'Required fields are marked with *'
+        ),
+        _react2.default.createElement('hr', null),
+        _react2.default.createElement(
+          'div',
+          { className: 'CTqForm' },
+          _react2.default.createElement(
+            'div',
+            null,
+            'Question* \xA0\xA0\xA0',
+            _react2.default.createElement(
+              'span',
+              null,
+              'Maximum of 255 characters.'
+            )
+          ),
+          _react2.default.createElement('textarea', { className: 'CTqTextArea', rows: '4', cols: '129', placeholder: 'Ask a question...' }),
+          _react2.default.createElement('hr', null),
+          _react2.default.createElement(
+            'div',
+            { className: 'CTnicknameAndLoc' },
+            _react2.default.createElement(
+              'div',
+              { className: 'CTnicknameQ' },
+              'Nickname*',
+              _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement('input', { className: 'CTqInput', placeholder: 'Example: jackie27' })
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'CTlocationQ' },
+              'Location',
+              _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement('input', { className: 'CTqInput', placeholder: 'Example: Seattle, WA' })
+              )
+            )
+          ),
+          _react2.default.createElement('hr', null),
+          _react2.default.createElement(
+            'div',
+            null,
+            'Email*'
+          ),
+          _react2.default.createElement('input', { className: 'CTqInput', placeholder: 'Example: youremail@example.com' })
+        ),
+        _react2.default.createElement('hr', null),
+        _react2.default.createElement('input', { type: 'checkbox', style: { cursor: 'pointer' } }),
+        _react2.default.createElement(
+          'span',
+          { id: 'CTiAgree' },
+          '\xA0\xA0\xA0I agree to the ',
+          _react2.default.createElement(
+            'span',
+            { id: 'CTterms', onClick: function onClick() {
+                return _this2.showPopup();
+              } },
+            'terms & conditions'
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { id: 'CTtinyWords' },
+          '\xA0You may receive emails regarding this submission. Any emails will include the ability to opt out of future communications.'
+        ),
+        _react2.default.createElement(
+          'button',
+          { className: 'CTaskAQuestion', id: 'CTpostQuestion' },
+          'Post question'
+        ),
+        this.state.TCPopup ? _react2.default.createElement(_TermsAndConditions2.default, null) : _react2.default.createElement('div', null)
+      );
+    }
+  }]);
+
+  return AskAQuestion;
+}(_react2.default.Component);
 
 exports.default = AskAQuestion;
 
@@ -28365,7 +28436,7 @@ var QAList = function QAList(props) {
     'div',
     null,
     props.QApairs.map(function (QApair, index) {
-      return _react2.default.createElement(_QAListEntry2.default, { QApair: QApair, key: index });
+      return _react2.default.createElement(_QAListEntry2.default, { QApairs: props.QApairs, QApair: QApair, key: index });
     })
   );
 };
@@ -28468,7 +28539,7 @@ var QAListAns = function (_React$Component) {
         ),
         _react2.default.createElement(
           'div',
-          { id: 'CTsmallFont' },
+          { className: 'CThelpfulQuestion', id: 'CTsmallFont' },
           'Helpful?\xA0\xA0',
           this.state.upVoted ? _react2.default.createElement(
             'span',
@@ -28529,7 +28600,7 @@ var QAListAns = function (_React$Component) {
             'Report as inappropriate'
           )
         ),
-        _react2.default.createElement('hr', null)
+        this.props.QApairs.length === this.props.number ? _react2.default.createElement('div', null) : _react2.default.createElement('hr', null)
       );
     }
   }]);
@@ -28621,7 +28692,7 @@ var QAListEntry = function QAListEntry(props) {
       { className: 'CTanswerButton' },
       'Answer the question'
     ),
-    _react2.default.createElement(_QAListAns2.default, { firstAns: props.QApair.answers[0] })
+    _react2.default.createElement(_QAListAns2.default, { firstAns: props.QApair.answers[0], number: props.QApair.number, QApairs: props.QApairs })
   );
 };
 
@@ -41835,6 +41906,33 @@ module.exports = function(module) {
 	return module;
 };
 
+
+/***/ }),
+/* 348 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(18);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var TermsAndConditions = function TermsAndConditions() {
+  return _react2.default.createElement(
+    'div',
+    null,
+    'hi'
+  );
+};
+
+exports.default = TermsAndConditions;
 
 /***/ })
 /******/ ]);
