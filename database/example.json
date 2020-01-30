@@ -3,17 +3,18 @@
     "number": 1,
     "qNickname": "christ123092",
     "question": "My dog is a Norwegian Elkhound around 48lbs, 26in around the chest, but pretty thick around the neck. If you google her breed they've got some serious neckrolls. Should I get a M or a S?",
-    "qDate": "1219",
+    "qDate": "12012019",
     "qEmail": "christ123092@gmail.com",
     "qLocation": "Los Angeles, CA",
     "answers": [ 
       {
         "aNickname": "REIservice",
         "answer": "Based on the information provided, we recommend choosing the size M for this dog pack.",
-        "aDate": "0120",
+        "aDate": "01012020",
         "aEmail": "",
         "aLocation": "",
-        "helpful": "", 
+        "yes": 1, 
+        "no": 1,
         "inappropriate": ""
       }
     ]
@@ -22,17 +23,18 @@
     "number": 2,
     "qNickname": "lsteed503",
     "question": "Will the pack be available in the orange color again any time soon?",
-    "qDate": "1119",
+    "qDate": "11302018",
     "qEmail": "christ123092@yahoo.com",
     "qLocation": "San Francisco, CA",
     "answers": [ 
       {
         "aNickname": "REIservice",
         "answer": "As of August 2018, we do not have plans to restock the orange color pack. Please give us a call at (800) 426-4840 about the most up to date availability information.",
-        "aDate": "1219",
+        "aDate": "12152018",
         "aEmail": "",
         "aLocation": "",
-        "helpful": "", 
+        "yes": 2,
+        "no": 0, 
         "inappropriate": ""
       }
     ]
@@ -41,26 +43,28 @@
     "number": 3,
     "qNickname": "human",
     "question": "Can a BearVault BV450 fit inside? If not, is there another good quality bear can/bear bag that can?",
-    "qDate": "1018",
+    "qDate": "07182015",
     "qEmail": "christ123092@aol.com",
     "qLocation": "New York, NY",
     "answers": [ 
       {
         "aNickname": "REIservice",
         "answer": "The BV450 food container will not fit inside this dog pack. As of July 2018, we do not have a bear canister small enough to fit inside of this dog pack.",
-        "aDate": "0119",
+        "aDate": "07232015",
         "aEmail": "",
         "aLocation": "",
-        "helpful": "yes", 
+        "yes": 0,
+        "no": 3,         
         "inappropriate": ""
       },
       {
         "aNickname": "me",
         "answer": "not sure.",
-        "aDate": "0519",
+        "aDate": "08202016",
         "aEmail": "",
         "aLocation": "",
-        "helpful": "", 
+        "yes": 0,
+        "no": 0, 
         "inappropriate": "yes"
       }
     ]

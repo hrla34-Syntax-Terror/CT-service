@@ -1,6 +1,8 @@
 import React from 'react';
 import QAList from './QAList.jsx';
 import axios from 'axios';
+import AskAQuestion from './AskAQuestion.jsx';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -24,13 +26,13 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2 className='QandA'>Questions &amp; Answers</h2>
-        <button className='askAQuestion'>Ask a question</button>
-        <div className='qaBlock'>
-          <div id='qaTotal'>
-            <span>1-3 of 3 Questions</span>
-            <span className='sortBy'>Sort by:&nbsp;
-              <select className='dropDown'>
+        <h2 className='CTQandA'>Questions &amp; Answers</h2>
+        <button className='CTaskAQuestion'>Ask a question</button>
+        <div className='CTqaBlock'>
+          <div id='CTqaTotal'>
+            <span>1-{this.state.QApairs.length} of {this.state.QApairs.length} Questions</span>
+            <span className='CTsortBy'>Sort by:&nbsp;
+              <select className='CTdropDown'>
                 <option>Newest questions</option>
                 <option>Newest answers</option>
                 <option>Most answered</option>
@@ -44,6 +46,7 @@ class App extends React.Component {
         </div>
         <QAList QApairs={this.state.QApairs}/>
         </div>
+        <AskAQuestion />
       </div>
     );
   };

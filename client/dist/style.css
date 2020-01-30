@@ -16,11 +16,11 @@ body {
   margin: 0 auto;
 }
 
-#qaBlock {
+#CTqaBlock {
   padding-left: 0.7em;
 }
 
-.askAQuestion {
+.CTaskAQuestion {
   background-color: #426c90;
   color: #fff;
   font-size: 16px;
@@ -52,17 +52,26 @@ body {
   float: right;
   display: block;
   margin-bottom: 15px;
+  cursor: pointer;
 }
 
-.user {
+.CTaskAQuestion:hover {
+  box-shadow: inset 0 0 0 50px rgba(0, 0, 0, 0.2);
+}
+
+
+.CTuser {
   display: inline;
 }
 
-.nickname {
+.CTnickname, .CTansNickname {
   font-weight: 530;
 }
 
-
+.CTanswer {
+  line-height: 1.5em;
+  padding-top: 0.7em;
+}
 
 h3 {
   font-weight: 500;
@@ -70,7 +79,7 @@ h3 {
 
 }
 
-.answerButton, .helpful, .inappropriate {
+.CTanswerButton, .CThelpful, .CTinappropriate {
   background-color: transparent;
   font-size: 14px;
   line-height: 28px;
@@ -89,6 +98,7 @@ h3 {
   border-color: #b8b8b8;
   margin-top: 1.5em;
   margin-bottom: 3em;
+  cursor: pointer;
   /* border-top-width: 0;
   border-top-style: none;
   border-top-color: transparent;
@@ -103,37 +113,45 @@ h3 {
   border-left-color: transparent; */
 }
 
-.sortBy {
+.CTanswerButton:hover, .CThelpful:hover, .CTinappropriate:hover {
+  box-shadow: 0 0 6px rgba(33, 33, 33, .2) inset;
+}
+
+.CTsortBy {
   float: right;
 }
 
-.listEntry {
+.CTlistEntry {
   padding-top: 1em;
 }
 
-/* .QandA {
-  padding-bottom: 0em;
-} */
+.CTQandA {
+  font-family: Georgia, serif;
+  font-weight: 200;
+  letter-spacing: 0.03em;
+  transform: scale(1, 0.97);
+  font-size: 23px;
+}
 
-#qaTotal {
+#CTqaTotal {
   padding-top: 3.7em;
   padding-bottom: 1em;
 }
 
-.qaBlock {
+.CTqaBlock {
   padding-left: 0.7em;
 }
 
-.helpful, .inappropriate {
+.CThelpful, .CTinappropriate {
   margin-bottom: 1em;
 }
 
-#smallFont {
+#CTsmallFont, #CTnumAns {
   font-size: 14px;
   font-weight: 400;
 }
 
-select.dropDown {
+/* select.dropDown {
   background-image:
     linear-gradient(45deg, transparent 50%, gray 50%),
     linear-gradient(135deg, gray 50%, transparent 50%),
@@ -147,7 +165,7 @@ select.dropDown {
     5px 5px,
     1px 1.5em;
   background-repeat: no-repeat;
-}
+} */
 /* select.dropDown:focus {
   background-image:
     linear-gradient(45deg, green 50%, transparent 50%),
@@ -170,3 +188,16 @@ select:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
 } */
+
+#CTnumAns {
+  float: right;
+  text-align: center;
+}
+
+.CTquestion, .CTanswer {
+  padding-right: 5em;
+}
+
+button:focus {
+  outline: 0;
+}

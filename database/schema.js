@@ -11,10 +11,11 @@ var QASchema = new mongoose.Schema({
     {
 			aNickname: String,
 			answer: String,
-			aDate: Number,
+			aDate: String,
 			aEmail: String,
       aLocation: String,
-      helpful: String, 
+      yes: Number, 
+      no: Number,
       inappropriate: String
     }
   ]
