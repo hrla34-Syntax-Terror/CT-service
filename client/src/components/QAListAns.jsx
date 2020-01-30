@@ -35,7 +35,7 @@ class QAListAns extends React.Component {
         <span className='CTansNickname'>{this.props.firstAns.aNickname}&nbsp;</span>
         <span>·</span>&nbsp;<span id='CTsmallFont'>{moment(this.props.firstAns.aDate, 'MMDDYYYY').fromNow()}</span>
         <div className='CTanswer'>{this.props.firstAns.answer}</div>
-        <div id='CTsmallFont'>Helpful?&nbsp;&nbsp;
+        <div className='CThelpfulQuestion' id='CTsmallFont'>Helpful?&nbsp;&nbsp;
           { this.state.upVoted ? (
             <span>
               <span className='CThelpfulClicked' name='yes'>Yes&nbsp;·&nbsp;<span style={{color:'green'}}>{this.state.yes}</span></span>&nbsp;
@@ -53,7 +53,7 @@ class QAListAns extends React.Component {
             <span onClick={() => this.reported()} className='CTinappropriate'>Report as inappropriate</span>
           ) }
         </div>
-        <hr/>
+        { this.props.QApairs.length === this.props.number ? (<div/>) : (<hr/>) }
       </div>
     )
   }
