@@ -27,10 +27,10 @@ class App extends React.Component {
     return (
       <div>
         <h2 className='CTQandA'>Questions &amp; Answers</h2>
-        <button className='CTaskAQuestion'>Ask a question</button>
+        <a href='#CTaskAQuestion'><button className='CTaskAQuestion'>Ask a question</button></a>
         <div className='CTqaBlock'>
           <div id='CTqaTotal'>
-            <span>1-{this.state.QApairs.length} of {this.state.QApairs.length} Questions</span>
+            <span>1 &ndash; {this.state.QApairs.length} of {this.state.QApairs.length} Questions</span>
             <span className='CTsortBy'>Sort by:&nbsp;
               <select className='CTdropDown'>
                 <option>Newest questions</option>
@@ -46,7 +46,9 @@ class App extends React.Component {
         </div>
         <QAList QApairs={this.state.QApairs}/>
         </div>
-        <AskAQuestion />
+        <div id='CTaskAQuestion'><a href='CTaskAQuestion'></a>
+          <AskAQuestion />
+        </div>
       </div>
     );
   };
