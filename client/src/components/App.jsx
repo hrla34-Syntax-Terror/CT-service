@@ -25,7 +25,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id='CTqaContainer'><a href='CTqaContainer'></a>
         <h2 className='CTQandA'>Questions &amp; Answers</h2>
         <a href='#CTaskAQuestion'><button className='CTaskAQuestion'>Ask a question</button></a>
         <div className='CTqaBlock'>

@@ -299,6 +299,7 @@ button:focus {
   font-size: 15px;
   text-decoration: underline;
   cursor: pointer;
+  color: #292929;
 }
 
 .CTnicknameAndLoc {
@@ -312,4 +313,61 @@ button:focus {
 
 .CTqForm {
   margin-left: 8px;
+}
+
+.CTpopup {  
+  position: absolute;  
+  width: 585px;  
+  height: 1200px;  
+  top: 400px;  
+  left: 0;  
+  right: 0;  
+  bottom: 0;  
+  margin: auto;  
+  background-color: #fafafa;
+  padding-left: 50px;
+  padding-right: 50px;
+  -moz-box-shadow: 0 0 20px #888;
+  -webkit-box-shadow: 0 0 20px#888;
+  box-shadow: 0 0 20px #888;
+}  
+
+.CTpopup\_inner {  
+  left: 25%;  
+  right: 25%;  
+  top: 25%;  
+  bottom: 25%;  
+  margin: auto;  
+  border-radius: 20px;  
+  background: white;  
+}
+
+#CTtcBody {
+  font-size: 13px;
+  line-height: 20px;
+  color: #616161;
+}
+
+#CTrrAndTerms {
+  transform: scale(1, .9);
+}
+
+.CTacceptTC {
+  background-color: transparent;
+  font-size: 14px;
+  line-height: 28px;
+  font-style: normal;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 12px;
+  padding-right: 12px;
+  -webkit-border-radius: 2px 2px 2px 2px;
+  border-radius: 2px 2px 2px 2px;
+  font-weight: 400;
+  border-width: 1.4px;
+  border-color: #b8b8b8;
+  border-style: solid;
+  cursor: pointer;
+  color: #616161;
+  margin-top: 17px;
 }

@@ -27357,7 +27357,8 @@ var App = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        null,
+        { id: 'CTqaContainer' },
+        _react2.default.createElement('a', { href: 'CTqaContainer' }),
         _react2.default.createElement(
           'h2',
           { className: 'CTQandA' },
@@ -28292,15 +28293,37 @@ var AskAQuestion = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (AskAQuestion.__proto__ || Object.getPrototypeOf(AskAQuestion)).call(this, props));
 
     _this.state = {
-      TCPopup: false
+      TCPopup: false,
+      checkedTC: false
     };
     _this.showPopup = _this.showPopup.bind(_this);
+    _this.checkTCHidePopup = _this.checkTCHidePopup.bind(_this);
+    _this.toggleCheck = _this.toggleCheck.bind(_this);
     return _this;
   }
 
   _createClass(AskAQuestion, [{
     key: 'showPopup',
-    value: function showPopup() {}
+    value: function showPopup() {
+      this.setState({
+        TCPopup: true
+      });
+    }
+  }, {
+    key: 'checkTCHidePopup',
+    value: function checkTCHidePopup() {
+      this.setState({
+        checkedTC: true,
+        TCPopup: false
+      });
+    }
+  }, {
+    key: 'toggleCheck',
+    value: function toggleCheck() {
+      this.setState({
+        checkedTC: !this.state.checkedTC
+      });
+    }
   }, {
     key: 'render',
     value: function render() {
@@ -28377,17 +28400,26 @@ var AskAQuestion = function (_React$Component) {
           _react2.default.createElement('input', { className: 'CTqInput', placeholder: 'Example: youremail@example.com' })
         ),
         _react2.default.createElement('hr', null),
-        _react2.default.createElement('input', { type: 'checkbox', style: { cursor: 'pointer' } }),
         _react2.default.createElement(
-          'span',
-          { id: 'CTiAgree' },
-          '\xA0\xA0\xA0I agree to the ',
+          'div',
+          { id: 'CTagreeToTCContainer' },
+          _react2.default.createElement('a', { href: 'CTagreeToTCContainer' }),
+          _react2.default.createElement('input', { type: 'checkbox', style: { cursor: 'pointer' }, checked: this.state.checkedTC, onChange: this.toggleCheck }),
           _react2.default.createElement(
             'span',
-            { id: 'CTterms', onClick: function onClick() {
-                return _this2.showPopup();
-              } },
-            'terms & conditions'
+            { id: 'CTiAgree' },
+            '\xA0\xA0\xA0I agree to the ',
+            _react2.default.createElement(
+              'a',
+              { href: '#CTqaContainer' },
+              _react2.default.createElement(
+                'span',
+                { id: 'CTterms', onClick: function onClick() {
+                    return _this2.showPopup();
+                  } },
+                'terms & conditions'
+              )
+            )
           )
         ),
         _react2.default.createElement(
@@ -28400,7 +28432,7 @@ var AskAQuestion = function (_React$Component) {
           { className: 'CTaskAQuestion', id: 'CTpostQuestion' },
           'Post question'
         ),
-        this.state.TCPopup ? _react2.default.createElement(_TermsAndConditions2.default, null) : _react2.default.createElement('div', null)
+        this.state.TCPopup ? _react2.default.createElement(_TermsAndConditions2.default, { checkTCHidePopup: this.checkTCHidePopup }) : _react2.default.createElement('div', null)
       );
     }
   }]);
@@ -41924,11 +41956,181 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var TermsAndConditions = function TermsAndConditions() {
+var TermsAndConditions = function TermsAndConditions(props) {
   return _react2.default.createElement(
     'div',
-    null,
-    'hi'
+    { className: 'CTpopup' },
+    _react2.default.createElement(
+      'h2',
+      { className: 'CTQandA', style: { marginLeft: -20 } },
+      'Terms and Conditions'
+    ),
+    _react2.default.createElement(
+      'div',
+      { id: 'CTrrAndTerms' },
+      'CUSTOMER RATINGS AND REVIEWS TERMS OF USE'
+    ),
+    _react2.default.createElement(
+      'div',
+      { id: 'CTtcBody' },
+      _react2.default.createElement(
+        'p',
+        null,
+        'These Terms of Use govern your conduct associated with the Customer Ratings and Reviews and/or Questions and Answers service offered by Recreational Equipment, Inc. ("REI", the "CRR Service").'
+      ),
+      _react2.default.createElement(
+        'p',
+        null,
+        'By submitting any content to REI, you guarantee that:'
+      ),
+      _react2.default.createElement(
+        'ul',
+        null,
+        _react2.default.createElement(
+          'li',
+          null,
+          _react2.default.createElement(
+            'p',
+            null,
+            'You are the sole author and owner of the intellectual property rights in the content;'
+          )
+        ),
+        _react2.default.createElement(
+          'li',
+          null,
+          _react2.default.createElement(
+            'p',
+            null,
+            'All "moral rights" that you may have in such content have been voluntarily waived by you;'
+          )
+        ),
+        _react2.default.createElement(
+          'li',
+          null,
+          _react2.default.createElement(
+            'p',
+            null,
+            'All content that you post is accurate;'
+          )
+        ),
+        _react2.default.createElement(
+          'li',
+          null,
+          _react2.default.createElement(
+            'p',
+            null,
+            'You are at least 18 years old;'
+          )
+        ),
+        _react2.default.createElement(
+          'li',
+          null,
+          _react2.default.createElement(
+            'p',
+            null,
+            'Use of the content you supply does not violate these Terms of Use and will not cause injury to any person or entity.'
+          )
+        )
+      ),
+      _react2.default.createElement(
+        'p',
+        null,
+        'You further agree that you may not submit any content:'
+      ),
+      _react2.default.createElement(
+        'ul',
+        null,
+        _react2.default.createElement(
+          'li',
+          null,
+          _react2.default.createElement(
+            'p',
+            null,
+            'That is known by you to be false, inaccurate or misleading;'
+          )
+        ),
+        _react2.default.createElement(
+          'li',
+          null,
+          _react2.default.createElement(
+            'p',
+            null,
+            'That infringes any third party\'s copyright, patent, trademark, trade secret or other proprietary rights or rights of publicity or privacy;'
+          )
+        ),
+        _react2.default.createElement(
+          'li',
+          null,
+          _react2.default.createElement(
+            'p',
+            null,
+            'That violates any law, statute, ordinance or regulation (including, but not limited to, those governing, consumer protection, unfair competition, anti-discrimination or false advertising);'
+          )
+        ),
+        _react2.default.createElement(
+          'li',
+          null,
+          _react2.default.createElement(
+            'p',
+            null,
+            'That is, or may reasonably be considered to be, defamatory, libelous, hateful, racially or religiously biased or offensive, unlawfully threatening or unlawfully harassing to any individual, partnership or corporation;'
+          )
+        ),
+        _react2.default.createElement(
+          'li',
+          null,
+          _react2.default.createElement(
+            'p',
+            null,
+            'For which you were compensated or granted any consideration by any third party;'
+          )
+        ),
+        _react2.default.createElement(
+          'li',
+          null,
+          _react2.default.createElement(
+            'p',
+            null,
+            'That includes any information that references other websites, addresses, email addresses, contact information or phone numbers;'
+          )
+        ),
+        _react2.default.createElement(
+          'li',
+          null,
+          _react2.default.createElement(
+            'p',
+            null,
+            'That contains any computer viruses, worms or other potentially damaging computer programs or files.'
+          )
+        )
+      ),
+      _react2.default.createElement(
+        'p',
+        null,
+        'You agree to indemnify and hold REI (and its officers, directors, agents, subsidiaries, joint ventures, employees and third-party service providers, including but not limited to Bazaarvoice, Inc.), harmless from all claims, demands, and damages (actual and consequential) of every kind and nature, known and unknown including reasonable attorneys\' fees, arising out of a breach of your representations and warranties set forth above, or your violation of any law or the rights of a third party.'
+      ),
+      _react2.default.createElement(
+        'p',
+        null,
+        'For any content that you submit, you grant REI a perpetual, irrevocable, royalty-free, transferable right and license to use, copy, modify, delete in its entirety, adapt, publish, translate, create derivative works from and/or sell and/or distribute such content and/or incorporate such content into any form, medium or technology throughout the world without compensation to you.'
+      ),
+      _react2.default.createElement(
+        'p',
+        null,
+        'All content that you submit may be used at REI\'s sole discretion. REI reserves the right to change, condense, withhold publication, remove or delete any content on REI\'s website that REI deems, in its sole discretion, to violate the content guidelines or any other provision of these Terms of Use. REI does not guarantee that you will have any recourse REI reserves the right to remove or to refuse to post any submission to the extent authorized by law. You acknowledge that you, not REI, are responsible for the contents of your submission. None of the content that you submit shall be subject to any obligation of confidence on the part of REI, its agents, subsidiaries, affiliates, partners or third party service providers and their respective directors, officers and employees.'
+      )
+    ),
+    _react2.default.createElement(
+      'a',
+      { href: '#CTagreeToTCContainer' },
+      _react2.default.createElement(
+        'button',
+        { className: 'CTacceptTC', style: { marginLeft: -20 }, onClick: function onClick() {
+            return props.checkTCHidePopup();
+          } },
+        'Accept'
+      )
+    )
   );
 };
 

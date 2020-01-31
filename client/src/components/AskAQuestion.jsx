@@ -5,15 +5,33 @@ class AskAQuestion extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      TCPopup: false
+      TCPopup: false,
+      checkedTC: false
     }
     this.showPopup = this.showPopup.bind(this);
+    this.checkTCHidePopup = this.checkTCHidePopup.bind(this);
+    this.toggleCheck = this.toggleCheck.bind(this);
   }
 
   showPopup() {
-
+    this.setState({
+      TCPopup: true
+    })
   }
-  
+
+  checkTCHidePopup() {
+    this.setState({
+      checkedTC: true,
+      TCPopup: false
+    })
+  }
+
+  toggleCheck() {
+    this.setState({
+      checkedTC: !this.state.checkedTC
+    })
+  }
+
   render() {
 
     return (
@@ -45,11 +63,13 @@ class AskAQuestion extends React.Component {
           <input className='CTqInput' placeholder='Example: youremail@example.com'></input>
         </div>
         <hr/>
-        <input type='checkbox' style={{cursor:'pointer'}}/><span id='CTiAgree'>&nbsp;&nbsp;&nbsp;I agree to the <span id='CTterms' onClick={() => this.showPopup()}>terms &amp; conditions</span></span>
+        <div id='CTagreeToTCContainer'><a href='CTagreeToTCContainer'></a>
+          <input type='checkbox' style={{cursor:'pointer'}} checked={this.state.checkedTC} onChange={this.toggleCheck}/><span id='CTiAgree'>&nbsp;&nbsp;&nbsp;I agree to the <a href='#CTqaContainer'><span id='CTterms' onClick={() => this.showPopup()}>terms &amp; conditions</span></a></span>
+        </div>
         <div id='CTtinyWords'>&nbsp;You may receive emails regarding this submission. Any emails will include the ability to opt out of future communications.</div>
         <button className='CTaskAQuestion' id='CTpostQuestion'>Post question</button>
         { this.state.TCPopup ? (
-          <TermsAndConditions/>
+          <TermsAndConditions checkTCHidePopup={this.checkTCHidePopup}/>
         ) : (<div/>) }
       </div>
     );
