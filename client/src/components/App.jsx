@@ -79,10 +79,10 @@ class App extends React.Component {
         { this.state.submitQuestion ? (
           <div className='CTpopupSubmit'>
             <span className='CTcloseSubmitQ' onClick={() => this.closeSubmitQPopup()}></span>
-            <span className="checkmark">
-              <div className="checkmark_circle"></div>
-              <div className="checkmark_stem"></div>
-              <div className="checkmark_kick"></div>
+            <span className="CTcheckmark">
+              <div className="CTcheckmark_circle"></div>
+              <div className="CTcheckmark_stem"></div>
+              <div className="CTcheckmark_kick"></div>
             </span>
             <div className='CTsubmitCheck'></div>
             <h2 id='CTsubmitMsg'>Your question was submitted!</h2>

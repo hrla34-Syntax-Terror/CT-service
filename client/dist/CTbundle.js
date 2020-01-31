@@ -27481,10 +27481,10 @@ var App = function (_React$Component) {
             } }),
           _react2.default.createElement(
             'span',
-            { className: 'checkmark' },
-            _react2.default.createElement('div', { className: 'checkmark_circle' }),
-            _react2.default.createElement('div', { className: 'checkmark_stem' }),
-            _react2.default.createElement('div', { className: 'checkmark_kick' })
+            { className: 'CTcheckmark' },
+            _react2.default.createElement('div', { className: 'CTcheckmark_circle' }),
+            _react2.default.createElement('div', { className: 'CTcheckmark_stem' }),
+            _react2.default.createElement('div', { className: 'CTcheckmark_kick' })
           ),
           _react2.default.createElement('div', { className: 'CTsubmitCheck' }),
           _react2.default.createElement(
