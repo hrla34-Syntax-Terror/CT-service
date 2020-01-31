@@ -4,6 +4,7 @@ var TermsAndConditions = (props) => {
   return (
     <div className='CTpopup'>
       <h2 className='CTQandA' style={{marginLeft:-20}}>Terms and Conditions</h2>
+      <a href='#CTagreeToTCContainer'><span className='CTclose' onClick={() => props.hidePopup()}></span></a>
       <div id='CTrrAndTerms'>CUSTOMER RATINGS AND REVIEWS TERMS OF USE</div>
       <div id='CTtcBody'>
       <p>These Terms of Use govern your conduct associated with the Customer Ratings and Reviews and/or Questions and Answers service offered by Recreational Equipment, Inc. ("REI", the "CRR Service").</p>

@@ -28299,6 +28299,7 @@ var AskAQuestion = function (_React$Component) {
     _this.showPopup = _this.showPopup.bind(_this);
     _this.checkTCHidePopup = _this.checkTCHidePopup.bind(_this);
     _this.toggleCheck = _this.toggleCheck.bind(_this);
+    _this.hidePopup = _this.hidePopup.bind(_this);
     return _this;
   }
 
@@ -28314,6 +28315,13 @@ var AskAQuestion = function (_React$Component) {
     value: function checkTCHidePopup() {
       this.setState({
         checkedTC: true,
+        TCPopup: false
+      });
+    }
+  }, {
+    key: 'hidePopup',
+    value: function hidePopup() {
+      this.setState({
         TCPopup: false
       });
     }
@@ -28432,7 +28440,7 @@ var AskAQuestion = function (_React$Component) {
           { className: 'CTaskAQuestion', id: 'CTpostQuestion' },
           'Post question'
         ),
-        this.state.TCPopup ? _react2.default.createElement(_TermsAndConditions2.default, { checkTCHidePopup: this.checkTCHidePopup }) : _react2.default.createElement('div', null)
+        this.state.TCPopup ? _react2.default.createElement(_TermsAndConditions2.default, { checkTCHidePopup: this.checkTCHidePopup, hidePopup: this.hidePopup }) : _react2.default.createElement('div', null)
       );
     }
   }]);
@@ -41964,6 +41972,13 @@ var TermsAndConditions = function TermsAndConditions(props) {
       'h2',
       { className: 'CTQandA', style: { marginLeft: -20 } },
       'Terms and Conditions'
+    ),
+    _react2.default.createElement(
+      'a',
+      { href: '#CTagreeToTCContainer' },
+      _react2.default.createElement('span', { className: 'CTclose', onClick: function onClick() {
+          return props.hidePopup();
+        } })
     ),
     _react2.default.createElement(
       'div',

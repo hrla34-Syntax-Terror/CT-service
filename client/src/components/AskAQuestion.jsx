@@ -11,6 +11,7 @@ class AskAQuestion extends React.Component {
     this.showPopup = this.showPopup.bind(this);
     this.checkTCHidePopup = this.checkTCHidePopup.bind(this);
     this.toggleCheck = this.toggleCheck.bind(this);
+    this.hidePopup = this.hidePopup.bind(this);
   }
 
   showPopup() {
@@ -22,6 +23,12 @@ class AskAQuestion extends React.Component {
   checkTCHidePopup() {
     this.setState({
       checkedTC: true,
+      TCPopup: false
+    })
+  }
+
+  hidePopup() {
+    this.setState({
       TCPopup: false
     })
   }
@@ -69,7 +76,7 @@ class AskAQuestion extends React.Component {
         <div id='CTtinyWords'>&nbsp;You may receive emails regarding this submission. Any emails will include the ability to opt out of future communications.</div>
         <button className='CTaskAQuestion' id='CTpostQuestion'>Post question</button>
         { this.state.TCPopup ? (
-          <TermsAndConditions checkTCHidePopup={this.checkTCHidePopup}/>
+          <TermsAndConditions checkTCHidePopup={this.checkTCHidePopup} hidePopup={this.hidePopup}/>
         ) : (<div/>) }
       </div>
     );
