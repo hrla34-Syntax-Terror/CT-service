@@ -27475,22 +27475,27 @@ var App = function (_React$Component) {
         ),
         this.state.submitQuestion ? _react2.default.createElement(
           'div',
-          { className: 'CTpopupSubmit' },
-          _react2.default.createElement('span', { className: 'CTcloseSubmitQ', onClick: function onClick() {
-              return _this3.closeSubmitQPopup();
-            } }),
+          null,
+          _react2.default.createElement('div', { id: 'CTpageMask' }),
           _react2.default.createElement(
-            'span',
-            { className: 'CTcheckmark' },
-            _react2.default.createElement('div', { className: 'CTcheckmark_circle' }),
-            _react2.default.createElement('div', { className: 'CTcheckmark_stem' }),
-            _react2.default.createElement('div', { className: 'CTcheckmark_kick' })
-          ),
-          _react2.default.createElement('div', { className: 'CTsubmitCheck' }),
-          _react2.default.createElement(
-            'h2',
-            { id: 'CTsubmitMsg' },
-            'Your question was submitted!'
+            'div',
+            { className: 'CTpopupSubmit' },
+            _react2.default.createElement('span', { className: 'CTcloseSubmitQ', onClick: function onClick() {
+                return _this3.closeSubmitQPopup();
+              } }),
+            _react2.default.createElement(
+              'span',
+              { className: 'CTcheckmark' },
+              _react2.default.createElement('div', { className: 'CTcheckmark_circle' }),
+              _react2.default.createElement('div', { className: 'CTcheckmark_stem' }),
+              _react2.default.createElement('div', { className: 'CTcheckmark_kick' })
+            ),
+            _react2.default.createElement('div', { className: 'CTsubmitCheck' }),
+            _react2.default.createElement(
+              'h2',
+              { id: 'CTsubmitMsg' },
+              'Your question was submitted!'
+            )
           )
         ) : _react2.default.createElement('div', null)
       );

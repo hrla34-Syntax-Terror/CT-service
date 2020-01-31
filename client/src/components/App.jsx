@@ -77,15 +77,18 @@ class App extends React.Component {
         { this.state.showAskQ ? (<AskAQuestion  QApairs={this.state.QApairs} hideAskAQuestion={this.hideAskAQuestion} questionSubmit={this.questionSubmit}/> ) : (<div/>) }
         </div>
         { this.state.submitQuestion ? (
-          <div className='CTpopupSubmit'>
-            <span className='CTcloseSubmitQ' onClick={() => this.closeSubmitQPopup()}></span>
-            <span className="CTcheckmark">
-              <div className="CTcheckmark_circle"></div>
-              <div className="CTcheckmark_stem"></div>
-              <div className="CTcheckmark_kick"></div>
-            </span>
-            <div className='CTsubmitCheck'></div>
-            <h2 id='CTsubmitMsg'>Your question was submitted!</h2>
+          <div>
+            <div id='CTpageMask'></div>
+            <div className='CTpopupSubmit'>
+              <span className='CTcloseSubmitQ' onClick={() => this.closeSubmitQPopup()}></span>
+              <span className="CTcheckmark">
+                <div className="CTcheckmark_circle"></div>
+                <div className="CTcheckmark_stem"></div>
+                <div className="CTcheckmark_kick"></div>
+              </span>
+              <div className='CTsubmitCheck'></div>
+              <h2 id='CTsubmitMsg'>Your question was submitted!</h2>
+            </div>
           </div>
         ) : (<div/>) }
       </div>
