@@ -12,6 +12,15 @@ var controllers = {
       .catch(err => {
         res.status(400).send(err)
       })
+  },
+  post: (req, res) => {
+    dbHelpers.post(req.body)
+      .then(() => {
+        res.status(201).send('posted')
+      })
+      .catch(err => {
+        res.status(401).send(err)
+      });
   }
 };
 

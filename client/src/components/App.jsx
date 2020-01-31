@@ -62,7 +62,7 @@ class App extends React.Component {
         <QAList QApairs={this.state.QApairs}/>
         </div>
         <div id='CTaskAQuestion'><a href='CTaskAQuestion'></a>
-        { this.state.showAskQ ? (<AskAQuestion  hideAskAQuestion={this.hideAskAQuestion}/>) : (<div/>) }
+        { this.state.showAskQ ? (<AskAQuestion  QApairs={this.state.QApairs} hideAskAQuestion={this.hideAskAQuestion}/>) : (<div/>) }
         </div>
       </div>
     );

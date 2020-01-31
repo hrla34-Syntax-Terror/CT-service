@@ -17,7 +17,7 @@ var QAListEntry = (props) => {
       </div>
       <h3 className='CTquestion'>{props.QApair.question}</h3>
       <button className='CTanswerButton'>Answer the question</button>
-      <QAListAns firstAns={props.QApair.answers[0]} number={props.QApair.number} QApairs={props.QApairs}/>
+      { props.QApair.answers.length !== 0 ? (<QAListAns firstAns={props.QApair.answers[0]} number={props.QApair.number} QApairs={props.QApairs}/>) : (<div/>) }
     </div>
   )
 }

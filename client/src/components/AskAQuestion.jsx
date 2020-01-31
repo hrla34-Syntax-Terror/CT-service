@@ -1,46 +1,89 @@
 import React from 'react';
 import TermsAndConditions from './TermsAndConditions.jsx';
+import moment from 'moment';
+import axios from 'axios';
 
 class AskAQuestion extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       TCPopup: false,
-      checkedTC: false
+      checkedTC: false,
+      question: '',
+      qNickname: '',
+      qLocation: '',
+      qEmail: '',
+      qDate: ''
     }
     this.showPopup = this.showPopup.bind(this);
     this.checkTCHidePopup = this.checkTCHidePopup.bind(this);
     this.toggleCheck = this.toggleCheck.bind(this);
     this.hidePopup = this.hidePopup.bind(this);
+    this.changeHandler = this.changeHandler.bind(this);
+    this.postQuestion = this.postQuestion.bind(this);
   }
 
   showPopup() {
     this.setState({
       TCPopup: true
-    })
-  }
+    });
+  };
 
   checkTCHidePopup() {
     this.setState({
       checkedTC: true,
       TCPopup: false
-    })
-  }
+    });
+  };
 
   hidePopup() {
     this.setState({
       TCPopup: false
-    })
-  }
+    });
+  };
 
   toggleCheck() {
     this.setState({
       checkedTC: !this.state.checkedTC
+    });
+  };
+
+  changeHandler(e) {
+    this.setState({
+      [e.target.name]: e.target.value
     })
+  };
+
+  componentDidMount() {
+    this.getDate();
+  }
+
+  getDate() {
+    var date = moment().format('L');
+    var dateArr = date.split('/');
+    var today = dateArr[0] + dateArr[1] + dateArr[2];
+    this.setState({
+      qDate: today
+    });
+  }
+
+  postQuestion() {
+    var newQuestion = {};
+    var list = this.props.QApairs;
+    newQuestion.number = list[list.length - 1].number + 1;
+    newQuestion.qNickname = this.state.qNickname;
+    newQuestion.question = this.state.question;
+    newQuestion.qDate = this.state.qDate;
+    newQuestion.qEmail = this.state.qEmail;
+    newQuestion.qLocation = this.state.qLocation;
+    newQuestion.answers = [];
+    axios
+      .post('/api', newQuestion)
+      .then(console.log('posted'))
+      .catch((err) => console.error(err))
   }
 
   render() {
-
     return (
       <div>
         <h2 className='CTQandA' id='CTaskQTitle'>Ask a Question</h2> 
@@ -51,30 +94,30 @@ class AskAQuestion extends React.Component {
           <div><span style={{fontWeight:'bold'}}>Question*</span>
           &nbsp;&nbsp;&nbsp;<span>Maximum of 255 characters.</span>
           </div>
-          <textarea className='CTqTextArea' rows='4' cols='129' placeholder='Ask a question...'></textarea>
+          <textarea className='CTqTextArea' rows='4' cols='129' placeholder='Ask a question...' name='question' onChange={(e) => this.changeHandler(e)}></textarea>
           <hr/>
           <div className='CTnicknameAndLoc'>
             <div className='CTnicknameQ' style={{fontWeight:'bold'}}>Nickname*
               <div>
-                <input className='CTqInput' placeholder='Example: jackie27'></input>
+                <input className='CTqInput' placeholder='Example: jackie27' name='qNickname' onChange={(e) => this.changeHandler(e)}></input>
               </div>
             </div>
             <div className='CTlocationQ' style={{fontWeight:'bold'}}>Location
               <div>
-                <input className='CTqInput' placeholder='Example: Seattle, WA'></input>
+                <input className='CTqInput' placeholder='Example: Seattle, WA' name='qLocation' onChange={(e) => this.changeHandler(e)}></input>
               </div>
             </div>
           </div>
           <hr/>
           <div style={{fontWeight:'bold'}}>Email*</div>
-          <input className='CTqInput' placeholder='Example: youremail@example.com'></input>
+          <input className='CTqInput' placeholder='Example: youremail@example.com' name='qEmail' onChange={(e) => this.changeHandler(e)}></input>
         </div>
         <hr/>
         <div id='CTagreeToTCContainer'><a href='CTagreeToTCContainer'></a>
           <input type='checkbox' style={{cursor:'pointer'}} checked={this.state.checkedTC} onChange={this.toggleCheck}/><span id='CTiAgree'>&nbsp;&nbsp;&nbsp;I agree to the <a href='#CTqaContainer'><span id='CTterms' onClick={() => this.showPopup()}>terms &amp; conditions</span></a></span>
         </div>
         <div id='CTtinyWords'>&nbsp;You may receive emails regarding this submission. Any emails will include the ability to opt out of future communications.</div>
-        <button className='CTaskAQuestion' id='CTpostQuestion'>Post question</button>
+        <button className='CTaskAQuestion' id='CTpostQuestion' onClick={() => this.postQuestion()}>Post question</button>
         { this.state.TCPopup ? (
           <TermsAndConditions checkTCHidePopup={this.checkTCHidePopup} hidePopup={this.hidePopup}/>
         ) : (<div/>) }
