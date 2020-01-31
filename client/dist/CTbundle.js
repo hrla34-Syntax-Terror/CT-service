@@ -27331,8 +27331,11 @@ var App = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
     _this.state = {
-      QApairs: []
+      QApairs: [],
+      showAskQ: false
     };
+    _this.showAskAQuestion = _this.showAskAQuestion.bind(_this);
+    _this.hideAskAQuestion = _this.hideAskAQuestion.bind(_this);
     return _this;
   }
 
@@ -27353,8 +27356,24 @@ var App = function (_React$Component) {
       });
     }
   }, {
+    key: 'showAskAQuestion',
+    value: function showAskAQuestion() {
+      this.setState({
+        showAskQ: true
+      });
+    }
+  }, {
+    key: 'hideAskAQuestion',
+    value: function hideAskAQuestion() {
+      this.setState({
+        showAskQ: false
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
+      var _this3 = this;
+
       return _react2.default.createElement(
         'div',
         { id: 'CTqaContainer' },
@@ -27369,7 +27388,9 @@ var App = function (_React$Component) {
           { href: '#CTaskAQuestion' },
           _react2.default.createElement(
             'button',
-            { className: 'CTaskAQuestion' },
+            { className: 'CTaskAQuestion', onClick: function onClick() {
+                return _this3.showAskAQuestion();
+              } },
             'Ask a question'
           )
         ),
@@ -27431,7 +27452,7 @@ var App = function (_React$Component) {
           'div',
           { id: 'CTaskAQuestion' },
           _react2.default.createElement('a', { href: 'CTaskAQuestion' }),
-          _react2.default.createElement(_AskAQuestion2.default, null)
+          this.state.showAskQ ? _react2.default.createElement(_AskAQuestion2.default, { hideAskAQuestion: this.hideAskAQuestion }) : _react2.default.createElement('div', null)
         )
       );
     }
@@ -28346,13 +28367,11 @@ var AskAQuestion = function (_React$Component) {
           'Ask a Question'
         ),
         _react2.default.createElement(
-          'button',
-          { id: 'CTxButton' },
-          _react2.default.createElement(
-            'div',
-            { id: 'CTxFont' },
-            '\u2715'
-          )
+          'a',
+          { href: '#CTqaContainer' },
+          _react2.default.createElement('span', { className: 'CTcloseAskQ', onClick: function onClick() {
+              return _this2.props.hideAskAQuestion();
+            } })
         ),
         _react2.default.createElement(
           'div',
@@ -28366,7 +28385,12 @@ var AskAQuestion = function (_React$Component) {
           _react2.default.createElement(
             'div',
             null,
-            'Question* \xA0\xA0\xA0',
+            _react2.default.createElement(
+              'span',
+              { style: { fontWeight: 'bold' } },
+              'Question*'
+            ),
+            '\xA0\xA0\xA0',
             _react2.default.createElement(
               'span',
               null,
@@ -28380,7 +28404,7 @@ var AskAQuestion = function (_React$Component) {
             { className: 'CTnicknameAndLoc' },
             _react2.default.createElement(
               'div',
-              { className: 'CTnicknameQ' },
+              { className: 'CTnicknameQ', style: { fontWeight: 'bold' } },
               'Nickname*',
               _react2.default.createElement(
                 'div',
@@ -28390,7 +28414,7 @@ var AskAQuestion = function (_React$Component) {
             ),
             _react2.default.createElement(
               'div',
-              { className: 'CTlocationQ' },
+              { className: 'CTlocationQ', style: { fontWeight: 'bold' } },
               'Location',
               _react2.default.createElement(
                 'div',
@@ -28402,7 +28426,7 @@ var AskAQuestion = function (_React$Component) {
           _react2.default.createElement('hr', null),
           _react2.default.createElement(
             'div',
-            null,
+            { style: { fontWeight: 'bold' } },
             'Email*'
           ),
           _react2.default.createElement('input', { className: 'CTqInput', placeholder: 'Example: youremail@example.com' })

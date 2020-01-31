@@ -44,29 +44,29 @@ class AskAQuestion extends React.Component {
     return (
       <div>
         <h2 className='CTQandA' id='CTaskQTitle'>Ask a Question</h2> 
-        <button id='CTxButton'><div id='CTxFont'>&#x2715;</div></button>
+        <a href='#CTqaContainer'><span className='CTcloseAskQ' onClick={() => this.props.hideAskAQuestion()}></span></a>
         <div id='CTtinyWords' style={{marginBottom: -13, marginLeft: 8}}>Required fields are marked with *</div>
         <hr/>
         <div className='CTqForm'>
-          <div>Question*
+          <div><span style={{fontWeight:'bold'}}>Question*</span>
           &nbsp;&nbsp;&nbsp;<span>Maximum of 255 characters.</span>
           </div>
           <textarea className='CTqTextArea' rows='4' cols='129' placeholder='Ask a question...'></textarea>
           <hr/>
           <div className='CTnicknameAndLoc'>
-            <div className='CTnicknameQ'>Nickname*
+            <div className='CTnicknameQ' style={{fontWeight:'bold'}}>Nickname*
               <div>
                 <input className='CTqInput' placeholder='Example: jackie27'></input>
               </div>
             </div>
-            <div className='CTlocationQ'>Location
+            <div className='CTlocationQ' style={{fontWeight:'bold'}}>Location
               <div>
                 <input className='CTqInput' placeholder='Example: Seattle, WA'></input>
               </div>
             </div>
           </div>
           <hr/>
-          <div>Email*</div>
+          <div style={{fontWeight:'bold'}}>Email*</div>
           <input className='CTqInput' placeholder='Example: youremail@example.com'></input>
         </div>
         <hr/>

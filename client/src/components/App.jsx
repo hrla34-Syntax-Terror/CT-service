@@ -8,8 +8,11 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      QApairs: []
+      QApairs: [],
+      showAskQ: false
     }
+    this.showAskAQuestion = this.showAskAQuestion.bind(this);
+    this.hideAskAQuestion = this.hideAskAQuestion.bind(this);
   }
 
   componentDidMount() {
@@ -23,11 +26,23 @@ class App extends React.Component {
       .catch((err) => console.error(err));
   };
 
+  showAskAQuestion() {
+    this.setState({
+      showAskQ: true
+    })
+  }
+
+  hideAskAQuestion() {
+    this.setState({
+      showAskQ: false
+    })
+  }
+
   render() {
     return (
       <div id='CTqaContainer'><a href='CTqaContainer'></a>
         <h2 className='CTQandA'>Questions &amp; Answers</h2>
-        <a href='#CTaskAQuestion'><button className='CTaskAQuestion'>Ask a question</button></a>
+        <a href='#CTaskAQuestion'><button className='CTaskAQuestion' onClick={() => this.showAskAQuestion()}>Ask a question</button></a>
         <div className='CTqaBlock'>
           <div id='CTqaTotal'>
             <span>1 &ndash; {this.state.QApairs.length} of {this.state.QApairs.length} Questions</span>
@@ -47,7 +62,7 @@ class App extends React.Component {
         <QAList QApairs={this.state.QApairs}/>
         </div>
         <div id='CTaskAQuestion'><a href='CTaskAQuestion'></a>
-          <AskAQuestion />
+        { this.state.showAskQ ? (<AskAQuestion  hideAskAQuestion={this.hideAskAQuestion}/>) : (<div/>) }
         </div>
       </div>
     );
