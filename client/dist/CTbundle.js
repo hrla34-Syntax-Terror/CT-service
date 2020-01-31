@@ -27344,6 +27344,7 @@ var App = function (_React$Component) {
     _this.showAskAQuestion = _this.showAskAQuestion.bind(_this);
     _this.hideAskAQuestion = _this.hideAskAQuestion.bind(_this);
     _this.questionSubmit = _this.questionSubmit.bind(_this);
+    _this.closeSubmitQPopup = _this.closeSubmitQPopup.bind(_this);
     return _this;
   }
 
@@ -27381,6 +27382,11 @@ var App = function (_React$Component) {
     key: 'questionSubmit',
     value: function questionSubmit() {
       this.setState({ submitQuestion: true });
+    }
+  }, {
+    key: 'closeSubmitQPopup',
+    value: function closeSubmitQPopup() {
+      this.setState({ submitQuestion: false });
     }
   }, {
     key: 'render',
@@ -27469,8 +27475,23 @@ var App = function (_React$Component) {
         ),
         this.state.submitQuestion ? _react2.default.createElement(
           'div',
-          null,
-          'Your question was submitted!'
+          { className: 'CTpopupSubmit' },
+          _react2.default.createElement('span', { className: 'CTcloseSubmitQ', onClick: function onClick() {
+              return _this3.closeSubmitQPopup();
+            } }),
+          _react2.default.createElement(
+            'span',
+            { className: 'checkmark' },
+            _react2.default.createElement('div', { className: 'checkmark_circle' }),
+            _react2.default.createElement('div', { className: 'checkmark_stem' }),
+            _react2.default.createElement('div', { className: 'checkmark_kick' })
+          ),
+          _react2.default.createElement('div', { className: 'CTsubmitCheck' }),
+          _react2.default.createElement(
+            'h2',
+            { id: 'CTsubmitMsg' },
+            'Your question was submitted!'
+          )
         ) : _react2.default.createElement('div', null)
       );
     }

@@ -15,6 +15,7 @@ class App extends React.Component {
     this.showAskAQuestion = this.showAskAQuestion.bind(this);
     this.hideAskAQuestion = this.hideAskAQuestion.bind(this);
     this.questionSubmit = this.questionSubmit.bind(this);
+    this.closeSubmitQPopup = this.closeSubmitQPopup.bind(this);
   }
 
   componentDidMount() {
@@ -44,8 +45,13 @@ class App extends React.Component {
     this.setState({ submitQuestion: true })
   }
 
+  closeSubmitQPopup() {
+    this.setState({ submitQuestion: false })
+  }
+
   render() {
     return (
+      
       <div id='CTqaContainer'><a href='CTqaContainer'></a>
         <h2 className='CTQandA'>Questions &amp; Answers</h2>
         <a href='#CTaskAQuestion'><button className='CTaskAQuestion' onClick={() => this.showAskAQuestion()}>Ask a question</button></a>
@@ -71,7 +77,16 @@ class App extends React.Component {
         { this.state.showAskQ ? (<AskAQuestion  QApairs={this.state.QApairs} hideAskAQuestion={this.hideAskAQuestion} questionSubmit={this.questionSubmit}/> ) : (<div/>) }
         </div>
         { this.state.submitQuestion ? (
-          <div>Your question was submitted!</div>
+          <div className='CTpopupSubmit'>
+            <span className='CTcloseSubmitQ' onClick={() => this.closeSubmitQPopup()}></span>
+            <span className="checkmark">
+              <div className="checkmark_circle"></div>
+              <div className="checkmark_stem"></div>
+              <div className="checkmark_kick"></div>
+            </span>
+            <div className='CTsubmitCheck'></div>
+            <h2 id='CTsubmitMsg'>Your question was submitted!</h2>
+          </div>
         ) : (<div/>) }
       </div>
     );
