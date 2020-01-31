@@ -27338,10 +27338,12 @@ var App = function (_React$Component) {
 
     _this.state = {
       QApairs: [],
-      showAskQ: false
+      showAskQ: false,
+      submitQuestion: false
     };
     _this.showAskAQuestion = _this.showAskAQuestion.bind(_this);
     _this.hideAskAQuestion = _this.hideAskAQuestion.bind(_this);
+    _this.questionSubmit = _this.questionSubmit.bind(_this);
     return _this;
   }
 
@@ -27374,6 +27376,11 @@ var App = function (_React$Component) {
       this.setState({
         showAskQ: false
       });
+    }
+  }, {
+    key: 'questionSubmit',
+    value: function questionSubmit() {
+      this.setState({ submitQuestion: true });
     }
   }, {
     key: 'render',
@@ -27458,8 +27465,13 @@ var App = function (_React$Component) {
           'div',
           { id: 'CTaskAQuestion' },
           _react2.default.createElement('a', { href: 'CTaskAQuestion' }),
-          this.state.showAskQ ? _react2.default.createElement(_AskAQuestion2.default, { QApairs: this.state.QApairs, hideAskAQuestion: this.hideAskAQuestion }) : _react2.default.createElement('div', null)
-        )
+          this.state.showAskQ ? _react2.default.createElement(_AskAQuestion2.default, { QApairs: this.state.QApairs, hideAskAQuestion: this.hideAskAQuestion, questionSubmit: this.questionSubmit }) : _react2.default.createElement('div', null)
+        ),
+        this.state.submitQuestion ? _react2.default.createElement(
+          'div',
+          null,
+          'Your question was submitted!'
+        ) : _react2.default.createElement('div', null)
       );
     }
   }]);
@@ -28393,6 +28405,8 @@ var AskAQuestion = function (_React$Component) {
   }, {
     key: 'postQuestion',
     value: function postQuestion() {
+      this.props.hideAskAQuestion();
+      this.props.questionSubmit();
       var newQuestion = {};
       var list = this.props.QApairs;
       newQuestion.number = list[list.length - 1].number + 1;
@@ -28521,11 +28535,15 @@ var AskAQuestion = function (_React$Component) {
           '\xA0You may receive emails regarding this submission. Any emails will include the ability to opt out of future communications.'
         ),
         _react2.default.createElement(
-          'button',
-          { className: 'CTaskAQuestion', id: 'CTpostQuestion', onClick: function onClick() {
-              return _this2.postQuestion();
-            } },
-          'Post question'
+          'a',
+          { href: '#CTqaContainer' },
+          _react2.default.createElement(
+            'button',
+            { className: 'CTaskAQuestion', id: 'CTpostQuestion', onClick: function onClick() {
+                return _this2.postQuestion();
+              } },
+            'Post question'
+          )
         ),
         this.state.TCPopup ? _react2.default.createElement(_TermsAndConditions2.default, { checkTCHidePopup: this.checkTCHidePopup, hidePopup: this.hidePopup }) : _react2.default.createElement('div', null)
       );

@@ -68,6 +68,8 @@ class AskAQuestion extends React.Component {
   }
 
   postQuestion() {
+    this.props.hideAskAQuestion();
+    this.props.questionSubmit();
     var newQuestion = {};
     var list = this.props.QApairs;
     newQuestion.number = list[list.length - 1].number + 1;
@@ -117,7 +119,7 @@ class AskAQuestion extends React.Component {
           <input type='checkbox' style={{cursor:'pointer'}} checked={this.state.checkedTC} onChange={this.toggleCheck}/><span id='CTiAgree'>&nbsp;&nbsp;&nbsp;I agree to the <a href='#CTqaContainer'><span id='CTterms' onClick={() => this.showPopup()}>terms &amp; conditions</span></a></span>
         </div>
         <div id='CTtinyWords'>&nbsp;You may receive emails regarding this submission. Any emails will include the ability to opt out of future communications.</div>
-        <button className='CTaskAQuestion' id='CTpostQuestion' onClick={() => this.postQuestion()}>Post question</button>
+        <a href='#CTqaContainer'><button className='CTaskAQuestion' id='CTpostQuestion' onClick={() => this.postQuestion()}>Post question</button></a>
         { this.state.TCPopup ? (
           <TermsAndConditions checkTCHidePopup={this.checkTCHidePopup} hidePopup={this.hidePopup}/>
         ) : (<div/>) }

@@ -9,10 +9,12 @@ class App extends React.Component {
     super(props);
     this.state = {
       QApairs: [],
-      showAskQ: false
+      showAskQ: false,
+      submitQuestion: false
     }
     this.showAskAQuestion = this.showAskAQuestion.bind(this);
     this.hideAskAQuestion = this.hideAskAQuestion.bind(this);
+    this.questionSubmit = this.questionSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -36,6 +38,10 @@ class App extends React.Component {
     this.setState({
       showAskQ: false
     })
+  }
+
+  questionSubmit() {
+    this.setState({ submitQuestion: true })
   }
 
   render() {
@@ -62,8 +68,11 @@ class App extends React.Component {
         <QAList QApairs={this.state.QApairs}/>
         </div>
         <div id='CTaskAQuestion'><a href='CTaskAQuestion'></a>
-        { this.state.showAskQ ? (<AskAQuestion  QApairs={this.state.QApairs} hideAskAQuestion={this.hideAskAQuestion}/>) : (<div/>) }
+        { this.state.showAskQ ? (<AskAQuestion  QApairs={this.state.QApairs} hideAskAQuestion={this.hideAskAQuestion} questionSubmit={this.questionSubmit}/> ) : (<div/>) }
         </div>
+        { this.state.submitQuestion ? (
+          <div>Your question was submitted!</div>
+        ) : (<div/>) }
       </div>
     );
   };
