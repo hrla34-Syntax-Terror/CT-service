@@ -28364,6 +28364,8 @@ var AskAQuestion = function (_React$Component) {
     _this.state = {
       TCPopup: false,
       checkedTC: false,
+      formCompleted: false,
+      postQClicked: false,
       question: '',
       qNickname: '',
       qLocation: '',
@@ -28376,6 +28378,7 @@ var AskAQuestion = function (_React$Component) {
     _this.hidePopup = _this.hidePopup.bind(_this);
     _this.changeHandler = _this.changeHandler.bind(_this);
     _this.postQuestion = _this.postQuestion.bind(_this);
+    _this.setFormCompleted = _this.setFormCompleted.bind(_this);
     return _this;
   }
 
@@ -28404,14 +28407,36 @@ var AskAQuestion = function (_React$Component) {
   }, {
     key: 'toggleCheck',
     value: function toggleCheck() {
+      var _this2 = this;
+
       this.setState({
         checkedTC: !this.state.checkedTC
+      }, function () {
+        return _this2.setFormCompleted();
       });
     }
   }, {
     key: 'changeHandler',
     value: function changeHandler(e) {
-      this.setState(_defineProperty({}, e.target.name, e.target.value));
+      var _this3 = this,
+          _setState;
+
+      if (e.target.name === 'qEmail' && e.target.value.includes('@')) {
+        this.setState({
+          qEmail: e.target.value,
+          qEmailBC: 'black'
+        }, function () {
+          return _this3.setFormCompleted();
+        });
+      }
+      this.setState((_setState = {}, _defineProperty(_setState, e.target.name, e.target.value), _defineProperty(_setState, e.target.name + 'BC', 'black'), _defineProperty(_setState, 'postQClicked', false), _setState), function () {
+        return _this3.setFormCompleted();
+      });
+      if (e.target.value === '' && e.target.name !== 'qLocation' || e.target.name === 'qEmail' && !e.target.value.includes('@')) {
+        this.setState(_defineProperty({}, e.target.name + 'BC', ''), function () {
+          return _this3.setFormCompleted();
+        });
+      }
     }
   }, {
     key: 'componentDidMount',
@@ -28431,25 +28456,47 @@ var AskAQuestion = function (_React$Component) {
   }, {
     key: 'postQuestion',
     value: function postQuestion() {
-      this.props.hideAskAQuestion();
-      this.props.questionSubmit();
-      var newQuestion = {};
-      var list = this.props.QApairs;
-      newQuestion.number = list[list.length - 1].number + 1;
-      newQuestion.qNickname = this.state.qNickname;
-      newQuestion.question = this.state.question;
-      newQuestion.qDate = this.state.qDate;
-      newQuestion.qEmail = this.state.qEmail;
-      newQuestion.qLocation = this.state.qLocation;
-      newQuestion.answers = [];
-      _axios2.default.post('/api', newQuestion).then(console.log('posted')).catch(function (err) {
-        return console.error(err);
+      this.setState({
+        postQClicked: true
       });
+      if (this.state.formCompleted) {
+        this.props.hideAskAQuestion();
+        this.props.questionSubmit();
+        var newQuestion = {};
+        var list = this.props.QApairs;
+        newQuestion.number = list[list.length - 1].number + 1;
+        newQuestion.qNickname = this.state.qNickname;
+        newQuestion.question = this.state.question;
+        newQuestion.qDate = this.state.qDate;
+        newQuestion.qEmail = this.state.qEmail;
+        newQuestion.qLocation = this.state.qLocation;
+        newQuestion.answers = [];
+        _axios2.default.post('/api', newQuestion).then(console.log('posted')).catch(function (err) {
+          return console.error(err);
+        });
+        document.getElementById('CTqForm').reset();
+        this.setState({
+          question: '',
+          qNickname: '',
+          qLocation: '',
+          qEmail: '',
+          qDate: ''
+        });
+      }
+    }
+  }, {
+    key: 'setFormCompleted',
+    value: function setFormCompleted() {
+      if (this.state.questionBC && this.state.qNicknameBC && this.state.qLocationBC && this.state.qEmailBC && this.state.checkedTC) {
+        this.setState({ formCompleted: true });
+      } else {
+        this.setState({ formCompleted: false });
+      }
     }
   }, {
     key: 'render',
     value: function render() {
-      var _this2 = this;
+      var _this4 = this;
 
       return _react2.default.createElement(
         'div',
@@ -28463,7 +28510,7 @@ var AskAQuestion = function (_React$Component) {
           'a',
           { href: '#CTqaContainer' },
           _react2.default.createElement('span', { className: 'CTcloseAskQ', onClick: function onClick() {
-              return _this2.props.hideAskAQuestion();
+              return _this4.props.hideAskAQuestion();
             } })
         ),
         _react2.default.createElement(
@@ -28488,49 +28535,107 @@ var AskAQuestion = function (_React$Component) {
               'span',
               null,
               'Maximum of 255 characters.'
-            )
+            ),
+            this.state.postQClicked && !this.state.formCompleted ? _react2.default.createElement(
+              'span',
+              { className: 'CTqRequiredContainer' },
+              _react2.default.createElement(
+                'span',
+                { id: 'CTreqContent' },
+                'Required\xA0',
+                _react2.default.createElement('span', { className: 'CTrequired' })
+              )
+            ) : _react2.default.createElement('div', null),
+            this.state.question ? _react2.default.createElement(
+              'span',
+              { className: 'CTqcheckContainer' },
+              _react2.default.createElement(
+                'span',
+                { className: 'CTcheckmarkS' },
+                _react2.default.createElement('div', { className: 'CTcheckmarkS_circle' }),
+                _react2.default.createElement('div', { className: 'CTcheckmarkS_stem' }),
+                _react2.default.createElement('div', { className: 'CTcheckmarkS_kick' })
+              )
+            ) : _react2.default.createElement('div', null)
           ),
-          _react2.default.createElement('textarea', { className: 'CTqTextArea', rows: '4', cols: '129', placeholder: 'Ask a question...', name: 'question', onChange: function onChange(e) {
-              return _this2.changeHandler(e);
-            } }),
-          _react2.default.createElement('hr', null),
           _react2.default.createElement(
-            'div',
-            { className: 'CTnicknameAndLoc' },
+            'form',
+            { id: 'CTqForm' },
+            _react2.default.createElement('textarea', { className: 'CTqTextArea', rows: '4', cols: '129', placeholder: 'Ask a question...', name: 'question', onChange: function onChange(e) {
+                return _this4.changeHandler(e);
+              }, style: { borderColor: this.state.questionBC } }),
+            _react2.default.createElement('hr', null),
             _react2.default.createElement(
               'div',
-              { className: 'CTnicknameQ', style: { fontWeight: 'bold' } },
-              'Nickname*',
+              { className: 'CTnicknameAndLoc' },
               _react2.default.createElement(
                 'div',
-                null,
-                _react2.default.createElement('input', { className: 'CTqInput', placeholder: 'Example: jackie27', name: 'qNickname', onChange: function onChange(e) {
-                    return _this2.changeHandler(e);
-                  } })
+                { className: 'CTnicknameQ', style: { fontWeight: 'bold' } },
+                'Nickname*',
+                this.state.qNickname ? _react2.default.createElement(
+                  'span',
+                  { className: 'CTqcheckContainerName' },
+                  _react2.default.createElement(
+                    'span',
+                    { className: 'CTcheckmarkS' },
+                    _react2.default.createElement('div', { className: 'CTcheckmarkS_circle' }),
+                    _react2.default.createElement('div', { className: 'CTcheckmarkS_stem' }),
+                    _react2.default.createElement('div', { className: 'CTcheckmarkS_kick' })
+                  )
+                ) : _react2.default.createElement('div', null),
+                _react2.default.createElement(
+                  'div',
+                  null,
+                  _react2.default.createElement('input', { className: 'CTqInput', placeholder: 'Example: jackie27', name: 'qNickname', onChange: function onChange(e) {
+                      return _this4.changeHandler(e);
+                    }, style: { borderColor: this.state.qNicknameBC } })
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'CTlocationQ', style: { fontWeight: 'bold' } },
+                'Location',
+                this.state.qLocationBC ? _react2.default.createElement(
+                  'span',
+                  { className: 'CTqcheckContainerLoc' },
+                  _react2.default.createElement(
+                    'span',
+                    { className: 'CTcheckmarkS' },
+                    _react2.default.createElement('div', { className: 'CTcheckmarkS_circle' }),
+                    _react2.default.createElement('div', { className: 'CTcheckmarkS_stem' }),
+                    _react2.default.createElement('div', { className: 'CTcheckmarkS_kick' })
+                  )
+                ) : _react2.default.createElement('div', null),
+                _react2.default.createElement(
+                  'div',
+                  null,
+                  _react2.default.createElement('input', { className: 'CTqInput', placeholder: 'Example: Seattle, WA', name: 'qLocation', onChange: function onChange(e) {
+                      return _this4.changeHandler(e);
+                    }, style: { borderColor: this.state.qLocationBC } })
+                )
               )
             ),
+            _react2.default.createElement('hr', null),
             _react2.default.createElement(
               'div',
-              { className: 'CTlocationQ', style: { fontWeight: 'bold' } },
-              'Location',
-              _react2.default.createElement(
-                'div',
-                null,
-                _react2.default.createElement('input', { className: 'CTqInput', placeholder: 'Example: Seattle, WA', name: 'qLocation', onChange: function onChange(e) {
-                    return _this2.changeHandler(e);
-                  } })
-              )
-            )
-          ),
-          _react2.default.createElement('hr', null),
-          _react2.default.createElement(
-            'div',
-            { style: { fontWeight: 'bold' } },
-            'Email*'
-          ),
-          _react2.default.createElement('input', { className: 'CTqInput', placeholder: 'Example: youremail@example.com', name: 'qEmail', onChange: function onChange(e) {
-              return _this2.changeHandler(e);
-            } })
+              { style: { fontWeight: 'bold' } },
+              'Email*',
+              this.state.qEmail.includes('@') ? _react2.default.createElement(
+                'span',
+                { className: 'CTqcheckContainerEmail' },
+                _react2.default.createElement(
+                  'span',
+                  { className: 'CTcheckmarkS' },
+                  _react2.default.createElement('div', { className: 'CTcheckmarkS_circle' }),
+                  _react2.default.createElement('div', { className: 'CTcheckmarkS_stem' }),
+                  _react2.default.createElement('div', { className: 'CTcheckmarkS_kick' })
+                )
+              ) : _react2.default.createElement('div', null)
+            ),
+            _react2.default.createElement('input', { className: 'CTqInput', placeholder: 'Example: youremail@example.com', name: 'qEmail', onChange: function onChange(e) {
+                return _this4.changeHandler(e);
+              }, style: { borderColor: this.state.qEmailBC } })
+          )
         ),
         _react2.default.createElement('hr', null),
         _react2.default.createElement(
@@ -28548,28 +28653,45 @@ var AskAQuestion = function (_React$Component) {
               _react2.default.createElement(
                 'span',
                 { id: 'CTterms', onClick: function onClick() {
-                    return _this2.showPopup();
+                    return _this4.showPopup();
                   } },
                 'terms & conditions'
               )
             )
-          )
+          ),
+          this.state.checkedTC ? _react2.default.createElement(
+            'span',
+            { className: 'CTqcheckContainerTC' },
+            _react2.default.createElement(
+              'span',
+              { className: 'CTcheckmarkS' },
+              _react2.default.createElement('div', { className: 'CTcheckmarkS_circle' }),
+              _react2.default.createElement('div', { className: 'CTcheckmarkS_stem' }),
+              _react2.default.createElement('div', { className: 'CTcheckmarkS_kick' })
+            )
+          ) : _react2.default.createElement('div', null)
         ),
         _react2.default.createElement(
           'div',
           { id: 'CTtinyWords' },
           '\xA0You may receive emails regarding this submission. Any emails will include the ability to opt out of future communications.'
         ),
-        _react2.default.createElement(
+        this.state.formCompleted ? _react2.default.createElement(
           'a',
           { href: '#CTqaContainer' },
           _react2.default.createElement(
             'button',
             { className: 'CTaskAQuestion', id: 'CTpostQuestion', onClick: function onClick() {
-                return _this2.postQuestion();
+                return _this4.postQuestion();
               } },
             'Post question'
           )
+        ) : _react2.default.createElement(
+          'button',
+          { className: 'CTaskAQuestion', id: 'CTpostQuestion', onClick: function onClick() {
+              return _this4.postQuestion();
+            } },
+          'Post question'
         ),
         this.state.TCPopup ? _react2.default.createElement(_TermsAndConditions2.default, { checkTCHidePopup: this.checkTCHidePopup, hidePopup: this.hidePopup }) : _react2.default.createElement('div', null)
       );

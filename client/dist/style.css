@@ -550,4 +550,113 @@ button:focus {
   background-color: rgba(0,0,0,0.6);
 }
 
+.CTcheckmarkS {
+  display:inline-block;
+  width: 22px;
+  height: 22px;
+  -ms-transform: rotate(45deg); /* IE 9 */
+  -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+  transform: rotate(45deg);
+}
 
+.CTcheckmarkS_circle {
+  position: absolute;
+  width: 19px;
+  height: 19px;
+  background-color: rgb(57, 154, 8);
+  border-radius: 19px;
+  top: 35px;
+}
+
+.CTcheckmarkS_stem {
+  position: absolute;
+  width: 3px;
+  height: 11px;
+  background-color: white;
+  left: 9px;
+  top: 38px;
+}
+
+.CTcheckmarkS_kick {
+  position: absolute;
+  width:7px;
+  height:3px;
+  background-color:#fff;
+  left:5px;
+  top:46px;
+}
+
+.CTqcheckContainer {
+  position: absolute;
+  margin-top: -40px; 
+  margin-left: 1070px;
+}
+
+.CTqcheckContainerName {
+  position: absolute;
+  margin-top: -20px; 
+  margin-left: 420px;
+}
+
+.CTqcheckContainerLoc {
+  position: absolute;
+  margin-top: -20px; 
+  margin-left: 435px;
+}
+
+.CTqcheckContainerEmail {
+  position: absolute;
+  margin-top: -20px; 
+  margin-left: 453px;
+}
+
+.CTqcheckContainerTC {
+  position: absolute;
+  margin-top: -20px; 
+  margin-left: 839px;
+}
+
+
+.CTqRequiredContainer {
+  color: rgb(189, 11, 11);
+  transform: scale(1, .95);
+  display: flex;
+  position: absolute;
+  /* float: right; */
+  font-size: 14px;
+  background-color: transparent;
+  border-radius: 20px 20px 20px 20px;
+  box-shadow: none;
+  outline: none;
+  width: 6em;
+  height: 1.9em;
+  border: solid;
+  border-width: 1.4px;
+  border-color: #b8b8b8;
+  padding-left: 12px;
+  font-size: 14px;
+  margin-left: 967px;
+  margin-top: -22px;
+}
+
+.CTrequired {
+  float: right;
+  display: block;
+  height: 20px;
+  width: 20px;
+  line-height: 19px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  background-color: rgb(189, 11, 11);
+  color: white;
+  text-align: center;
+  font-size: 1.6em;
+}
+
+.CTrequired:before {
+  content: "×";
+}
+
+#CTreqContent {
+  padding-top: 3px;
+}
