@@ -717,3 +717,35 @@ button:focus {
   padding-left: 15px;
   border-width: 10px;
 }
+
+.CTansPopup {  
+  position: absolute;  
+  width: 60%;  
+  height: 100%;  
+  top: 400px;  
+  left: 0;  
+  right: 0;  
+  bottom: 0;  
+  margin: auto;  
+  background-color: #fafafa;
+  padding-left: 50px;
+  padding-right: 50px;
+  -moz-box-shadow: 0 0 20px #888;
+  -webkit-box-shadow: 0 0 20px#888;
+  box-shadow: 0 0 20px #888;
+}  
+
+.CTansPopup\_inner {  
+  left: 25%;  
+  right: 25%;  
+  top: 25%;  
+  bottom: 25%;  
+  margin: auto;  
+  border-radius: 20px;  
+  background: white;  
+}
+
+#CTpostAnsTitle {
+  margin-top: 20px;
+  margin-left: -30px;
+}
