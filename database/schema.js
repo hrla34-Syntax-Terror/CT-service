@@ -7,6 +7,7 @@ var QASchema = new mongoose.Schema({
 	qDate: { type: String },
   qEmail: { type: String, unique: true, required: true, dropDups: true },
   qLocation: { type: String },
+  newQ: String,
 	answers: [ 
     {
 			aNickname: String,

@@ -16,7 +16,11 @@ var QAListEntry = (props) => {
         </span>
       </div>
       <h3 className='CTquestion'>{props.QApair.question}</h3>
-      <button className='CTanswerButton'>Answer the question</button>
+      { props.QApair.newQ === "true" ? (
+        <div className='CTthankMsg'>Thank you for submitting a question! Questions are usually answered within a few days.</div>
+      ) : (      
+        <button className='CTanswerButton'>Answer the question</button>
+      ) }
       { props.QApair.answers.length !== 0 ? (<QAListAns firstAns={props.QApair.answers[0]} number={props.QApair.number} QApairs={props.QApairs}/>) : (<div/>) }
     </div>
   )

@@ -28370,7 +28370,11 @@ var AskAQuestion = function (_React$Component) {
       qNickname: '',
       qLocation: '',
       qEmail: '',
-      qDate: ''
+      qDate: '',
+      questionBC: '',
+      qNicknameBC: '',
+      qLocationBC: '',
+      qEmailBC: ''
     };
     _this.showPopup = _this.showPopup.bind(_this);
     _this.checkTCHidePopup = _this.checkTCHidePopup.bind(_this);
@@ -28470,6 +28474,7 @@ var AskAQuestion = function (_React$Component) {
         newQuestion.qDate = this.state.qDate;
         newQuestion.qEmail = this.state.qEmail;
         newQuestion.qLocation = this.state.qLocation;
+        newQuestion.newQ = true;
         newQuestion.answers = [];
         _axios2.default.post('/api', newQuestion).then(console.log('posted')).catch(function (err) {
           return console.error(err);
@@ -28487,7 +28492,7 @@ var AskAQuestion = function (_React$Component) {
   }, {
     key: 'setFormCompleted',
     value: function setFormCompleted() {
-      if (this.state.questionBC && this.state.qNicknameBC && this.state.qLocationBC && this.state.qEmailBC && this.state.checkedTC) {
+      if (this.state.questionBC && this.state.qNicknameBC && this.state.qEmailBC && this.state.checkedTC) {
         this.setState({ formCompleted: true });
       } else {
         this.setState({ formCompleted: false });
@@ -28536,7 +28541,7 @@ var AskAQuestion = function (_React$Component) {
               null,
               'Maximum of 255 characters.'
             ),
-            this.state.postQClicked && !this.state.formCompleted ? _react2.default.createElement(
+            this.state.postQClicked && !this.state.questionBC ? _react2.default.createElement(
               'span',
               { className: 'CTqRequiredContainer' },
               _react2.default.createElement(
@@ -28572,6 +28577,16 @@ var AskAQuestion = function (_React$Component) {
                 'div',
                 { className: 'CTnicknameQ', style: { fontWeight: 'bold' } },
                 'Nickname*',
+                this.state.postQClicked && !this.state.qNicknameBC ? _react2.default.createElement(
+                  'span',
+                  { className: 'CTnameRequiredContainer' },
+                  _react2.default.createElement(
+                    'span',
+                    { id: 'CTreqContent', style: { fontWeight: 'normal' } },
+                    'Required\xA0',
+                    _react2.default.createElement('span', { className: 'CTrequired' })
+                  )
+                ) : _react2.default.createElement('div', null),
                 this.state.qNickname ? _react2.default.createElement(
                   'span',
                   { className: 'CTqcheckContainerName' },
@@ -28620,6 +28635,16 @@ var AskAQuestion = function (_React$Component) {
               'div',
               { style: { fontWeight: 'bold' } },
               'Email*',
+              this.state.postQClicked && !this.state.qEmailBC ? _react2.default.createElement(
+                'span',
+                { className: 'CTemailRequiredContainer' },
+                _react2.default.createElement(
+                  'span',
+                  { id: 'CTreqContent', style: { fontWeight: 'normal' } },
+                  'Invalid email\xA0',
+                  _react2.default.createElement('span', { className: 'CTrequired' })
+                )
+              ) : _react2.default.createElement('div', null),
               this.state.qEmail.includes('@') ? _react2.default.createElement(
                 'span',
                 { className: 'CTqcheckContainerEmail' },
@@ -28659,6 +28684,16 @@ var AskAQuestion = function (_React$Component) {
               )
             )
           ),
+          this.state.postQClicked && !this.state.checkedTC ? _react2.default.createElement(
+            'span',
+            { className: 'CTqRequiredContainer' },
+            _react2.default.createElement(
+              'span',
+              { id: 'CTreqContent' },
+              'Required\xA0',
+              _react2.default.createElement('span', { className: 'CTrequired' })
+            )
+          ) : _react2.default.createElement('div', null),
           this.state.checkedTC ? _react2.default.createElement(
             'span',
             { className: 'CTqcheckContainerTC' },
@@ -28980,7 +29015,11 @@ var QAListEntry = function QAListEntry(props) {
       { className: 'CTquestion' },
       props.QApair.question
     ),
-    _react2.default.createElement(
+    props.QApair.newQ === "true" ? _react2.default.createElement(
+      'div',
+      { className: 'CTthankMsg' },
+      'Thank you for submitting a question! Questions are usually answered within a few days.'
+    ) : _react2.default.createElement(
       'button',
       { className: 'CTanswerButton' },
       'Answer the question'

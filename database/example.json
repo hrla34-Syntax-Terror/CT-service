@@ -6,6 +6,7 @@
     "qDate": "12012019",
     "qEmail": "christ123092@gmail.com",
     "qLocation": "Los Angeles, CA",
+    "newQ": false,
     "answers": [ 
       {
         "aNickname": "REIservice",
@@ -26,6 +27,7 @@
     "qDate": "11302018",
     "qEmail": "christ123092@yahoo.com",
     "qLocation": "San Francisco, CA",
+    "newQ": false,
     "answers": [ 
       {
         "aNickname": "REIservice",
@@ -46,6 +48,7 @@
     "qDate": "07182015",
     "qEmail": "christ123092@aol.com",
     "qLocation": "New York, NY",
+    "newQ": false,
     "answers": [ 
       {
         "aNickname": "REIservice",

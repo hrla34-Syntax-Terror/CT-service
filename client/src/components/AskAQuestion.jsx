@@ -15,7 +15,11 @@ class AskAQuestion extends React.Component {
       qNickname: '',
       qLocation: '',
       qEmail: '',
-      qDate: ''
+      qDate: '',
+      questionBC: '',
+      qNicknameBC: '',
+      qLocationBC: '',
+      qEmailBC: ''
     }
     this.showPopup = this.showPopup.bind(this);
     this.checkTCHidePopup = this.checkTCHidePopup.bind(this);
@@ -97,11 +101,12 @@ class AskAQuestion extends React.Component {
       newQuestion.qDate = this.state.qDate;
       newQuestion.qEmail = this.state.qEmail;
       newQuestion.qLocation = this.state.qLocation;
+      newQuestion.newQ = true;
       newQuestion.answers = [];
       axios
-      .post('/api', newQuestion)
-      .then(console.log('posted'))
-      .catch((err) => console.error(err))
+        .post('/api', newQuestion)
+        .then(console.log('posted'))
+        .catch((err) => console.error(err))
       document.getElementById('CTqForm').reset();
       this.setState({
         question: '',
@@ -114,7 +119,7 @@ class AskAQuestion extends React.Component {
   }
 
   setFormCompleted() {
-    if (this.state.questionBC && this.state.qNicknameBC && this.state.qLocationBC && this.state.qEmailBC && this.state.checkedTC) {
+    if (this.state.questionBC && this.state.qNicknameBC && this.state.qEmailBC && this.state.checkedTC) {
       this.setState({ formCompleted: true })
     } else {
       this.setState({ formCompleted: false })
@@ -130,7 +135,7 @@ class AskAQuestion extends React.Component {
         <div className='CTqForm'>
           <div><span style={{fontWeight:'bold'}}>Question*</span>
           &nbsp;&nbsp;&nbsp;<span>Maximum of 255 characters.</span>
-          { this.state.postQClicked && !this.state.formCompleted ? (
+          { this.state.postQClicked && !this.state.questionBC ? (
             <span className='CTqRequiredContainer'>
              <span id='CTreqContent'>
               Required&nbsp;<span className='CTrequired'></span>
@@ -152,6 +157,13 @@ class AskAQuestion extends React.Component {
           <hr/>
           <div className='CTnicknameAndLoc'>
             <div className='CTnicknameQ' style={{fontWeight:'bold'}}>Nickname*
+            { this.state.postQClicked && !this.state.qNicknameBC ? (
+            <span className='CTnameRequiredContainer'>
+             <span id='CTreqContent' style={{fontWeight:'normal'}}>
+              Required&nbsp;<span className='CTrequired'></span>
+             </span>
+            </span>
+          ) : (<div/>)}
             { this.state.qNickname ? (
             <span className='CTqcheckContainerName'>
             <span className="CTcheckmarkS">
@@ -182,6 +194,13 @@ class AskAQuestion extends React.Component {
           </div>
           <hr/>
           <div style={{fontWeight:'bold'}}>Email*
+          { this.state.postQClicked && !this.state.qEmailBC ? (
+            <span className='CTemailRequiredContainer'>
+             <span id='CTreqContent' style={{fontWeight:'normal'}}>
+              Invalid email&nbsp;<span className='CTrequired'></span>
+             </span>
+            </span>
+          ) : (<div/>)}
           { this.state.qEmail.includes('@') ? (
             <span className='CTqcheckContainerEmail'>
             <span className="CTcheckmarkS">
@@ -198,6 +217,13 @@ class AskAQuestion extends React.Component {
         <hr/>
         <div id='CTagreeToTCContainer'><a href='CTagreeToTCContainer'></a>
           <input type='checkbox' style={{cursor:'pointer'}} checked={this.state.checkedTC} onChange={this.toggleCheck}/><span id='CTiAgree'>&nbsp;&nbsp;&nbsp;I agree to the <a href='#CTqaContainer'><span id='CTterms' onClick={() => this.showPopup()}>terms &amp; conditions</span></a></span>
+          { this.state.postQClicked && !this.state.checkedTC ? (
+            <span className='CTqRequiredContainer'>
+             <span id='CTreqContent'>
+              Required&nbsp;<span className='CTrequired'></span>
+             </span>
+            </span>
+          ) : (<div/>)}
           { this.state.checkedTC ? (
             <span className='CTqcheckContainerTC'>
             <span className="CTcheckmarkS">

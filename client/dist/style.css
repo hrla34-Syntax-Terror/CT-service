@@ -594,26 +594,26 @@ button:focus {
 
 .CTqcheckContainerName {
   position: absolute;
-  margin-top: -20px; 
-  margin-left: 420px;
+  margin-top: -40px; 
+  margin-left: 500px;
 }
 
 .CTqcheckContainerLoc {
   position: absolute;
-  margin-top: -20px; 
-  margin-left: 435px;
+  margin-top: -21px; 
+  margin-left: 437px;
 }
 
 .CTqcheckContainerEmail {
   position: absolute;
-  margin-top: -20px; 
-  margin-left: 453px;
+  margin-top: -40px; 
+  margin-left: 500px;
 }
 
 .CTqcheckContainerTC {
   position: absolute;
-  margin-top: -20px; 
-  margin-left: 839px;
+  margin-top: -40px; 
+  margin-left: 1070px;
 }
 
 
@@ -659,4 +659,61 @@ button:focus {
 
 #CTreqContent {
   padding-top: 3px;
+}
+
+
+.CTnameRequiredContainer {
+  color: rgb(189, 11, 11);
+  transform: scale(1, .95);
+  display: flex;
+  position: absolute;
+  /* float: right; */
+  font-size: 14px;
+  background-color: transparent;
+  border-radius: 20px 20px 20px 20px;
+  box-shadow: none;
+  outline: none;
+  width: 6em;
+  height: 1.9em;
+  border: solid;
+  border-width: 1.4px;
+  border-color: #b8b8b8;
+  padding-left: 12px;
+  font-size: 14px;
+  margin-left: 398px;
+  margin-top: -22px;
+}
+
+.CTemailRequiredContainer {
+  color: rgb(189, 11, 11);
+  transform: scale(1, .95);
+  display: flex;
+  position: absolute;
+  /* float: right; */
+  font-size: 14px;
+  background-color: transparent;
+  border-radius: 20px 20px 20px 20px;
+  box-shadow: none;
+  outline: none;
+  width: 7.5em;
+  height: 1.9em;
+  border: solid;
+  border-width: 1.4px;
+  border-color: #b8b8b8;
+  padding-left: 12px;
+  font-size: 14px;
+  margin-left: 378px;
+  margin-top: -22px;
+}
+
+.CTthankMsg {
+  text-align: left;
+  color: rgb(94, 93, 93);
+  background-color: rgb(243, 239, 192);
+  border-radius: 5px 5px 5px 5px;
+  border-color: rgb(8, 8, 8);
+  width: 50em;
+  padding: 10px 10px 10px 10px;
+  padding-left: 15px;
+  border-width: 10px;
 }
