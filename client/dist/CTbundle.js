@@ -29069,7 +29069,9 @@ var QAListEntry = function (_React$Component) {
           ),
           _react2.default.createElement(
             'span',
-            { id: 'CTnumAns' },
+            { id: 'CTnumAns', onClick: function onClick() {
+                return _this2.showAnsPopup();
+              } },
             _react2.default.createElement(
               'div',
               { style: { fontWeight: "bold" } },
@@ -29092,7 +29094,9 @@ var QAListEntry = function (_React$Component) {
         ),
         _react2.default.createElement(
           'h3',
-          { className: 'CTquestion' },
+          { className: 'CTquestion', onClick: function onClick() {
+              return _this2.showAnsPopup();
+            } },
           this.props.QApair.question
         ),
         this.props.QApair.newQ === "true" ? _react2.default.createElement(

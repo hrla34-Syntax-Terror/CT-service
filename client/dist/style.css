@@ -204,8 +204,20 @@ select:-moz-focusring {
   text-align: center;
 }
 
+#CTnumAns:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
+
 .CTquestion, .CTanswer {
   padding-right: 5em;
+}
+
+.CTquestion:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .CTqaBlock {
@@ -777,7 +789,7 @@ button:focus {
 
 .CTansQ {
   margin-top: 20px;
-  width: 1091px;  
+  width: 1080px;  
   background-color: #fafafa;
   padding-left: 50px;
   padding-right: 50px; 

@@ -27,14 +27,14 @@ class QAListEntry extends React.Component {
         <div className='CTuser'>
           <span className='CTnickname'>{this.props.QApair.qNickname}&nbsp;</span>
           <span>·</span>&nbsp;<span id='CTsmallFont'>{moment(this.props.QApair.qDate, 'MMDDYYYY').fromNow()}</span>
-          <span id='CTnumAns'>
+          <span id='CTnumAns' onClick={() => this.showAnsPopup()}>
             <div style={{fontWeight:"bold"}}>{this.props.QApair.answers.length}</div>
             <div> 
             {this.props.QApair.answers.length > 1 ? (<div>answers</div>) : (<div>answer</div>)}
             </div>
           </span>
         </div>
-        <h3 className='CTquestion'>{this.props.QApair.question}</h3>
+        <h3 className='CTquestion' onClick={() => this.showAnsPopup()}>{this.props.QApair.question}</h3>
         { this.props.QApair.newQ === "true" ? (
           <div className='CTthankMsg'>Thank you for submitting a question! Questions are usually answered within a few days.</div>
         ) : (      
