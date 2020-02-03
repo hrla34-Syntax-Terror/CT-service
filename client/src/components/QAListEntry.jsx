@@ -20,15 +20,14 @@ class QAListEntry extends React.Component {
   hideAnsPopup() {
     this.setState({ answerQ: false });
   }
-
   render() {
     return (
       <div className='CTlistEntry'>
         <div className='CTuser'>
           <span className='CTnickname'>{this.props.QApair.qNickname}&nbsp;</span>
-          <span>·</span>&nbsp;<span id='CTsmallFont'>{moment(this.props.QApair.qDate, 'MMDDYYYY').fromNow()}</span>
+          <span>·</span>&nbsp;<span id='CTsmallFont'>{moment.tz(this.props.QApair.qDate, 'America/Los_Angeles').fromNow()}</span>
           <span id='CTnumAns' onClick={() => this.showAnsPopup()}>
-            <div style={{fontWeight:"bold"}}>{this.props.QApair.answers.length}</div>
+            <div style={{fontWeight:"bold"}}>{this.props.QApair.ansCount || 0}</div>
             <div> 
             {this.props.QApair.answers.length > 1 ? (<div>answers</div>) : (<div>answer</div>)}
             </div>
@@ -50,7 +49,7 @@ class QAListEntry extends React.Component {
             <a href='#CTqaContainer'><span className='CTclosePostAns' onClick={() => this.hideAnsPopup()}></span></a>
             <div className='CTuser'>
               &nbsp;<span className='CTnickname'>{this.props.QApair.qNickname}&nbsp;</span>
-                <span>·</span>&nbsp;<span id='CTsmallFont'>{moment(this.props.QApair.qDate, 'MMDDYYYY').fromNow()}</span>
+                <span>·</span>&nbsp;<span id='CTsmallFont'>{moment.tz(this.props.QApair.qDate, 'America/Los_Angeles').fromNow()}</span>
                 <span id='CTnumAns'>
                 <div style={{fontWeight:"bold"}}>{this.props.QApair.answers.length}</div>
                 <div> 

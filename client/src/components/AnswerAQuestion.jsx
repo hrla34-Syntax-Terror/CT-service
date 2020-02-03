@@ -78,9 +78,7 @@ class AnswerAQuestion extends React.Component {
   }
 
   getDate() {
-    var date = moment().format('L');
-    var dateArr = date.split('/');
-    var today = dateArr[0] + dateArr[1] + dateArr[2];
+    var today = moment().utc().format();
     this.setState({
       qDate: today
     });

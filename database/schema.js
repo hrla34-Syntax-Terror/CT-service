@@ -4,15 +4,16 @@ var QASchema = new mongoose.Schema({
   number: { type: Number, unique: true, required: true, dropDups: true },
   qNickname: { type: String, unique: true, required: true, dropDups: true },
   question: { type: String, unique: true, required: true, dropDups: true },
-	qDate: { type: String },
+	qDate: { type: Date },
   qEmail: { type: String, unique: true, required: true, dropDups: true },
   qLocation: { type: String },
   newQ: String,
+  ansCount: Number,
 	answers: [ 
     {
 			aNickname: String,
 			answer: String,
-			aDate: String,
+			aDate: Date,
 			aEmail: String,
       aLocation: String,
       yes: Number, 

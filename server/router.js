@@ -7,7 +7,12 @@ router
   .post(controllers.post)
 
 router
+  .route('/sort')
+  .post(controllers.sort)  
+  
+router
   .route('/:number')
   .post(controllers.postAns)
+
 
 module.exports = router;

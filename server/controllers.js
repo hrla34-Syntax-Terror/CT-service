@@ -23,14 +23,21 @@ var controllers = {
       });
   },
   postAns: (req, res) => {
-    console.log(req.body)
-    console.log(req.params)
     dbHelpers.postAns(req.body, req.params)
       .then(() => {
         res.status(201).send('posted question')
       })
       .catch(err => {
         res.status(401).send(err)
+      });
+  },
+  sort: (req, res) => {
+    dbHelpers.sort(req.body)
+      .then((data) => {
+        res.status(202).send(data)
+      })
+      .catch(err => {
+        res.status(402).send(err)
       });
   }
 };

@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import tz from 'moment-timezone';
 
 
 class QAListAns extends React.Component {
@@ -33,7 +34,7 @@ class QAListAns extends React.Component {
     return (
       <div>
         <span className='CTansNickname'>{this.props.firstAns.aNickname}&nbsp;</span>
-        <span>·</span>&nbsp;<span id='CTsmallFont'>{moment(this.props.firstAns.aDate, 'MMDDYYYY').fromNow()}</span>
+        <span>·</span>&nbsp;<span id='CTsmallFont'>{moment.tz(this.props.firstAns.aDate, 'America/Los_Angeles').fromNow()}</span>
         <div className='CTanswer'>{this.props.firstAns.answer}</div>
         <div className='CThelpfulQuestion' id='CTsmallFont'>Helpful?&nbsp;&nbsp;
           { this.state.upVoted ? (
