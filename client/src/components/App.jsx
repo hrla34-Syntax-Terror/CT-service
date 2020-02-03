@@ -20,7 +20,7 @@ class App extends React.Component {
     this.closeSubmitQPopup = this.closeSubmitQPopup.bind(this);
     this.getData = this.getData.bind(this);
     this.answerSubmit = this.answerSubmit.bind(this);
-    this.changeHandler = this.changeHandler.bind(this);
+    this.clickSelection = this.clickSelection.bind(this);
   }
 
   componentDidMount() {
@@ -62,10 +62,19 @@ class App extends React.Component {
     this.setState({ submitAnswer: false });
   }
 
-  changeHandler(e) {
-    this.setState({ currentSelection: e.target.value });
+  // changeHandler(e) {
+  //   this.setState({ currentSelection: e.target.value });
+  //   axios
+  //     .post('/api/sort', { sort: e.target.value })
+  //     .then((result) => this.setState({ QApairs: result.data }))
+  //     .catch((err) => console.error(err));
+  // }
+
+  clickSelection(e) {
+    var selected = e.target.getAttribute('name');
+    this.setState({ currentSelection: selected});
     axios
-      .post('/api/sort', { sort: e.target.value })
+      .post('/api/sort', { sort: selected })
       .then((result) => this.setState({ QApairs: result.data }))
       .catch((err) => console.error(err));
   }
@@ -80,13 +89,21 @@ class App extends React.Component {
           <div id='CTqaTotal'>
             <span>1 &ndash; {this.state.QApairs.length} of {this.state.QApairs.length} Questions</span>
             <span className='CTsortBy'>Sort by:&nbsp;
-              <select className='CTdropDown' value={this.state.currentSelection} onChange={(e) => this.changeHandler(e)}>
+              <button className='CTdropdownBtn'>Most helpful answers</button>&#9662;
+              <div className='CTdropdownContent'>
+                <div name='newestQ' onClick={(e) => this.clickSelection(e)}>Newest questions</div>
+                <div name='newestAns' onClick={(e) => this.clickSelection(e)}>Newest answers</div>
+                <div name='mostAns' onClick={(e) => this.clickSelection(e)}>Most answered</div>
+                <div name='ansNeeded' onClick={(e) => this.clickSelection(e)}>Answers needed</div>
+                <div name='mostHelpful' onClick={(e) => this.clickSelection(e)}>Most helpful answers</div>
+              </div>
+              {/* <select className='CTdropDown' value={this.state.currentSelection} onChange={(e) => this.changeHandler(e)}>
                 <option value='newestQ'>Newest questions</option>
                 <option value='newestAns'>Newest answers</option>
                 <option value='mostAns'>Most answered</option>
                 <option value='ansNeeded'>Answers needed</option>
                 <option value='mostHelpful'>Most helpful answers</option>
-              </select>
+              </select> */}
             </span>
           </div>
         <hr/>

@@ -15,7 +15,6 @@ var dbHelpers = {
       return QApair.find({}).sort({'qDate': -1})
     }
     if (category.sort === 'newestAns') {
-      console.log(QApair.aggregate([{$unwind: '$answers'}, {$match: {'answers.newAns': 'false'}}, {$sort: {'answers.aData': 1}}]))
       return QApair.aggregate([{$match: {'answers.newAns': 'false'}}, {$sort: {'answers.aData': 1}}])
     }
     if (category.sort === 'mostAns') {
