@@ -10,12 +10,15 @@ class App extends React.Component {
     this.state = {
       QApairs: [],
       showAskQ: false,
-      submitQuestion: false
+      submitQuestion: false,
+      submitAnswer: false
     }
     this.showAskAQuestion = this.showAskAQuestion.bind(this);
     this.hideAskAQuestion = this.hideAskAQuestion.bind(this);
     this.questionSubmit = this.questionSubmit.bind(this);
     this.closeSubmitQPopup = this.closeSubmitQPopup.bind(this);
+    this.getData = this.getData.bind(this);
+    this.answerSubmit = this.answerSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -45,8 +48,16 @@ class App extends React.Component {
     this.setState({ submitQuestion: true })
   }
 
+  answerSubmit() {
+    this.setState({ submitAnswer: true })
+  }
+
   closeSubmitQPopup() {
     this.setState({ submitQuestion: false })
+  }
+
+  closeSubmitAPopup() {
+    this.setState({ submitAnswer: false })
   }
 
   render() {
@@ -71,10 +82,10 @@ class App extends React.Component {
         <hr/>
         <div>
         </div>
-        <QAList QApairs={this.state.QApairs}/>
+        <QAList QApairs={this.state.QApairs} answerSubmit={this.answerSubmit}/>
         </div>
         <div id='CTaskAQuestion'><a href='CTaskAQuestion'></a>
-        { this.state.showAskQ ? (<AskAQuestion  QApairs={this.state.QApairs} hideAskAQuestion={this.hideAskAQuestion} questionSubmit={this.questionSubmit}/> ) : (<div/>) }
+        { this.state.showAskQ ? (<AskAQuestion  QApairs={this.state.QApairs} hideAskAQuestion={this.hideAskAQuestion} questionSubmit={this.questionSubmit} getData={this.getData}/> ) : (<div/>) }
         </div>
         { this.state.submitQuestion ? (
           <div>
@@ -88,6 +99,21 @@ class App extends React.Component {
               </span>
               <div className='CTsubmitCheck'></div>
               <h2 id='CTsubmitMsg'>Your question was submitted!</h2>
+            </div>
+          </div>
+        ) : (<div/>) }
+         { this.state.submitAnswer ? (
+          <div>
+            <div id='CTpageMask'></div>
+            <div className='CTpopupSubmit'>
+              <span className='CTcloseSubmitQ' onClick={() => this.closeSubmitAPopup()}></span>
+              <span className="CTcheckmark">
+                <div className="CTcheckmark_circle"></div>
+                <div className="CTcheckmark_stem"></div>
+                <div className="CTcheckmark_kick"></div>
+              </span>
+              <div className='CTsubmitCheck'></div>
+              <h2 id='CTsubmitMsg'>Your answer was submitted!</h2>
             </div>
           </div>
         ) : (<div/>) }

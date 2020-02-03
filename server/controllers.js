@@ -16,7 +16,18 @@ var controllers = {
   post: (req, res) => {
     dbHelpers.post(req.body)
       .then(() => {
-        res.status(201).send('posted')
+        res.status(201).send('posted question')
+      })
+      .catch(err => {
+        res.status(401).send(err)
+      });
+  },
+  postAns: (req, res) => {
+    console.log(req.body)
+    console.log(req.params)
+    dbHelpers.postAns(req.body, req.params)
+      .then(() => {
+        res.status(201).send('posted question')
       })
       .catch(err => {
         res.status(401).send(err)

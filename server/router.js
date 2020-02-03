@@ -5,4 +5,9 @@ router
   .route('/')
   .get(controllers.get)
   .post(controllers.post)
+
+router
+  .route('/:number')
+  .post(controllers.postAns)
+
 module.exports = router;

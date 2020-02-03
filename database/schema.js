@@ -17,7 +17,8 @@ var QASchema = new mongoose.Schema({
       aLocation: String,
       yes: Number, 
       no: Number,
-      inappropriate: String
+      inappropriate: String,
+      newAns: String
     }
   ]
 });

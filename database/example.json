@@ -16,7 +16,8 @@
         "aLocation": "",
         "yes": 1, 
         "no": 1,
-        "inappropriate": ""
+        "inappropriate": "",
+        "newAns": false
       }
     ]
   },
@@ -37,7 +38,8 @@
         "aLocation": "",
         "yes": 2,
         "no": 0, 
-        "inappropriate": ""
+        "inappropriate": "",
+        "newAns": false
       }
     ]
   },
@@ -58,7 +60,8 @@
         "aLocation": "",
         "yes": 0,
         "no": 3,         
-        "inappropriate": ""
+        "inappropriate": "",
+        "newAns": false
       },
       {
         "aNickname": "me",
@@ -68,7 +71,8 @@
         "aLocation": "",
         "yes": 0,
         "no": 0, 
-        "inappropriate": "yes"
+        "inappropriate": "yes",
+        "newAns": false
       }
     ]
   }

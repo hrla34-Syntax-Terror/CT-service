@@ -26,7 +26,7 @@ class AnswerAQuestion extends React.Component {
     this.toggleCheck = this.toggleCheck.bind(this);
     this.hidePopup = this.hidePopup.bind(this);
     this.changeHandler = this.changeHandler.bind(this);
-    this.postQuestion = this.postQuestion.bind(this);
+    this.postAnswer = this.postAnswer.bind(this);
     this.setFormCompleted = this.setFormCompleted.bind(this);
   }
 
@@ -86,25 +86,25 @@ class AnswerAQuestion extends React.Component {
     });
   }
 
-  postQuestion() {
+  postAnswer() {
     this.setState({
       postQClicked: true,
     });
     if (this.state.formCompleted) {
-      this.props.hideAskAQuestion();
-      this.props.questionSubmit();
-      var newQuestion = {};
-      var list = this.props.QApairs;
-      newQuestion.number = list[list.length - 1].number + 1;
-      newQuestion.qNickname = this.state.qNickname;
-      newQuestion.question = this.state.question;
-      newQuestion.qDate = this.state.qDate;
-      newQuestion.qEmail = this.state.qEmail;
-      newQuestion.qLocation = this.state.qLocation;
-      newQuestion.newQ = true;
-      newQuestion.answers = [];
+    this.props.hideAnsPopup();
+    this.props.answerSubmit();
+      var answer = {};
+      answer.aNickname = this.state.qNickname;
+      answer.answer = this.state.answer;
+      answer.aDate = this.state.qDate;
+      answer.aEmail = this.state.qEmail;
+      answer.aLocation = this.state.qLocation;
+      answer.yes = 0;
+      answer.no = 0;
+      answer.inappropriate = '';
+      answer.newAns = 'true';
       axios
-        .post('/api', newQuestion)
+        .post(`/api/${this.props.num}`, answer)
         .then(console.log('posted'))
         .catch((err) => console.error(err))
       document.getElementById('CTqForm').reset();
@@ -127,8 +127,8 @@ class AnswerAQuestion extends React.Component {
   }
   render() {
     return (
-      <div>
-        <div id='CTtinyWords' style={{marginBottom: -13, marginLeft: 8}}>Required fields are marked with *</div>
+      <div className='CTansQ'>
+        <div id='CTtinyWords' style={{marginBottom: 30, marginLeft: 8}}>Required fields are marked with *</div>
         <div className='CTqForm'>
           <div><span style={{fontWeight:'bold'}}>Answer*</span>
           { this.state.postQClicked && !this.state.questionBC ? (
@@ -210,9 +210,8 @@ class AnswerAQuestion extends React.Component {
           <input className='CTqInput' placeholder='Example: youremail@example.com' name='qEmail' onChange={(e) => this.changeHandler(e)} style={{borderColor: this.state.qEmailBC}}></input>
           </form>
         </div>
-        <hr/>
         <div id='CTagreeToTCContainer'><a href='CTagreeToTCContainer'></a>
-          <input type='checkbox' style={{cursor:'pointer'}} checked={this.state.checkedTC} onChange={this.toggleCheck}/><span id='CTiAgree'>&nbsp;&nbsp;&nbsp;I agree to the <a href='#CTqaContainer'><span id='CTterms' onClick={() => this.showPopup()}>terms &amp; conditions</span></a></span>
+          <input type='checkbox' style={{cursor:'pointer', marginTop:10}} checked={this.state.checkedTC} onChange={this.toggleCheck}/><span id='CTiAgree'>&nbsp;&nbsp;&nbsp;I agree to the <a href='#CTqaContainer'><span id='CTterms' onClick={() => this.showPopup()}>terms &amp; conditions</span></a></span>
           { this.state.postQClicked && !this.state.checkedTC ? (
             <span className='CTqRequiredContainer'>
              <span id='CTreqContent'>
@@ -232,14 +231,13 @@ class AnswerAQuestion extends React.Component {
         </div>
         <div id='CTtinyWords'>&nbsp;You may receive emails regarding this submission. Any emails will include the ability to opt out of future communications.</div>
         { this.state.formCompleted ? (
-          <a href='#CTqaContainer'><button className='CTaskAQuestion' id='CTpostQuestion' onClick={() => this.postQuestion()}>Post answer</button></a>
+          <a href='#CTqaContainer'><button className='CTaskAQuestion' id='CTpostQuestion' onClick={() => this.postAnswer()}>Post answer</button></a>
         ) : (
-          <button className='CTaskAQuestion' id='CTpostQuestion' onClick={() => this.postQuestion()}>Post answer</button>
+          <button className='CTaskAQuestion' id='CTpostQuestion' onClick={() => this.postAnswer()}>Post answer</button>
         ) }
         { this.state.TCPopup ? (
           <TermsAndConditions checkTCHidePopup={this.checkTCHidePopup} hidePopup={this.hidePopup}/>
         ) : (<div/>) }
-        
       </div>
     );
   }

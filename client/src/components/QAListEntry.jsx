@@ -40,15 +40,16 @@ class QAListEntry extends React.Component {
         ) : (      
           <button className='CTanswerButton' onClick={() => this.showAnsPopup()}>Answer the question</button>
         ) }
-        { this.props.QApair.answers.length !== 0 ? (<QAListAns firstAns={this.props.QApair.answers[0]} number={this.props.QApair.number} QApairs={this.props.QApairs}/>) : (<div/>) }
+        { this.props.QApair.answers.length !== 0 && this.props.QApair.answers[0].newAns === 'false'  ? (
+          <QAListAns firstAns={this.props.QApair.answers[0]} number={this.props.QApair.number} QApairs={this.props.QApairs}/>) : (<div/>) }
         { this.state.answerQ ? (
           <div>
           <div id='CTpageMask'></div>
           <div className='CTansPopup'>
             <h2 className='CTQandA' id='CTpostAnsTitle'>Post answer</h2> 
-            <a href='#CTqaContainer'><span className='CTcloseAskQ' onClick={() => this.hideAnsPopup()}></span></a>
+            <a href='#CTqaContainer'><span className='CTclosePostAns' onClick={() => this.hideAnsPopup()}></span></a>
             <div className='CTuser'>
-              <span className='CTnickname'>{this.props.QApair.qNickname}&nbsp;</span>
+              &nbsp;<span className='CTnickname'>{this.props.QApair.qNickname}&nbsp;</span>
                 <span>·</span>&nbsp;<span id='CTsmallFont'>{moment(this.props.QApair.qDate, 'MMDDYYYY').fromNow()}</span>
                 <span id='CTnumAns'>
                 <div style={{fontWeight:"bold"}}>{this.props.QApair.answers.length}</div>
@@ -57,11 +58,14 @@ class QAListEntry extends React.Component {
                 </div>
              </span>
             </div>
-            <h3 className='CTquestion'>{this.props.QApair.question}</h3>
-            { this.props.QApair.answers.map((answer, index) => (
-              <QAListAns firstAns={answer} number={this.props.QApair.number} QApairs={this.props.QApairs} key={index}/>
+            <h3 className='CTquestion' style={{marginTop: 10, marginBottom: 20}}>{this.props.QApair.question}</h3>
+            { this.props.QApair.answers.filter((answer) => (answer.newAns === 'false')).map((answer, index) => (
+              <div>
+                <div style={{marginTop: 50}}></div>
+                <QAListAns firstAns={answer} number={this.props.QApair.number} QApairs={this.props.QApairs} key={index} forPostAns={true}/>
+              </div>
             )) }
-            <AnswerAQuestion/>
+            <AnswerAQuestion answerSubmit={this.props.answerSubmit} hideAnsPopup={this.hideAnsPopup} num={this.props.QApair.number}/>
           </div>
           </div>
         ) : (<div/>) }

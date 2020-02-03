@@ -27339,12 +27339,15 @@ var App = function (_React$Component) {
     _this.state = {
       QApairs: [],
       showAskQ: false,
-      submitQuestion: false
+      submitQuestion: false,
+      submitAnswer: false
     };
     _this.showAskAQuestion = _this.showAskAQuestion.bind(_this);
     _this.hideAskAQuestion = _this.hideAskAQuestion.bind(_this);
     _this.questionSubmit = _this.questionSubmit.bind(_this);
     _this.closeSubmitQPopup = _this.closeSubmitQPopup.bind(_this);
+    _this.getData = _this.getData.bind(_this);
+    _this.answerSubmit = _this.answerSubmit.bind(_this);
     return _this;
   }
 
@@ -27384,9 +27387,19 @@ var App = function (_React$Component) {
       this.setState({ submitQuestion: true });
     }
   }, {
+    key: 'answerSubmit',
+    value: function answerSubmit() {
+      this.setState({ submitAnswer: true });
+    }
+  }, {
     key: 'closeSubmitQPopup',
     value: function closeSubmitQPopup() {
       this.setState({ submitQuestion: false });
+    }
+  }, {
+    key: 'closeSubmitAPopup',
+    value: function closeSubmitAPopup() {
+      this.setState({ submitAnswer: false });
     }
   }, {
     key: 'render',
@@ -27465,13 +27478,13 @@ var App = function (_React$Component) {
           ),
           _react2.default.createElement('hr', null),
           _react2.default.createElement('div', null),
-          _react2.default.createElement(_QAList2.default, { QApairs: this.state.QApairs })
+          _react2.default.createElement(_QAList2.default, { QApairs: this.state.QApairs, answerSubmit: this.answerSubmit })
         ),
         _react2.default.createElement(
           'div',
           { id: 'CTaskAQuestion' },
           _react2.default.createElement('a', { href: 'CTaskAQuestion' }),
-          this.state.showAskQ ? _react2.default.createElement(_AskAQuestion2.default, { QApairs: this.state.QApairs, hideAskAQuestion: this.hideAskAQuestion, questionSubmit: this.questionSubmit }) : _react2.default.createElement('div', null)
+          this.state.showAskQ ? _react2.default.createElement(_AskAQuestion2.default, { QApairs: this.state.QApairs, hideAskAQuestion: this.hideAskAQuestion, questionSubmit: this.questionSubmit, getData: this.getData }) : _react2.default.createElement('div', null)
         ),
         this.state.submitQuestion ? _react2.default.createElement(
           'div',
@@ -27495,6 +27508,31 @@ var App = function (_React$Component) {
               'h2',
               { id: 'CTsubmitMsg' },
               'Your question was submitted!'
+            )
+          )
+        ) : _react2.default.createElement('div', null),
+        this.state.submitAnswer ? _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement('div', { id: 'CTpageMask' }),
+          _react2.default.createElement(
+            'div',
+            { className: 'CTpopupSubmit' },
+            _react2.default.createElement('span', { className: 'CTcloseSubmitQ', onClick: function onClick() {
+                return _this3.closeSubmitAPopup();
+              } }),
+            _react2.default.createElement(
+              'span',
+              { className: 'CTcheckmark' },
+              _react2.default.createElement('div', { className: 'CTcheckmark_circle' }),
+              _react2.default.createElement('div', { className: 'CTcheckmark_stem' }),
+              _react2.default.createElement('div', { className: 'CTcheckmark_kick' })
+            ),
+            _react2.default.createElement('div', { className: 'CTsubmitCheck' }),
+            _react2.default.createElement(
+              'h2',
+              { id: 'CTsubmitMsg' },
+              'Your answer was submitted!'
             )
           )
         ) : _react2.default.createElement('div', null)
@@ -28476,7 +28514,7 @@ var AskAQuestion = function (_React$Component) {
         newQuestion.qLocation = this.state.qLocation;
         newQuestion.newQ = true;
         newQuestion.answers = [];
-        _axios2.default.post('/api', newQuestion).then(console.log('posted')).catch(function (err) {
+        _axios2.default.post('/api', newQuestion).then(this.props.getData()).catch(function (err) {
           return console.error(err);
         });
         document.getElementById('CTqForm').reset();
@@ -28764,7 +28802,7 @@ var QAList = function QAList(props) {
     'div',
     null,
     props.QApairs.map(function (QApair, index) {
-      return _react2.default.createElement(_QAListEntry2.default, { QApairs: props.QApairs, QApair: QApair, key: index });
+      return _react2.default.createElement(_QAListEntry2.default, { QApairs: props.QApairs, QApair: QApair, answerSubmit: props.answerSubmit, key: index });
     })
   );
 };
@@ -28928,7 +28966,7 @@ var QAListAns = function (_React$Component) {
             'Report as inappropriate'
           )
         ),
-        this.props.QApairs.length === this.props.number ? _react2.default.createElement('div', null) : _react2.default.createElement('hr', null)
+        this.props.forPostAns ? _react2.default.createElement('div', null) : this.props.QApairs.length === this.props.number ? _react2.default.createElement('div', null) : _react2.default.createElement('hr', null)
       );
     }
   }]);
@@ -29068,7 +29106,7 @@ var QAListEntry = function (_React$Component) {
             } },
           'Answer the question'
         ),
-        this.props.QApair.answers.length !== 0 ? _react2.default.createElement(_QAListAns2.default, { firstAns: this.props.QApair.answers[0], number: this.props.QApair.number, QApairs: this.props.QApairs }) : _react2.default.createElement('div', null),
+        this.props.QApair.answers.length !== 0 && this.props.QApair.answers[0].newAns === 'false' ? _react2.default.createElement(_QAListAns2.default, { firstAns: this.props.QApair.answers[0], number: this.props.QApair.number, QApairs: this.props.QApairs }) : _react2.default.createElement('div', null),
         this.state.answerQ ? _react2.default.createElement(
           'div',
           null,
@@ -29084,13 +29122,14 @@ var QAListEntry = function (_React$Component) {
             _react2.default.createElement(
               'a',
               { href: '#CTqaContainer' },
-              _react2.default.createElement('span', { className: 'CTcloseAskQ', onClick: function onClick() {
+              _react2.default.createElement('span', { className: 'CTclosePostAns', onClick: function onClick() {
                   return _this2.hideAnsPopup();
                 } })
             ),
             _react2.default.createElement(
               'div',
               { className: 'CTuser' },
+              '\xA0',
               _react2.default.createElement(
                 'span',
                 { className: 'CTnickname' },
@@ -29133,13 +29172,20 @@ var QAListEntry = function (_React$Component) {
             ),
             _react2.default.createElement(
               'h3',
-              { className: 'CTquestion' },
+              { className: 'CTquestion', style: { marginTop: 10, marginBottom: 20 } },
               this.props.QApair.question
             ),
-            this.props.QApair.answers.map(function (answer, index) {
-              return _react2.default.createElement(_QAListAns2.default, { firstAns: answer, number: _this2.props.QApair.number, QApairs: _this2.props.QApairs, key: index });
+            this.props.QApair.answers.filter(function (answer) {
+              return answer.newAns === 'false';
+            }).map(function (answer, index) {
+              return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement('div', { style: { marginTop: 50 } }),
+                _react2.default.createElement(_QAListAns2.default, { firstAns: answer, number: _this2.props.QApair.number, QApairs: _this2.props.QApairs, key: index, forPostAns: true })
+              );
             }),
-            _react2.default.createElement(_AnswerAQuestion2.default, null)
+            _react2.default.createElement(_AnswerAQuestion2.default, { answerSubmit: this.props.answerSubmit, hideAnsPopup: this.hideAnsPopup, num: this.props.QApair.number })
           )
         ) : _react2.default.createElement('div', null)
       );
@@ -42633,7 +42679,7 @@ var AnswerAQuestion = function (_React$Component) {
     _this.toggleCheck = _this.toggleCheck.bind(_this);
     _this.hidePopup = _this.hidePopup.bind(_this);
     _this.changeHandler = _this.changeHandler.bind(_this);
-    _this.postQuestion = _this.postQuestion.bind(_this);
+    _this.postAnswer = _this.postAnswer.bind(_this);
     _this.setFormCompleted = _this.setFormCompleted.bind(_this);
     return _this;
   }
@@ -42710,25 +42756,25 @@ var AnswerAQuestion = function (_React$Component) {
       });
     }
   }, {
-    key: 'postQuestion',
-    value: function postQuestion() {
+    key: 'postAnswer',
+    value: function postAnswer() {
       this.setState({
         postQClicked: true
       });
       if (this.state.formCompleted) {
-        this.props.hideAskAQuestion();
-        this.props.questionSubmit();
-        var newQuestion = {};
-        var list = this.props.QApairs;
-        newQuestion.number = list[list.length - 1].number + 1;
-        newQuestion.qNickname = this.state.qNickname;
-        newQuestion.question = this.state.question;
-        newQuestion.qDate = this.state.qDate;
-        newQuestion.qEmail = this.state.qEmail;
-        newQuestion.qLocation = this.state.qLocation;
-        newQuestion.newQ = true;
-        newQuestion.answers = [];
-        _axios2.default.post('/api', newQuestion).then(console.log('posted')).catch(function (err) {
+        this.props.hideAnsPopup();
+        this.props.answerSubmit();
+        var answer = {};
+        answer.aNickname = this.state.qNickname;
+        answer.answer = this.state.answer;
+        answer.aDate = this.state.qDate;
+        answer.aEmail = this.state.qEmail;
+        answer.aLocation = this.state.qLocation;
+        answer.yes = 0;
+        answer.no = 0;
+        answer.inappropriate = '';
+        answer.newAns = 'true';
+        _axios2.default.post('/api/' + this.props.num, answer).then(console.log('posted')).catch(function (err) {
           return console.error(err);
         });
         document.getElementById('CTqForm').reset();
@@ -42757,10 +42803,10 @@ var AnswerAQuestion = function (_React$Component) {
 
       return _react2.default.createElement(
         'div',
-        null,
+        { className: 'CTansQ' },
         _react2.default.createElement(
           'div',
-          { id: 'CTtinyWords', style: { marginBottom: -13, marginLeft: 8 } },
+          { id: 'CTtinyWords', style: { marginBottom: 30, marginLeft: 8 } },
           'Required fields are marked with *'
         ),
         _react2.default.createElement(
@@ -42895,12 +42941,11 @@ var AnswerAQuestion = function (_React$Component) {
               }, style: { borderColor: this.state.qEmailBC } })
           )
         ),
-        _react2.default.createElement('hr', null),
         _react2.default.createElement(
           'div',
           { id: 'CTagreeToTCContainer' },
           _react2.default.createElement('a', { href: 'CTagreeToTCContainer' }),
-          _react2.default.createElement('input', { type: 'checkbox', style: { cursor: 'pointer' }, checked: this.state.checkedTC, onChange: this.toggleCheck }),
+          _react2.default.createElement('input', { type: 'checkbox', style: { cursor: 'pointer', marginTop: 10 }, checked: this.state.checkedTC, onChange: this.toggleCheck }),
           _react2.default.createElement(
             'span',
             { id: 'CTiAgree' },
@@ -42950,14 +42995,14 @@ var AnswerAQuestion = function (_React$Component) {
           _react2.default.createElement(
             'button',
             { className: 'CTaskAQuestion', id: 'CTpostQuestion', onClick: function onClick() {
-                return _this4.postQuestion();
+                return _this4.postAnswer();
               } },
             'Post answer'
           )
         ) : _react2.default.createElement(
           'button',
           { className: 'CTaskAQuestion', id: 'CTpostQuestion', onClick: function onClick() {
-              return _this4.postQuestion();
+              return _this4.postAnswer();
             } },
           'Post answer'
         ),

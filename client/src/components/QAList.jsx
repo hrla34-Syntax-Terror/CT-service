@@ -4,7 +4,7 @@ import QAListEntry from './QAListEntry.jsx';
 var QAList = (props) => {
   return (
     <div>
-      { props.QApairs.map((QApair, index) => <QAListEntry QApairs={props.QApairs} QApair={QApair} key={index}/>) }
+      { props.QApairs.map((QApair, index) => <QAListEntry QApairs={props.QApairs} QApair={QApair} answerSubmit={props.answerSubmit} key={index}/>) }
     </div>
   )
 }
