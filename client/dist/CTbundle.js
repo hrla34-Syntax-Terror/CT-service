@@ -27409,7 +27409,6 @@ var App = function (_React$Component) {
       var _this3 = this;
 
       this.setState({ currentSelection: e.target.value });
-      console.log(e.target.value);
       _axios2.default.post('/api/sort', { sort: e.target.value }).then(function (result) {
         return _this3.setState({ QApairs: result.data });
       }).catch(function (err) {
@@ -28882,7 +28881,6 @@ var QAListAns = function (_React$Component) {
     value: function upVote(e) {
       var _setState;
 
-      console.log(e.target.getAttribute('name'));
       this.setState((_setState = {}, _defineProperty(_setState, e.target.getAttribute('name'), this.state[e.target.getAttribute('name')] + 1), _defineProperty(_setState, 'upVoted', true), _setState));
     }
   }, {
@@ -29099,7 +29097,7 @@ var QAListEntry = function (_React$Component) {
             _react2.default.createElement(
               'div',
               null,
-              this.props.QApair.answers.length > 1 ? _react2.default.createElement(
+              this.props.QApair.ansCount > 1 ? _react2.default.createElement(
                 'div',
                 null,
                 'answers'
@@ -29129,7 +29127,7 @@ var QAListEntry = function (_React$Component) {
             } },
           'Answer the question'
         ),
-        this.props.QApair.answers.length !== 0 && this.props.QApair.answers[0].newAns === 'false' ? _react2.default.createElement(_QAListAns2.default, { firstAns: this.props.QApair.answers[0], number: this.props.QApair.number, QApairs: this.props.QApairs }) : _react2.default.createElement('div', null),
+        this.props.QApair.ansCount > 0 && this.props.QApair.answers[0].newAns === 'false' ? _react2.default.createElement(_QAListAns2.default, { firstAns: this.props.QApair.answers[0], number: this.props.QApair.number, QApairs: this.props.QApairs }) : _react2.default.createElement('div', null),
         this.state.answerQ ? _react2.default.createElement(
           'div',
           null,
@@ -29176,12 +29174,12 @@ var QAListEntry = function (_React$Component) {
                 _react2.default.createElement(
                   'div',
                   { style: { fontWeight: "bold" } },
-                  this.props.QApair.answers.length
+                  this.props.QApair.ansCount || 0
                 ),
                 _react2.default.createElement(
                   'div',
                   null,
-                  this.props.QApair.answers.length > 1 ? _react2.default.createElement(
+                  this.props.QApair.ansCount > 1 ? _react2.default.createElement(
                     'div',
                     null,
                     'answers'

@@ -17,7 +17,6 @@ class QAListAns extends React.Component {
   }
 
   upVote(e) {
-    console.log(e.target.getAttribute('name'))
     this.setState({
       [e.target.getAttribute('name')]: this.state[e.target.getAttribute('name')] + 1,
       upVoted: true

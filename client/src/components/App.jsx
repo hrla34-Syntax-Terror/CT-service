@@ -64,7 +64,6 @@ class App extends React.Component {
 
   changeHandler(e) {
     this.setState({ currentSelection: e.target.value });
-    console.log(e.target.value)
     axios
       .post('/api/sort', { sort: e.target.value })
       .then((result) => this.setState({ QApairs: result.data }))

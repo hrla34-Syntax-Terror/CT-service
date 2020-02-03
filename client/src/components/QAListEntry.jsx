@@ -20,6 +20,7 @@ class QAListEntry extends React.Component {
   hideAnsPopup() {
     this.setState({ answerQ: false });
   }
+  
   render() {
     return (
       <div className='CTlistEntry'>
@@ -29,7 +30,7 @@ class QAListEntry extends React.Component {
           <span id='CTnumAns' onClick={() => this.showAnsPopup()}>
             <div style={{fontWeight:"bold"}}>{this.props.QApair.ansCount || 0}</div>
             <div> 
-            {this.props.QApair.answers.length > 1 ? (<div>answers</div>) : (<div>answer</div>)}
+            {this.props.QApair.ansCount > 1 ? (<div>answers</div>) : (<div>answer</div>)}
             </div>
           </span>
         </div>
@@ -39,7 +40,7 @@ class QAListEntry extends React.Component {
         ) : (      
           <button className='CTanswerButton' onClick={() => this.showAnsPopup()}>Answer the question</button>
         ) }
-        { this.props.QApair.answers.length !== 0 && this.props.QApair.answers[0].newAns === 'false'  ? (
+        { this.props.QApair.ansCount > 0 && this.props.QApair.answers[0].newAns === 'false'  ? (
           <QAListAns firstAns={this.props.QApair.answers[0]} number={this.props.QApair.number} QApairs={this.props.QApairs}/>) : (<div/>) }
         { this.state.answerQ ? (
           <div>
@@ -51,9 +52,9 @@ class QAListEntry extends React.Component {
               &nbsp;<span className='CTnickname'>{this.props.QApair.qNickname}&nbsp;</span>
                 <span>·</span>&nbsp;<span id='CTsmallFont'>{moment.tz(this.props.QApair.qDate, 'America/Los_Angeles').fromNow()}</span>
                 <span id='CTnumAns'>
-                <div style={{fontWeight:"bold"}}>{this.props.QApair.answers.length}</div>
+                <div style={{fontWeight:"bold"}}>{this.props.QApair.ansCount || 0}</div>
                 <div> 
-                {this.props.QApair.answers.length > 1 ? (<div>answers</div>) : (<div>answer</div>)}
+                {this.props.QApair.ansCount > 1 ? (<div>answers</div>) : (<div>answer</div>)}
                 </div>
              </span>
             </div>
