@@ -27720,7 +27720,6 @@ var App = function (_React$Component) {
               )
             )
           ),
-          _react2.default.createElement('hr', null),
           _react2.default.createElement('div', null),
           _react2.default.createElement(_QAList2.default, { QApairs: this.state.QApairs, answerSubmit: this.answerSubmit })
         ),
@@ -29142,6 +29141,8 @@ var AskAQuestion = function (_React$Component) {
   }, {
     key: 'postQuestion',
     value: function postQuestion() {
+      var _this4 = this;
+
       this.setState({
         postQClicked: true
       });
@@ -29158,7 +29159,9 @@ var AskAQuestion = function (_React$Component) {
         newQuestion.qLocation = this.state.qLocation;
         newQuestion.newQ = true;
         newQuestion.answers = [];
-        _axios2.default.post('/api', newQuestion).then(this.props.getData()).catch(function (err) {
+        _axios2.default.post('/api', newQuestion).then(function () {
+          return _this4.props.getData();
+        }).catch(function (err) {
           return console.error(err);
         });
         document.getElementById('CTqForm').reset();
@@ -29183,7 +29186,7 @@ var AskAQuestion = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _this4 = this;
+      var _this5 = this;
 
       return _react2.default.createElement(
         'div',
@@ -29197,7 +29200,7 @@ var AskAQuestion = function (_React$Component) {
           'a',
           { href: '#CTqaContainer' },
           _react2.default.createElement('span', { className: 'CTcloseAskQ', onClick: function onClick() {
-              return _this4.props.hideAskAQuestion();
+              return _this5.props.hideAskAQuestion();
             } })
         ),
         _react2.default.createElement(
@@ -29249,7 +29252,7 @@ var AskAQuestion = function (_React$Component) {
             'form',
             { id: 'CTqForm' },
             _react2.default.createElement('textarea', { className: 'CTqTextArea', rows: '4', cols: '129', placeholder: 'Ask a question...', name: 'question', onChange: function onChange(e) {
-                return _this4.changeHandler(e);
+                return _this5.changeHandler(e);
               }, style: { borderColor: this.state.questionBC } }),
             _react2.default.createElement('hr', null),
             _react2.default.createElement(
@@ -29284,7 +29287,7 @@ var AskAQuestion = function (_React$Component) {
                   'div',
                   null,
                   _react2.default.createElement('input', { className: 'CTqInput', placeholder: 'Example: jackie27', name: 'qNickname', onChange: function onChange(e) {
-                      return _this4.changeHandler(e);
+                      return _this5.changeHandler(e);
                     }, style: { borderColor: this.state.qNicknameBC } })
                 )
               ),
@@ -29307,7 +29310,7 @@ var AskAQuestion = function (_React$Component) {
                   'div',
                   null,
                   _react2.default.createElement('input', { className: 'CTqInput', placeholder: 'Example: Seattle, WA', name: 'qLocation', onChange: function onChange(e) {
-                      return _this4.changeHandler(e);
+                      return _this5.changeHandler(e);
                     }, style: { borderColor: this.state.qLocationBC } })
                 )
               )
@@ -29340,7 +29343,7 @@ var AskAQuestion = function (_React$Component) {
               ) : _react2.default.createElement('div', null)
             ),
             _react2.default.createElement('input', { className: 'CTqInput', placeholder: 'Example: youremail@example.com', name: 'qEmail', onChange: function onChange(e) {
-                return _this4.changeHandler(e);
+                return _this5.changeHandler(e);
               }, style: { borderColor: this.state.qEmailBC } })
           )
         ),
@@ -29360,7 +29363,7 @@ var AskAQuestion = function (_React$Component) {
               _react2.default.createElement(
                 'span',
                 { id: 'CTterms', onClick: function onClick() {
-                    return _this4.showPopup();
+                    return _this5.showPopup();
                   } },
                 'terms & conditions'
               )
@@ -29399,14 +29402,14 @@ var AskAQuestion = function (_React$Component) {
           _react2.default.createElement(
             'button',
             { className: 'CTaskAQuestion', id: 'CTpostQuestion', onClick: function onClick() {
-                return _this4.postQuestion();
+                return _this5.postQuestion();
               } },
             'Post question'
           )
         ) : _react2.default.createElement(
           'button',
           { className: 'CTaskAQuestion', id: 'CTpostQuestion', onClick: function onClick() {
-              return _this4.postQuestion();
+              return _this5.postQuestion();
             } },
           'Post question'
         ),
@@ -29612,8 +29615,7 @@ var QAListAns = function (_React$Component) {
               }, className: 'CTinappropriate' },
             'Report as inappropriate'
           )
-        ),
-        this.props.forPostAns ? _react2.default.createElement('div', null) : this.props.QApairs.length === this.props.number ? _react2.default.createElement('div', null) : _react2.default.createElement('hr', null)
+        )
       );
     }
   }]);
@@ -29694,6 +29696,7 @@ var QAListEntry = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { className: 'CTlistEntry' },
+        _react2.default.createElement('hr', null),
         _react2.default.createElement(
           'div',
           { className: 'CTuser' },

@@ -24,6 +24,7 @@ class QAListEntry extends React.Component {
   render() {
     return (
       <div className='CTlistEntry'>
+        <hr/>
         <div className='CTuser'>
           <span className='CTnickname'>{this.props.QApair.qNickname}&nbsp;</span>
           <span>·</span>&nbsp;<span id='CTsmallFont'>{moment.tz(this.props.QApair.qDate, 'America/Los_Angeles').fromNow()}</span>

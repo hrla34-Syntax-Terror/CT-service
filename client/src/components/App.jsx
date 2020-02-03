@@ -97,16 +97,8 @@ class App extends React.Component {
                 <div name='ansNeeded' onClick={(e) => this.clickSelection(e)}>Answers needed</div>
                 <div name='mostHelpful' onClick={(e) => this.clickSelection(e)}>Most helpful answers</div>
               </div>
-              {/* <select className='CTdropDown' value={this.state.currentSelection} onChange={(e) => this.changeHandler(e)}>
-                <option value='newestQ'>Newest questions</option>
-                <option value='newestAns'>Newest answers</option>
-                <option value='mostAns'>Most answered</option>
-                <option value='ansNeeded'>Answers needed</option>
-                <option value='mostHelpful'>Most helpful answers</option>
-              </select> */}
             </span>
           </div>
-        <hr/>
         <div>
         </div>
         <QAList QApairs={this.state.QApairs} answerSubmit={this.answerSubmit}/>

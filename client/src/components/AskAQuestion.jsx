@@ -103,7 +103,7 @@ class AskAQuestion extends React.Component {
       newQuestion.answers = [];
       axios
         .post('/api', newQuestion)
-        .then(this.props.getData())
+        .then(() => this.props.getData())
         .catch((err) => console.error(err))
       document.getElementById('CTqForm').reset();
       this.setState({
