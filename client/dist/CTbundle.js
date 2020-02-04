@@ -27545,7 +27545,7 @@ var App = function (_React$Component) {
       showAskQ: false,
       submitQuestion: false,
       submitAnswer: false,
-      currentSelection: 'mostHelpful'
+      currentSelection: 'Most helpful answers'
     };
     _this.showAskAQuestion = _this.showAskAQuestion.bind(_this);
     _this.hideAskAQuestion = _this.hideAskAQuestion.bind(_this);
@@ -27622,7 +27622,7 @@ var App = function (_React$Component) {
       var _this3 = this;
 
       var selected = e.target.getAttribute('name');
-      this.setState({ currentSelection: selected });
+      this.setState({ currentSelection: e.target.textContent });
       _axios2.default.post('/api/sort', { sort: selected }).then(function (result) {
         return _this3.setState({ QApairs: result.data });
       }).catch(function (err) {
@@ -27676,7 +27676,7 @@ var App = function (_React$Component) {
               _react2.default.createElement(
                 'button',
                 { className: 'CTdropdownBtn' },
-                'Most helpful answers'
+                this.state.currentSelection
               ),
               '\u25BE',
               _react2.default.createElement(

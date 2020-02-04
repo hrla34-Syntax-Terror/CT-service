@@ -12,7 +12,7 @@ class App extends React.Component {
       showAskQ: false,
       submitQuestion: false,
       submitAnswer: false,
-      currentSelection: 'mostHelpful'
+      currentSelection: 'Most helpful answers'
     }
     this.showAskAQuestion = this.showAskAQuestion.bind(this);
     this.hideAskAQuestion = this.hideAskAQuestion.bind(this);
@@ -72,7 +72,7 @@ class App extends React.Component {
 
   clickSelection(e) {
     var selected = e.target.getAttribute('name');
-    this.setState({ currentSelection: selected});
+    this.setState({ currentSelection: e.target.textContent});
     axios
       .post('/api/sort', { sort: selected })
       .then((result) => this.setState({ QApairs: result.data }))
@@ -89,7 +89,7 @@ class App extends React.Component {
           <div id='CTqaTotal'>
             <span>1 &ndash; {this.state.QApairs.length} of {this.state.QApairs.length} Questions</span>
             <span className='CTsortBy'>Sort by:&nbsp;
-              <button className='CTdropdownBtn'>Most helpful answers</button>&#9662;
+              <button className='CTdropdownBtn'>{this.state.currentSelection}</button>&#9662;
               <div className='CTdropdownContent'>
                 <div name='newestQ' onClick={(e) => this.clickSelection(e)}>Newest questions</div>
                 <div name='newestAns' onClick={(e) => this.clickSelection(e)}>Newest answers</div>
