@@ -52,11 +52,7 @@ class QAListAns extends React.Component {
           ) : (
             <span onClick={() => this.reported()} className='CTinappropriate'>Report as inappropriate</span>
           ) }
-        </div>
-        {/* { this.props.forPostAns ? (<div/>) : (
-          this.props.QApairs.length === this.props.number ? (<div/>) : (<hr/>) 
-        ) } */}
-        
+        </div>        
       </div>
     )
   }
