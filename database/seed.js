@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const QApair = require('./'); // ./ defaults to index
 // var example = require('./example.json');
-var questions = require('./questions.js');
-var answers = require('./answers.js');
+var questions = require('./questions.js'); // real data from web
+var answers = require('./answers.js'); // real data from web
 const faker = require('faker');
 let products = [];
 
@@ -47,10 +47,16 @@ for (var i = 0; i < 100; i++) {
         newAns: false
       });
     }
+    // sort the answers by having the most recent answer at the beginning of array
+    qa.answers.sort(function(a,b) {
+      return new Date(b.aDate) - new Date(a.aDate);
+    })
     product.QApairs.push(qa);
   }
   products.push(product);
 }
+
+// generate a random index and seed that index in the products array to database
 let randomIndex = faker.random.number({ min: 1, max: 100 });
 let randomProduct = products[randomIndex].QApairs;
 var seedData = () => {
@@ -59,7 +65,7 @@ var seedData = () => {
       console.log('database seeded');
       mongoose.connection.close();
     })
-    .catch(err => console.error(err))
+    .catch(err => console.error(err));
 };
 
 seedData();

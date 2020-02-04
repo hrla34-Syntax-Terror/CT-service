@@ -15,7 +15,13 @@ var dbHelpers = {
       return QApair.find({}).sort({'qDate': -1})
     }
     if (category.sort === 'newestAns') {
-      return QApair.aggregate([{$match: {'answers.newAns': 'false'}}, {$sort: {'answers.aData': 1}}])
+      return QApair.find({})
+        .then((data) => {
+          data.sort(function(a,b) {
+            return new Date(b.answers[0].aDate) - new Date(a.answers[0].aDate);
+          })
+          return data;
+        })
     }
     if (category.sort === 'mostAns') {
       return QApair.find({}).sort({'ansCount': -1})

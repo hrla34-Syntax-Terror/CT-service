@@ -34,7 +34,6 @@ var controllers = {
   sort: (req, res) => {
     dbHelpers.sort(req.body)
       .then((data) => {
-        console.log(data)
         res.status(202).send(data)
       })
       .catch(err => {
