@@ -15,7 +15,7 @@ for (var i = 0; i < 100; i++) {
     QApairs: [] 
   };
   // randomize the quantity of QA pairs for each product
-  let QApairsQty = faker.random.number({ min: 2, max: 10 });
+  let QApairsQty = faker.random.number({ min: 4, max: 10 });
   // randomly generate qa pairs until the desired quantity is reached
   for (var j = 0; j < QApairsQty; j++) {
     // random questions are generated below
@@ -31,7 +31,7 @@ for (var i = 0; i < 100; i++) {
       answers: []
     };
     // for each randomly generated question, the number of answers should be a random number from 1 to 5
-    let ansQty = faker.random.number({ min: 1, max: 5 });
+    let ansQty = faker.random.number({ min: 1, max: 3 });
     qa.ansCount = ansQty;
     // and each question should be paired with the desired number of answers
     for (var k = 0; k < ansQty; k++) {

@@ -29693,6 +29693,12 @@ var QAListEntry = function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
+      var mostHelpfulAns = this.props.QApair.answers[0];
+      this.props.QApair.answers.forEach(function (answer) {
+        if (answer.yes > mostHelpfulAns.yes) {
+          mostHelpfulAns = answer;
+        }
+      });
       return _react2.default.createElement(
         'div',
         { className: 'CTlistEntry' },
@@ -29760,7 +29766,7 @@ var QAListEntry = function (_React$Component) {
             } },
           'Answer the question'
         ),
-        this.props.QApair.ansCount > 0 && this.props.QApair.answers[0].newAns === 'false' ? _react2.default.createElement(_QAListAns2.default, { firstAns: this.props.QApair.answers[0], number: this.props.QApair.number, QApairs: this.props.QApairs }) : _react2.default.createElement('div', null),
+        this.props.QApair.ansCount > 0 && mostHelpfulAns.newAns === 'false' ? _react2.default.createElement(_QAListAns2.default, { firstAns: mostHelpfulAns, number: this.props.QApair.number, QApairs: this.props.QApairs }) : _react2.default.createElement('div', null),
         this.state.answerQ ? _react2.default.createElement(
           'div',
           null,
@@ -29829,16 +29835,20 @@ var QAListEntry = function (_React$Component) {
               { className: 'CTquestion', style: { marginTop: 10, marginBottom: 20 } },
               this.props.QApair.question
             ),
-            this.props.QApair.answers.filter(function (answer) {
-              return answer.newAns === 'false';
-            }).map(function (answer, index) {
-              return _react2.default.createElement(
-                'div',
-                null,
-                _react2.default.createElement('div', { style: { marginTop: 50 } }),
-                _react2.default.createElement(_QAListAns2.default, { firstAns: answer, number: _this2.props.QApair.number, QApairs: _this2.props.QApairs, key: index, forPostAns: true })
-              );
-            }),
+            _react2.default.createElement(
+              'div',
+              { className: 'CTansList' },
+              this.props.QApair.answers.filter(function (answer) {
+                return answer.newAns === 'false';
+              }).map(function (answer, index) {
+                return _react2.default.createElement(
+                  'div',
+                  null,
+                  _react2.default.createElement('div', { style: { marginTop: 50 } }),
+                  _react2.default.createElement(_QAListAns2.default, { firstAns: answer, number: _this2.props.QApair.number, QApairs: _this2.props.QApairs, key: index, forPostAns: true })
+                );
+              })
+            ),
             _react2.default.createElement(_AnswerAQuestion2.default, { answerSubmit: this.props.answerSubmit, hideAnsPopup: this.hideAnsPopup, num: this.props.QApair.number })
           )
         ) : _react2.default.createElement('div', null)

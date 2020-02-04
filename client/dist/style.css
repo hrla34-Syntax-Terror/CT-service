@@ -789,8 +789,7 @@ button:focus {
 }
 
 .CTansQ {
-  margin-top: 20px;
-  width: 1080px;  
+  width: 1083px;  
   background-color: #fafafa;
   padding-left: 50px;
   padding-right: 50px; 
@@ -846,4 +845,18 @@ button:focus {
   border: none;
   font-size: 16px;
   height: 40px;
+}
+
+.CTansList {
+  margin-top: 20px;
+  width: 1083px;  
+  background-color: #fafafa;
+  padding-left: 50px;
+  padding-right: 50px; 
+  background-color: #fafafa;
+  padding-left: 50px;
+  padding-right: 50px;
+  height:100%;
+  margin-left: -50px;
+  padding-bottom: 30px;
 }

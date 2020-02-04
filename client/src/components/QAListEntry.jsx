@@ -22,6 +22,12 @@ class QAListEntry extends React.Component {
   }
   
   render() {
+    let mostHelpfulAns = this.props.QApair.answers[0];
+    this.props.QApair.answers.forEach(answer => {
+      if (answer.yes > mostHelpfulAns.yes) {
+        mostHelpfulAns = answer;
+      }
+    })
     return (
       <div className='CTlistEntry'>
         <hr/>
@@ -41,8 +47,8 @@ class QAListEntry extends React.Component {
         ) : (      
           <button className='CTanswerButton' onClick={() => this.showAnsPopup()}>Answer the question</button>
         ) }
-        { this.props.QApair.ansCount > 0 && this.props.QApair.answers[0].newAns === 'false'  ? (
-          <QAListAns firstAns={this.props.QApair.answers[0]} number={this.props.QApair.number} QApairs={this.props.QApairs}/>) : (<div/>) }
+        { this.props.QApair.ansCount > 0 && mostHelpfulAns.newAns === 'false'  ? (
+          <QAListAns firstAns={mostHelpfulAns} number={this.props.QApair.number} QApairs={this.props.QApairs}/>) : (<div/>) }
         { this.state.answerQ ? (
           <div>
           <div id='CTpageMask'></div>
@@ -60,12 +66,14 @@ class QAListEntry extends React.Component {
              </span>
             </div>
             <h3 className='CTquestion' style={{marginTop: 10, marginBottom: 20}}>{this.props.QApair.question}</h3>
-            { this.props.QApair.answers.filter((answer) => (answer.newAns === 'false')).map((answer, index) => (
-              <div>
-                <div style={{marginTop: 50}}></div>
-                <QAListAns firstAns={answer} number={this.props.QApair.number} QApairs={this.props.QApairs} key={index} forPostAns={true}/>
-              </div>
-            )) }
+            <div  className='CTansList'>
+              { this.props.QApair.answers.filter((answer) => (answer.newAns === 'false')).map((answer, index) => (
+                <div>
+                  <div style={{marginTop: 50}}></div>
+                  <QAListAns firstAns={answer} number={this.props.QApair.number} QApairs={this.props.QApairs} key={index} forPostAns={true}/>
+                </div>
+              )) }
+            </div>
             <AnswerAQuestion answerSubmit={this.props.answerSubmit} hideAnsPopup={this.hideAnsPopup} num={this.props.QApair.number}/>
           </div>
           </div>
