@@ -105,7 +105,7 @@ class AnswerAQuestion extends React.Component {
         .post(`/api/${this.props.num}`, answer)
         .then(console.log('posted'))
         .catch((err) => console.error(err))
-      document.getElementById('CTqForm').reset();
+      document.getElementById('ct-form').reset();
       this.setState({
         question: '',
         qNickname: '',
@@ -125,113 +125,113 @@ class AnswerAQuestion extends React.Component {
   }
   render() {
     return (
-      <div className='CTansQ'>
-        <div id='CTtinyWords' style={{marginBottom: 30, marginLeft: 8}}>Required fields are marked with *</div>
-        <div className='CTqForm'>
+      <div className='ct-ans-q-form'>
+        <div id='ct-tiny-words' style={{marginBottom: 30, marginLeft: 8}}>Required fields are marked with *</div>
+        <div className='ct-form'>
           <div><span style={{fontWeight:'bold'}}>Answer*</span>
           { this.state.postQClicked && !this.state.questionBC ? (
-            <span className='CTqRequiredContainer'>
-             <span id='CTreqContent'>
-              Required&nbsp;<span className='CTrequired'></span>
+            <span className='ct-q-required-container'>
+             <span id='ct-req-content'>
+              Required&nbsp;<span className='ct-ans-required'></span>
              </span>
             </span>
           ) : (<div/>)}
           { this.state.question ? (
-            <span className='CTqcheckContainer'>
-            <span className="CTcheckmarkS">
-                <div className="CTcheckmarkS_circle"></div>
-                <div className="CTcheckmarkS_stem"></div>
-                <div className="CTcheckmarkS_kick"></div>
+            <span className='ct-q-check-container'>
+            <span className='ct-checkmark-sml'>
+                <div className='ct-checkmark-sml-circle'></div>
+                <div className='ct-checkmark-sml-stem'></div>
+                <div className='ct-checkmark-sml-kick'></div>
             </span>
             </span>
           ) : (<div/>) }
           </div>
-          <form id='CTqForm'>
-          <textarea className='CTqTextArea' rows='4' cols='129' placeholder='Ask a question...' name='question' onChange={(e) => this.changeHandler(e)} style={{borderColor: this.state.questionBC}}></textarea>
-          <hr/>
-          <div className='CTnicknameAndLoc'>
-            <div className='CTnicknameQ' style={{fontWeight:'bold'}}>Nickname*
+          <form id='ct-form'>
+          <textarea className='ct-textarea' rows='4' cols='129' placeholder='Ask a question...' name='question' onChange={(e) => this.changeHandler(e)} style={{borderColor: this.state.questionBC}}></textarea>
+          <hr className='ct-hr'/>
+          <div className='ct-nickname-and-loc'>
+            <div className='ct-nickname-form' style={{fontWeight:'bold'}}>Nickname*
             { this.state.postQClicked && !this.state.qNicknameBC ? (
-            <span className='CTnameRequiredContainer'>
-             <span id='CTreqContent' style={{fontWeight:'normal'}}>
-              Required&nbsp;<span className='CTrequired'></span>
+            <span className='ct-name-required-container'>
+             <span id='ct-req-content' style={{fontWeight:'normal'}}>
+              Required&nbsp;<span className='ct-ans-required'></span>
              </span>
             </span>
           ) : (<div/>)}
             { this.state.qNickname ? (
-            <span className='CTqcheckContainerName'>
-            <span className="CTcheckmarkS">
-                <div className="CTcheckmarkS_circle"></div>
-                <div className="CTcheckmarkS_stem"></div>
-                <div className="CTcheckmarkS_kick"></div>
+            <span className='ct-q-check-container-name'>
+            <span className='ct-checkmark-sml'>
+                <div className='ct-checkmark-sml-circle'></div>
+                <div className='ct-checkmark-sml-stem'></div>
+                <div className='ct-checkmark-sml-kick'></div>
             </span>
             </span>
           ) : (<div/>) }
               <div>
-                <input className='CTqInput' placeholder='Example: jackie27' name='qNickname' onChange={(e) => this.changeHandler(e)} style={{borderColor: this.state.qNicknameBC}}></input>
+                <input className='ct-q-input' placeholder='Example: jackie27' name='qNickname' onChange={(e) => this.changeHandler(e)} style={{borderColor: this.state.qNicknameBC}}></input>
               </div>
             </div>
-            <div className='CTlocationQ' style={{fontWeight:'bold'}}>Location
+            <div className='ct-location-form' style={{fontWeight:'bold'}}>Location
             { this.state.qLocationBC ? (
-            <span className='CTqcheckContainerLoc'>
-            <span className="CTcheckmarkS">
-                <div className="CTcheckmarkS_circle"></div>
-                <div className="CTcheckmarkS_stem"></div>
-                <div className="CTcheckmarkS_kick"></div>
+            <span className='ct-q-check-container-loc'>
+            <span className='ct-checkmark-sml'>
+                <div className='ct-checkmark-sml-circle'></div>
+                <div className='ct-checkmark-sml-stem'></div>
+                <div className='ct-checkmark-sml-kick'></div>
             </span>
             </span>
           ) : (<div/>) }
               <div>
-                <input className='CTqInput' placeholder='Example: Seattle, WA' name='qLocation' onChange={(e) => this.changeHandler(e)} style={{borderColor: this.state.qLocationBC}}></input>
+                <input className='ct-q-input' placeholder='Example: Seattle, WA' name='qLocation' onChange={(e) => this.changeHandler(e)} style={{borderColor: this.state.qLocationBC}}></input>
               </div>
             </div>
           </div>
-          <hr/>
+          <hr className='ct-hr'/>
           <div style={{fontWeight:'bold'}}>Email*
           { this.state.postQClicked && !this.state.qEmailBC ? (
-            <span className='CTemailRequiredContainer'>
-             <span id='CTreqContent' style={{fontWeight:'normal'}}>
-              Invalid email&nbsp;<span className='CTrequired'></span>
+            <span className='ct-email-required-container'>
+             <span id='ct-req-content' style={{fontWeight:'normal'}}>
+              Invalid email&nbsp;<span className='ct-ans-required'></span>
              </span>
             </span>
           ) : (<div/>)}
           { this.state.qEmail.includes('@') ? (
-            <span className='CTqcheckContainerEmail'>
-            <span className="CTcheckmarkS">
-                <div className="CTcheckmarkS_circle"></div>
-                <div className="CTcheckmarkS_stem"></div>
-                <div className="CTcheckmarkS_kick"></div>
+            <span className='ct-q-check-container-email'>
+            <span className='ct-checkmark-sml'>
+                <div className='ct-checkmark-sml-circle'></div>
+                <div className='ct-checkmark-sml-stem'></div>
+                <div className='ct-checkmark-sml-kick'></div>
             </span>
             </span>
           ) : (<div/>) }
         </div>
-          <input className='CTqInput' placeholder='Example: youremail@example.com' name='qEmail' onChange={(e) => this.changeHandler(e)} style={{borderColor: this.state.qEmailBC}}></input>
+          <input className='ct-q-input' placeholder='Example: youremail@example.com' name='qEmail' onChange={(e) => this.changeHandler(e)} style={{borderColor: this.state.qEmailBC}}></input>
           </form>
         </div>
-        <div id='CTagreeToTCContainer'><a href='CTagreeToTCContainer'></a>
-          <input type='checkbox' style={{cursor:'pointer', marginTop:10}} checked={this.state.checkedTC} onChange={this.toggleCheck}/><span id='CTiAgree'>&nbsp;&nbsp;&nbsp;I agree to the <a href='#CTqaContainer'><span id='CTterms' onClick={() => this.showPopup()}>terms &amp; conditions</span></a></span>
+        <div id='ct-agree-to-tc-container'><a href='ct-agree-to-tc-container'></a>
+          <input type='checkbox' style={{cursor:'pointer', marginTop:10}} checked={this.state.checkedTC} onChange={this.toggleCheck}/><span id='ct-agree'>&nbsp;&nbsp;&nbsp;I agree to the <a href='#ct-qa-container'><span id='ct-terms' onClick={() => this.showPopup()}>terms &amp; conditions</span></a></span>
           { this.state.postQClicked && !this.state.checkedTC ? (
-            <span className='CTqRequiredContainer'>
-             <span id='CTreqContent'>
-              Required&nbsp;<span className='CTrequired'></span>
+            <span className='ct-q-required-container'>
+             <span id='ct-req-content'>
+              Required&nbsp;<span className='ct-ans-required'></span>
              </span>
             </span>
           ) : (<div/>)}
           { this.state.checkedTC ? (
-            <span className='CTqcheckContainerTC'>
-            <span className="CTcheckmarkS">
-                <div className="CTcheckmarkS_circle"></div>
-                <div className="CTcheckmarkS_stem"></div>
-                <div className="CTcheckmarkS_kick"></div>
+            <span className='ct-check-container-tc'>
+            <span className='ct-checkmark-sml'>
+                <div className='ct-checkmark-sml-circle'></div>
+                <div className='ct-checkmark-sml-stem'></div>
+                <div className='ct-checkmark-sml-kick'></div>
             </span>
             </span>
           ) : (<div/>) }
         </div>
-        <div id='CTtinyWords'>&nbsp;You may receive emails regarding this submission. Any emails will include the ability to opt out of future communications.</div>
+        <div id='ct-tiny-words'>&nbsp;You may receive emails regarding this submission. Any emails will include the ability to opt out of future communications.</div>
         { this.state.formCompleted ? (
-          <a href='#CTqaContainer'><button className='CTaskAQuestion' id='CTpostQuestion' onClick={() => this.postAnswer()}>Post answer</button></a>
+          <a href='#ct-qa-container'><button className='ct-ask-q-btn' id='ct-submit-form' onClick={() => this.postAnswer()}>Post answer</button></a>
         ) : (
-          <button className='CTaskAQuestion' id='CTpostQuestion' onClick={() => this.postAnswer()}>Post answer</button>
+          <button className='ct-ask-q-btn' id='ct-submit-form' onClick={() => this.postAnswer()}>Post answer</button>
         ) }
         { this.state.TCPopup ? (
           <TermsAndConditions checkTCHidePopup={this.checkTCHidePopup} hidePopup={this.hidePopup}/>

@@ -27,46 +27,49 @@ class QAListEntry extends React.Component {
       if (answer.yes > mostHelpfulAns.yes) {
         mostHelpfulAns = answer;
       }
-    })
+    });
+    let mostRecentAns = this.props.QApair.answers[0];
     return (
-      <div className='CTlistEntry'>
-        <hr/>
-        <div className='CTuser'>
-          <span className='CTnickname'>{this.props.QApair.qNickname}&nbsp;</span>
-          <span>·</span>&nbsp;<span id='CTsmallFont'>{moment.tz(this.props.QApair.qDate, 'America/Los_Angeles').fromNow()}</span>
-          <span id='CTnumAns' onClick={() => this.showAnsPopup()}>
-            <div style={{fontWeight:"bold"}}>{this.props.QApair.ansCount || 0}</div>
+      <div className='ct-list-entry'>
+        <hr className='ct-hr'/>
+        <div className='ct-user'>
+          <span className='ct-nickname'>{this.props.QApair.qNickname}&nbsp;</span>
+          <span>·</span>&nbsp;<span id='ct-small-font'>{moment.tz(this.props.QApair.qDate, 'America/Los_Angeles').fromNow()}</span>
+          <span id='ct-num-of-ans' onClick={() => this.showAnsPopup()}>
+            <div style={{fontWeight:"bold", fontSize:16}}>{this.props.QApair.ansCount || 0}</div>
             <div> 
             {this.props.QApair.ansCount > 1 ? (<div>answers</div>) : (<div>answer</div>)}
             </div>
           </span>
         </div>
-        <h3 className='CTquestion' onClick={() => this.showAnsPopup()}>{this.props.QApair.question}</h3>
+        <h3 className='ct-question' onClick={() => this.showAnsPopup()}>{this.props.QApair.question}</h3>
         { this.props.QApair.newQ === "true" ? (
-          <div className='CTthankMsg'>Thank you for submitting a question! Questions are usually answered within a few days.</div>
+          <div className='ct-thank-msg'>Thank you for submitting a question! Questions are usually answered within a few days.</div>
         ) : (      
-          <button className='CTanswerButton' onClick={() => this.showAnsPopup()}>Answer the question</button>
+          <button className='ct-answer-btn' onClick={() => this.showAnsPopup()}>Answer the question</button>
         ) }
-        { this.props.QApair.ansCount > 0 && mostHelpfulAns.newAns === 'false'  ? (
-          <QAListAns firstAns={mostHelpfulAns} number={this.props.QApair.number} QApairs={this.props.QApairs}/>) : (<div/>) }
+        { this.props.QApair.ansCount > 0 && mostRecentAns.newAns === 'false' && this.props.currentSelection === 'Newest answers' ? (
+          <QAListAns firstAns={mostRecentAns} number={this.props.QApair.number} QApairs={this.props.QApairs}/>) : (
+          <QAListAns firstAns={mostHelpfulAns} number={this.props.QApair.number} QApairs={this.props.QApairs}/>  
+        ) }
         { this.state.answerQ ? (
-          <div>
-          <div id='CTpageMask'></div>
-          <div className='CTansPopup'>
-            <h2 className='CTQandA' id='CTpostAnsTitle'>Post answer</h2> 
-            <a href='#CTqaContainer'><span className='CTclosePostAns' onClick={() => this.hideAnsPopup()}></span></a>
-            <div className='CTuser'>
-              &nbsp;<span className='CTnickname'>{this.props.QApair.qNickname}&nbsp;</span>
-                <span>·</span>&nbsp;<span id='CTsmallFont'>{moment.tz(this.props.QApair.qDate, 'America/Los_Angeles').fromNow()}</span>
-                <span id='CTnumAns'>
+          <div className='ct-popup'>
+          <div id='ct-page-mask'></div>
+          <div className='ct-post-ans-popup'>
+            <h2 className='ct-post-ans-title'>Post answer</h2> 
+            <a href='#ct-qa-container'><span className='ct-close-post-ans-form' onClick={() => this.hideAnsPopup()}></span></a>
+            <div className='ct-post-ans-user'>
+              &nbsp;<span className='ct-nickname'>{this.props.QApair.qNickname}&nbsp;</span>
+                <span>·</span>&nbsp;<span id='ct-small-font'>{moment.tz(this.props.QApair.qDate, 'America/Los_Angeles').fromNow()}</span>
+                <span id='ct-num-of-ans'>
                 <div style={{fontWeight:"bold"}}>{this.props.QApair.ansCount || 0}</div>
                 <div> 
                 {this.props.QApair.ansCount > 1 ? (<div>answers</div>) : (<div>answer</div>)}
                 </div>
              </span>
             </div>
-            <h3 className='CTquestion' style={{marginTop: 10, marginBottom: 20}}>{this.props.QApair.question}</h3>
-            <div  className='CTansList'>
+            <h3 className='ct-post-ans-question' style={{marginTop: 10, marginBottom: 20}}>{this.props.QApair.question}</h3>
+            <div  className='ct-ans-list-entry'>
               { this.props.QApair.answers.filter((answer) => (answer.newAns === 'false')).map((answer, index) => (
                 <div>
                   <div style={{marginTop: 50}}></div>

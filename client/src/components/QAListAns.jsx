@@ -32,25 +32,25 @@ class QAListAns extends React.Component {
   render() {
     return (
       <div>
-        <span className='CTansNickname'>{this.props.firstAns.aNickname}&nbsp;</span>
-        <span>·</span>&nbsp;<span id='CTsmallFont'>{moment.tz(this.props.firstAns.aDate, 'America/Los_Angeles').fromNow()}</span>
-        <div className='CTanswer'>{this.props.firstAns.answer}</div>
-        <div className='CThelpfulQuestion' id='CTsmallFont'>Helpful?&nbsp;&nbsp;
+        <span className='ct-ans-list-nickname'>{this.props.firstAns.aNickname}&nbsp;</span>
+        <span>·</span>&nbsp;<span id='ct-small-font'>{moment.tz(this.props.firstAns.aDate, 'America/Los_Angeles').fromNow()}</span>
+        <div className='ct-answer'>{this.props.firstAns.answer}</div>
+        <div className='ct-if-helpful' id='ct-small-font'>Helpful?&nbsp;&nbsp;
           { this.state.upVoted ? (
             <span>
-              <span className='CThelpfulClicked' name='yes'>Yes&nbsp;·&nbsp;<span style={{color:'green'}}>{this.state.yes}</span></span>&nbsp;
-              <span className='CThelpfulClicked' name='no'>No&nbsp;·&nbsp;<span style={{color:'red'}}>{this.state.no}</span></span>&nbsp;
+              <span className='ct-helpful-clicked' name='yes'>Yes&nbsp;·&nbsp;<span style={{color:'green'}}>{this.state.yes}</span></span>&nbsp;
+              <span className='ct-helpful-clicked' name='no'>No&nbsp;·&nbsp;<span style={{color:'red'}}>{this.state.no}</span></span>&nbsp;
             </span>
           ) : (
             <span>
-              <span onClick={(e) => this.upVote(e)} name='yes' className='CThelpful'>Yes&nbsp;·&nbsp;{this.state.yes}</span>&nbsp;
-              <span onClick={(e) => this.upVote(e)} name='no' className='CThelpful'>No&nbsp;·&nbsp;{this.state.no}</span>&nbsp;
+              <span onClick={(e) => this.upVote(e)} name='yes' className='ct-helpful'>Yes&nbsp;·&nbsp;{this.state.yes}</span>&nbsp;
+              <span onClick={(e) => this.upVote(e)} name='no' className='ct-helpful'>No&nbsp;·&nbsp;{this.state.no}</span>&nbsp;
             </span>
           ) }
           { this.state.reported ? (
-            <span className='CTReported'>Reported</span>
+            <span className='ct-reported'>Reported</span>
           ) : (
-            <span onClick={() => this.reported()} className='CTinappropriate'>Report as inappropriate</span>
+            <span onClick={() => this.reported()} className='ct-inappropriate'>Report as inappropriate</span>
           ) }
         </div>        
       </div>
