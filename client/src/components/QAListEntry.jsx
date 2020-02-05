@@ -43,15 +43,13 @@ class QAListEntry extends React.Component {
           </span>
         </div>
         <h3 className='ct-question' onClick={() => this.showAnsPopup()}>{this.props.QApair.question}</h3>
-        { this.props.QApair.newQ === "true" ? (
+        { this.props.QApair.newQ === 'true' ? (
           <div className='ct-thank-msg'>Thank you for submitting a question! Questions are usually answered within a few days.</div>
         ) : (      
           <button className='ct-answer-btn' onClick={() => this.showAnsPopup()}>Answer the question</button>
         ) }
-        { this.props.QApair.ansCount > 0 && mostRecentAns.newAns === 'false' && this.props.currentSelection === 'Newest answers' ? (
-          <QAListAns firstAns={mostRecentAns} number={this.props.QApair.number} QApairs={this.props.QApairs}/>) : (
-          <QAListAns firstAns={mostHelpfulAns} number={this.props.QApair.number} QApairs={this.props.QApairs}/>  
-        ) }
+        { this.props.QApair.ansCount > 0 ? (
+            <QAListAns firstAns={mostRecentAns} number={this.props.QApair.number} QApairs={this.props.QApairs}/>) : (<div/>) }
         { this.state.answerQ ? (
           <div className='ct-popup'>
           <div id='ct-page-mask'></div>

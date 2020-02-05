@@ -91,16 +91,21 @@ class AskAQuestion extends React.Component {
     if (this.state.formCompleted) {
       this.props.hideAskAQuestion();
       this.props.questionSubmit();
-      var newQuestion = {};
-      var list = this.props.QApairs;
-      newQuestion.number = list[list.length - 1].number + 1;
-      newQuestion.qNickname = this.state.qNickname;
-      newQuestion.question = this.state.question;
-      newQuestion.qDate = this.state.qDate;
-      newQuestion.qEmail = this.state.qEmail;
-      newQuestion.qLocation = this.state.qLocation;
-      newQuestion.newQ = true;
-      newQuestion.answers = [];
+      let list = this.props.QApairs;
+      let newQuestion = {
+        number: list.length,
+        qNickname: this.state.qNickname,
+        question: this.state.question,
+        qDate: this.state.qDate,
+        qEmail: this.state.qEmail,
+        qLocation: this.state.qLocation,
+        newQ: true,
+        ansCount: 0
+      };
+      newQuestion.answers = [{
+       yes: 0,
+       no: 0
+      }];
       axios
         .post('/api', newQuestion)
         .then(() => this.props.getData())

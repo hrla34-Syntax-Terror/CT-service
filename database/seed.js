@@ -51,6 +51,9 @@ for (var i = 0; i < 100; i++) {
     qa.answers.sort(function(a,b) {
       return new Date(b.aDate) - new Date(a.aDate);
     })
+    qa.answers.sort(function(a,b) {
+      return b.yes - a.yes;
+    })
     product.QApairs.push(qa);
   }
   products.push(product);

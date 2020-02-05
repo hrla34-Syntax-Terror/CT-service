@@ -783,7 +783,7 @@ button:focus {
   position: absolute;  
   width: 760px;  
   height: 230px;  
-  top: -6100px;  
+  top: 0px;  
   left: 0;  
   right: 0;  
   bottom: 0;  

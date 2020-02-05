@@ -29139,16 +29139,21 @@ var AskAQuestion = function (_React$Component) {
       if (this.state.formCompleted) {
         this.props.hideAskAQuestion();
         this.props.questionSubmit();
-        var newQuestion = {};
         var list = this.props.QApairs;
-        newQuestion.number = list[list.length - 1].number + 1;
-        newQuestion.qNickname = this.state.qNickname;
-        newQuestion.question = this.state.question;
-        newQuestion.qDate = this.state.qDate;
-        newQuestion.qEmail = this.state.qEmail;
-        newQuestion.qLocation = this.state.qLocation;
-        newQuestion.newQ = true;
-        newQuestion.answers = [];
+        var newQuestion = {
+          number: list.length,
+          qNickname: this.state.qNickname,
+          question: this.state.question,
+          qDate: this.state.qDate,
+          qEmail: this.state.qEmail,
+          qLocation: this.state.qLocation,
+          newQ: true,
+          ansCount: 0
+        };
+        newQuestion.answers = [{
+          yes: 0,
+          no: 0
+        }];
         _axios2.default.post('/api', newQuestion).then(function () {
           return _this4.props.getData();
         }).catch(function (err) {
@@ -29746,7 +29751,7 @@ var QAListEntry = function (_React$Component) {
             } },
           this.props.QApair.question
         ),
-        this.props.QApair.newQ === "true" ? _react2.default.createElement(
+        this.props.QApair.newQ === 'true' ? _react2.default.createElement(
           'div',
           { className: 'ct-thank-msg' },
           'Thank you for submitting a question! Questions are usually answered within a few days.'
@@ -29757,7 +29762,7 @@ var QAListEntry = function (_React$Component) {
             } },
           'Answer the question'
         ),
-        this.props.QApair.ansCount > 0 && mostRecentAns.newAns === 'false' && this.props.currentSelection === 'Newest answers' ? _react2.default.createElement(_QAListAns2.default, { firstAns: mostRecentAns, number: this.props.QApair.number, QApairs: this.props.QApairs }) : _react2.default.createElement(_QAListAns2.default, { firstAns: mostHelpfulAns, number: this.props.QApair.number, QApairs: this.props.QApairs }),
+        this.props.QApair.ansCount > 0 ? _react2.default.createElement(_QAListAns2.default, { firstAns: mostRecentAns, number: this.props.QApair.number, QApairs: this.props.QApairs }) : _react2.default.createElement('div', null),
         this.state.answerQ ? _react2.default.createElement(
           'div',
           { className: 'ct-popup' },
