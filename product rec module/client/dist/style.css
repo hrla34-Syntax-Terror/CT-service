@@ -67,7 +67,7 @@ table {
   letter-spacing: 0.03em;
   transform: scale(1, 0.97);
   font-size: 23px;
-  margin-bottom: 50px;
+  margin-bottom: 33px;
 }
 
 .ct2-product-list {
@@ -96,9 +96,8 @@ table {
   font-size: 14px;
 }
 
-/* #ct2-name {
-  font-size: 
-} */
+#ct2-name {
+}
 
 #ct2-price {
   font-size: 14px;
@@ -106,18 +105,27 @@ table {
 }
 
 #ct2-img {
+  top: 50%;
+  left: 50%;
   cursor: pointer;
-  height: 135px;
+  max-height: 150px;
+  max-width: 155px;
   mix-blend-mode: multiply;
 }
 
+.ct2-img-container {
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 
 /* ------------------------ratings------------------------ */
 
 .ct2-avg-stars-row {
   display: flex;
-  padding-top: 20px;
+  padding-top: 10px;
   padding-bottom: 7px;
 }
 
@@ -136,6 +144,18 @@ table {
   letter-spacing: 2.9px;
   -webkit-text-stroke-width: 1px; 
   -webkit-text-stroke-color: #2b6692; 
+}
+
+.ct2-avg-stars-blank-0 {
+  color: transparent;
+  display: block!important;
+  overflow: hidden!important;
+  position: absolute!important;
+  width: auto!important;
+  font-size: 13px;
+  letter-spacing: 2.9px;
+  -webkit-text-stroke-width: 1px; 
+  -webkit-text-stroke-color: #999999;
 }
 
 .ct2-avg-stars-fill {

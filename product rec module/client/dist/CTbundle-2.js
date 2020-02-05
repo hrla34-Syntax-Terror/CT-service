@@ -11417,11 +11417,39 @@ var ProductListEntry = function ProductListEntry(_ref) {
   return _react2.default.createElement(
     'div',
     { className: 'ct2-product' },
-    _react2.default.createElement('img', { id: 'ct2-img', src: 'https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(OllyDog)+OllyBottle+Water+Bottle+-+34+fl.+oz..png' }),
+    _react2.default.createElement(
+      'div',
+      { className: 'ct2-img-container' },
+      _react2.default.createElement('img', { id: 'ct2-img', src: product.image })
+    ),
     _react2.default.createElement(
       'div',
       { className: 'ct2-ratings' },
-      _react2.default.createElement(
+      product.numReviews === 0 ? _react2.default.createElement(
+        'div',
+        { className: 'ct2-avg-stars-row' },
+        _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            'span',
+            { className: 'ct2-avg-stars-blank-0' },
+            '\u2605\u2605\u2605\u2605\u2605'
+          ),
+          _react2.default.createElement(
+            'span',
+            { className: 'ct2-avg-stars-fill', style: { width: 0 + '%' } },
+            '\u2605\u2605\u2605\u2605\u2605'
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'ct2-num-of-reviews' },
+          '(',
+          product.numReviews,
+          ')'
+        )
+      ) : _react2.default.createElement(
         'div',
         { className: 'ct2-avg-stars-row' },
         _react2.default.createElement(
@@ -11434,14 +11462,16 @@ var ProductListEntry = function ProductListEntry(_ref) {
           ),
           _react2.default.createElement(
             'span',
-            { className: 'ct2-avg-stars-fill', style: { width: 75 + '%' } },
+            { className: 'ct2-avg-stars-fill', style: { width: product.rating + '%' } },
             '\u2605\u2605\u2605\u2605\u2605'
           )
         ),
         _react2.default.createElement(
           'div',
           { className: 'ct2-num-of-reviews' },
-          '(16)'
+          '(',
+          product.numReviews,
+          ')'
         )
       )
     ),
