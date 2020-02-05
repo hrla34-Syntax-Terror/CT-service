@@ -1,4 +1,4 @@
-const QApair = require('./');
+const Product = require('./');
 
 var dbHelpers = {
   get: () => {

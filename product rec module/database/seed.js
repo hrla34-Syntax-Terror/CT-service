@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Product = require('./'); // ./ defaults to index
-// var example = require('./example.json');
+var example = require('./example.json');
 const faker = require('faker');
 let products = [];
 
@@ -8,7 +8,7 @@ let products = [];
 // for each of the 100 products
 
 var seedData = () => {
-  Product.create(randomProduct)
+  Product.create(example)
     .then(() => {
       console.log('database seeded');
       mongoose.connection.close();

@@ -51,3 +51,60 @@ table {
 
 
 /* ------------------------body------------------------ */
+
+#ct2-app {
+  font-family:"Graphik","Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
+  background-color: #fafafa;
+  padding-left: 18.5em;
+  padding-right: 18.5em;
+  margin: 0 auto;
+  color: #292929;
+}
+
+.ct2-title {
+  font-family: Georgia, serif;
+  font-weight: 200;
+  letter-spacing: 0.03em;
+  transform: scale(1, 0.97);
+  font-size: 23px;
+  margin-bottom: 50px;
+}
+
+.ct2-product-list {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 70px;
+}
+
+.ct2-product {
+  width: 16.67%;
+  padding-right: 20px;
+  line-height: 23px;
+}
+
+.ct2-brand-and-name:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.ct2-brand-and-name:hover #ct2-brand {
+  text-decoration: underline;
+  text-decoration-color: #426c90;
+}
+
+#ct2-brand {
+  font-size: 14px;
+}
+
+/* #ct2-name {
+  font-size: 
+} */
+
+#ct2-price {
+  font-size: 14px;
+  padding-top: 10px;
+}
+
+#ct2-img {
+  cursor: pointer;
+}
