@@ -107,6 +107,8 @@ table {
 
 #ct2-img {
   cursor: pointer;
+  height: 135px;
+  mix-blend-mode: multiply;
 }
 
 
@@ -116,6 +118,7 @@ table {
 .ct2-avg-stars-row {
   display: flex;
   padding-top: 20px;
+  padding-bottom: 7px;
 }
 
 .ct2-num-of-reviews {

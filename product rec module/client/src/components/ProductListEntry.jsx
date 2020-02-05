@@ -3,7 +3,7 @@ import React from 'react';
 var ProductListEntry = ({ product }) => {
   return (
     <div className='ct2-product'>
-      <div id='ct2-img'></div>
+      <img id='ct2-img' src='https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(OllyDog)+OllyBottle+Water+Bottle+-+34+fl.+oz..png'/>
       <div className='ct2-ratings'>
           <div className='ct2-avg-stars-row'>
             <div>

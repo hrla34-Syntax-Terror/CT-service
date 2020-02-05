@@ -11417,7 +11417,7 @@ var ProductListEntry = function ProductListEntry(_ref) {
   return _react2.default.createElement(
     'div',
     { className: 'ct2-product' },
-    _react2.default.createElement('div', { id: 'ct2-img' }),
+    _react2.default.createElement('img', { id: 'ct2-img', src: 'https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(OllyDog)+OllyBottle+Water+Bottle+-+34+fl.+oz..png' }),
     _react2.default.createElement(
       'div',
       { className: 'ct2-ratings' },
