@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var PRSchema = require('./schema.js')
+var PRSchema = require('./schema.js');
 mongoose.Promise = global.Promise;
 
 mongoose.connect('mongodb://localhost/PRdata', {useNewUrlParser: true})
