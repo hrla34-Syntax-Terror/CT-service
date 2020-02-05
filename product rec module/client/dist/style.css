@@ -108,3 +108,39 @@ table {
 #ct2-img {
   cursor: pointer;
 }
+
+
+
+/* ------------------------ratings------------------------ */
+
+.ct2-avg-stars-row {
+  display: flex;
+  padding-top: 20px;
+}
+
+.ct2-num-of-reviews {
+  padding-left: 3px;
+  font-size: 12px;
+}
+
+.ct2-avg-stars-blank {
+  color: transparent;
+  display: block!important;
+  overflow: hidden!important;
+  position: absolute!important;
+  width: auto!important;
+  font-size: 13px;
+  letter-spacing: 2.9px;
+  -webkit-text-stroke-width: 1px; 
+  -webkit-text-stroke-color: #2b6692; 
+}
+
+.ct2-avg-stars-fill {
+  color: #2b6692;
+  white-space: nowrap!important;
+  display: block!important;
+  overflow: hidden!important;
+  position: relative;
+  font-size: 13px;
+  letter-spacing: 2.9px;
+}

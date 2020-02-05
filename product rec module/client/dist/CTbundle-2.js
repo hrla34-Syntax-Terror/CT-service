@@ -11420,6 +11420,33 @@ var ProductListEntry = function ProductListEntry(_ref) {
     _react2.default.createElement('div', { id: 'ct2-img' }),
     _react2.default.createElement(
       'div',
+      { className: 'ct2-ratings' },
+      _react2.default.createElement(
+        'div',
+        { className: 'ct2-avg-stars-row' },
+        _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            'span',
+            { className: 'ct2-avg-stars-blank' },
+            '\u2605\u2605\u2605\u2605\u2605'
+          ),
+          _react2.default.createElement(
+            'span',
+            { className: 'ct2-avg-stars-fill', style: { width: 75 + '%' } },
+            '\u2605\u2605\u2605\u2605\u2605'
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'ct2-num-of-reviews' },
+          '(16)'
+        )
+      )
+    ),
+    _react2.default.createElement(
+      'div',
       { className: 'ct2-brand-and-name' },
       _react2.default.createElement(
         'div',
