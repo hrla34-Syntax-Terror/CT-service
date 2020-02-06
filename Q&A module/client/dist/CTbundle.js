@@ -27639,7 +27639,7 @@ var App = function (_React$Component) {
           { href: '#ct-ask-q-form' },
           _react2.default.createElement(
             'button',
-            { className: 'ct-ask-q-btn', onClick: function onClick() {
+            { className: 'ct-blue-btn', id: 'ct-ask-q-btn', onClick: function onClick() {
                 return _this4.showAskAQuestion();
               } },
             'Ask a question'
@@ -28965,14 +28965,14 @@ var AnswerAQuestion = function (_React$Component) {
           { href: '#ct-qa-container' },
           _react2.default.createElement(
             'button',
-            { className: 'ct-ask-q-btn', id: 'ct-submit-form', onClick: function onClick() {
+            { className: 'ct-blue-btn', id: 'ct-submit-form', onClick: function onClick() {
                 return _this4.postAnswer();
               } },
             'Post answer'
           )
         ) : _react2.default.createElement(
           'button',
-          { className: 'ct-ask-q-btn', id: 'ct-submit-form', onClick: function onClick() {
+          { className: 'ct-blue-btn', id: 'ct-submit-form', onClick: function onClick() {
               return _this4.postAnswer();
             } },
           'Post answer'
@@ -29396,14 +29396,14 @@ var AskAQuestion = function (_React$Component) {
           { href: '#ct-qa-container' },
           _react2.default.createElement(
             'button',
-            { className: 'ct-ask-q-btn', id: 'ct-submit-form', onClick: function onClick() {
+            { className: 'ct-blue-btn', id: 'ct-submit-form', onClick: function onClick() {
                 return _this5.postQuestion();
               } },
             'Post question'
           )
         ) : _react2.default.createElement(
           'button',
-          { className: 'ct-ask-q-btn', id: 'ct-submit-form', onClick: function onClick() {
+          { className: 'ct-blue-btn', id: 'ct-submit-form', onClick: function onClick() {
               return _this5.postQuestion();
             } },
           'Post question'
@@ -29496,8 +29496,11 @@ var QAListAns = function (_React$Component) {
     _this.state = {
       yes: _this.props.firstAns.yes,
       no: _this.props.firstAns.no,
-      upVoted: false,
-      reported: false
+      report: 'Report as inappropriate',
+      helpfulClass: 'ct-helpful',
+      colorR: '',
+      colorG: '',
+      reportClass: 'ct-inappropriate'
     };
     _this.upVote = _this.upVote.bind(_this);
     _this.reported = _this.reported.bind(_this);
@@ -29507,15 +29510,19 @@ var QAListAns = function (_React$Component) {
   _createClass(QAListAns, [{
     key: 'upVote',
     value: function upVote(e) {
-      var _setState;
+      console.log(e.target);
+      if (this.state.helpfulClass === 'ct-helpful') {
+        var _setState;
 
-      this.setState((_setState = {}, _defineProperty(_setState, e.target.getAttribute('name'), this.state[e.target.getAttribute('name')] + 1), _defineProperty(_setState, 'upVoted', true), _setState));
+        this.setState((_setState = {}, _defineProperty(_setState, e.target.getAttribute('name'), this.state[e.target.getAttribute('name')] + 1), _defineProperty(_setState, 'helpfulClass', 'ct-helpful-clicked'), _defineProperty(_setState, 'colorR', 'red'), _defineProperty(_setState, 'colorG', 'green'), _setState));
+      }
     }
   }, {
     key: 'reported',
     value: function reported() {
       this.setState({
-        reported: true
+        report: 'Reported',
+        reportClass: 'ct-reported'
       });
     }
   }, {
@@ -29550,65 +29557,56 @@ var QAListAns = function (_React$Component) {
         ),
         _react2.default.createElement(
           'div',
-          { className: 'ct-if-helpful', id: 'ct-small-font' },
-          'Helpful?\xA0\xA0',
-          this.state.upVoted ? _react2.default.createElement(
-            'span',
-            null,
-            _react2.default.createElement(
-              'span',
-              { className: 'ct-helpful-clicked', name: 'yes' },
-              'Yes\xA0\xB7\xA0',
-              _react2.default.createElement(
-                'span',
-                { style: { color: 'green' } },
-                this.state.yes
-              )
-            ),
-            '\xA0',
-            _react2.default.createElement(
-              'span',
-              { className: 'ct-helpful-clicked', name: 'no' },
-              'No\xA0\xB7\xA0',
-              _react2.default.createElement(
-                'span',
-                { style: { color: 'red' } },
-                this.state.no
-              )
-            ),
-            '\xA0'
-          ) : _react2.default.createElement(
-            'span',
-            null,
-            _react2.default.createElement(
-              'span',
-              { onClick: function onClick(e) {
-                  return _this2.upVote(e);
-                }, name: 'yes', className: 'ct-helpful' },
-              'Yes\xA0\xB7\xA0',
-              this.state.yes
-            ),
-            '\xA0',
-            _react2.default.createElement(
-              'span',
-              { onClick: function onClick(e) {
-                  return _this2.upVote(e);
-                }, name: 'no', className: 'ct-helpful' },
-              'No\xA0\xB7\xA0',
-              this.state.no
-            ),
-            '\xA0'
+          { className: 'ct-ans-feedback' },
+          _react2.default.createElement(
+            'div',
+            { className: 'ct-if-helpful', id: 'ct-small-font' },
+            'Helpful?\xA0\xA0'
           ),
-          this.state.reported ? _react2.default.createElement(
-            'span',
-            { className: 'ct-reported' },
-            'Reported'
-          ) : _react2.default.createElement(
-            'span',
-            { onClick: function onClick() {
-                return _this2.reported();
-              }, className: 'ct-inappropriate' },
-            'Report as inappropriate'
+          _react2.default.createElement(
+            'div',
+            { className: 'ct-yesno-box' },
+            _react2.default.createElement(
+              'span',
+              { onClick: function onClick(e) {
+                  return _this2.upVote(e);
+                } },
+              _react2.default.createElement(
+                'span',
+                { name: 'yes', className: this.state.helpfulClass },
+                'Yes\xA0\xB7\xA0',
+                _react2.default.createElement(
+                  'span',
+                  { name: 'yes', style: { color: this.state.colorR } },
+                  this.state.yes
+                )
+              ),
+              '\xA0'
+            ),
+            _react2.default.createElement(
+              'span',
+              { onClick: function onClick(e) {
+                  return _this2.upVote(e);
+                } },
+              _react2.default.createElement(
+                'span',
+                { name: 'no', className: this.state.helpfulClass },
+                'No\xA0\xB7\xA0',
+                _react2.default.createElement(
+                  'span',
+                  { name: 'no', style: { color: this.state.colorG } },
+                  this.state.no
+                )
+              ),
+              '\xA0'
+            ),
+            _react2.default.createElement(
+              'span',
+              { onClick: function onClick() {
+                  return _this2.reported();
+                }, className: this.state.reportClass },
+              this.state.report
+            )
           )
         )
       );

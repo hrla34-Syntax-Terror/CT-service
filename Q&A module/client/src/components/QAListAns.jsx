@@ -9,23 +9,32 @@ class QAListAns extends React.Component {
     this.state = {
       yes: this.props.firstAns.yes,
       no: this.props.firstAns.no,
-      upVoted: false,
-      reported: false
+      report: 'Report as inappropriate',
+      helpfulClass: 'ct-helpful',
+      colorR: '',
+      colorG: '',
+      reportClass: 'ct-inappropriate'
     }
     this.upVote = this.upVote.bind(this);
     this.reported = this.reported.bind(this);
   }
 
   upVote(e) {
-    this.setState({
-      [e.target.getAttribute('name')]: this.state[e.target.getAttribute('name')] + 1,
-      upVoted: true
-    })
+    console.log(e.target)
+    if (this.state.helpfulClass === 'ct-helpful') {
+      this.setState({
+        [e.target.getAttribute('name')]: this.state[e.target.getAttribute('name')] + 1,
+        helpfulClass: 'ct-helpful-clicked',
+        colorR: 'red',
+        colorG: 'green'
+      })
+    }
   }
 
   reported() {
     this.setState({
-      reported: true
+      report: 'Reported',
+      reportClass: 'ct-reported'
     })
   }
 
@@ -35,24 +44,22 @@ class QAListAns extends React.Component {
         <span className='ct-ans-list-nickname'>{this.props.firstAns.aNickname}&nbsp;</span>
         <span>·</span>&nbsp;<span id='ct-small-font'>{moment.tz(this.props.firstAns.aDate, 'America/Los_Angeles').fromNow()}</span>
         <div className='ct-answer'>{this.props.firstAns.answer}</div>
-        <div className='ct-if-helpful' id='ct-small-font'>Helpful?&nbsp;&nbsp;
-          { this.state.upVoted ? (
-            <span>
-              <span className='ct-helpful-clicked' name='yes'>Yes&nbsp;·&nbsp;<span style={{color:'green'}}>{this.state.yes}</span></span>&nbsp;
-              <span className='ct-helpful-clicked' name='no'>No&nbsp;·&nbsp;<span style={{color:'red'}}>{this.state.no}</span></span>&nbsp;
+        <div className='ct-ans-feedback'>
+          <div className='ct-if-helpful' id='ct-small-font'>Helpful?&nbsp;&nbsp;</div>
+          <div className='ct-yesno-box'>
+            <span onClick={(e) => this.upVote(e)}>
+              <span name='yes' className={this.state.helpfulClass}>Yes&nbsp;·&nbsp;
+                <span name='yes' style={{color:this.state.colorR}}>{this.state.yes}</span>
+              </span>&nbsp;
             </span>
-          ) : (
-            <span>
-              <span onClick={(e) => this.upVote(e)} name='yes' className='ct-helpful'>Yes&nbsp;·&nbsp;{this.state.yes}</span>&nbsp;
-              <span onClick={(e) => this.upVote(e)} name='no' className='ct-helpful'>No&nbsp;·&nbsp;{this.state.no}</span>&nbsp;
+            <span onClick={(e) => this.upVote(e)}>
+              <span name='no' className={this.state.helpfulClass}>No&nbsp;·&nbsp;
+                <span name='no'style={{color:this.state.colorG}}>{this.state.no}</span>
+              </span>&nbsp;
             </span>
-          ) }
-          { this.state.reported ? (
-            <span className='ct-reported'>Reported</span>
-          ) : (
-            <span onClick={() => this.reported()} className='ct-inappropriate'>Report as inappropriate</span>
-          ) }
-        </div>        
+            <span onClick={() => this.reported()} className={this.state.reportClass}>{this.state.report}</span>
+          </div>
+        </div>
       </div>
     )
   }

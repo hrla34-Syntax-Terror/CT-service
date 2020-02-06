@@ -229,9 +229,9 @@ class AnswerAQuestion extends React.Component {
         </div>
         <div id='ct-tiny-words'>&nbsp;You may receive emails regarding this submission. Any emails will include the ability to opt out of future communications.</div>
         { this.state.formCompleted ? (
-          <a href='#ct-qa-container'><button className='ct-ask-q-btn' id='ct-submit-form' onClick={() => this.postAnswer()}>Post answer</button></a>
+          <a href='#ct-qa-container'><button className='ct-blue-btn' id='ct-submit-form' onClick={() => this.postAnswer()}>Post answer</button></a>
         ) : (
-          <button className='ct-ask-q-btn' id='ct-submit-form' onClick={() => this.postAnswer()}>Post answer</button>
+          <button className='ct-blue-btn' id='ct-submit-form' onClick={() => this.postAnswer()}>Post answer</button>
         ) }
         { this.state.TCPopup ? (
           <TermsAndConditions checkTCHidePopup={this.checkTCHidePopup} hidePopup={this.hidePopup}/>
