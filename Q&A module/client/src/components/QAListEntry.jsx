@@ -67,7 +67,7 @@ class QAListEntry extends React.Component {
              </span>
             </div>
             <h3 className='ct-post-ans-question' style={{marginTop: 10, marginBottom: 20}}>{this.props.QApair.question}</h3>
-            <div  className='ct-ans-list-entry'>
+            <div  className='ct-ans-list-entry'> 
               { this.props.QApair.answers.filter((answer) => (answer.newAns === 'false')).map((answer, index) => (
                 <div>
                   <div style={{marginTop: 50}}></div>

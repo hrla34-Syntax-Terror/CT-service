@@ -114,10 +114,6 @@ table {
   height: 40px;
 }
 
-.ct-sortby:hover .ct-dropdown-btn {
-  background-color: transparent;
-}
-
 .ct-dropdown-selection {
   display: none;
   position: absolute;
@@ -127,6 +123,7 @@ table {
   border-width: 1px;
   font-weight: 400;
   width: 100%;
+  overflow: hidden;
 }
 
 .ct-dropdown-selection div {
@@ -731,7 +728,6 @@ button:focus {
   font-weight: 400;
   border-width: 1.4px;
   border-color: #b8b8b8;
-  position: relative;
 }
 
 .ct-helpful, .ct-inappropriate, .ct-helpful-clicked, .ct-reported {
