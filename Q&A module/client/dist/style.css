@@ -741,6 +741,7 @@ button:focus {
   padding-bottom: 6px;
 }
 
+/* have to make border color transparent to avoid margin collapsing */
 .ct-helpful-clicked, .ct-reported {
   border-color: transparent;
 }
