@@ -20,18 +20,28 @@ app.use(cors());
 
 app.use('/api', router);
 
-for (let i = 0; i < 100; i++) {
-  // app.get(`/api/${i}`, (req, res) => res.send(`Hello World#${i}`));
-  app.get(`/api/${i}`, (req, res) => {
-    dbHelpers.get(i)
+app.get('/api', (req, res) => {
+  dbHelpers.getOne()
       .then((data) => {
         res.status(200).send(data);
       })
       .catch((err) => {
         res.status(400).send(err);
       })
-  });
-}
+})
+
+// for (let i = 0; i < 100; i++) {
+//   app.get(`/api/${i}`, (req, res) => {
+//     dbHelpers.get(i)
+//       .then((data) => {
+//         res.status(200).send(data);
+//       })
+//       .catch((err) => {
+//         res.status(400).send(err);
+//       })
+//   });
+// }
+
 
 
 

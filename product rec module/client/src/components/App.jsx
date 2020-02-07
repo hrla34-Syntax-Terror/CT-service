@@ -20,7 +20,7 @@ class App extends React.Component {
 
   getData() {
     axios
-      .get('http://localhost:8090/api/3')
+      .get('http://localhost:8090/api')
       .then((result) => this.setState({ 
         products: result.data,
         currentProduct: result.data[0]
@@ -29,7 +29,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.currentProduct)
     return (
       <div>
         <div className = 'ct2-product-details'>

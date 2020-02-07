@@ -10541,7 +10541,7 @@ var App = function (_React$Component) {
     value: function getData() {
       var _this2 = this;
 
-      _axios2.default.get('http://localhost:8090/api/3').then(function (result) {
+      _axios2.default.get('http://localhost:8090/api').then(function (result) {
         return _this2.setState({
           products: result.data,
           currentProduct: result.data[0]
@@ -10553,7 +10553,6 @@ var App = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      console.log(this.state.currentProduct);
       return _react2.default.createElement(
         'div',
         null,
