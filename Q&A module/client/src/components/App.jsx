@@ -29,8 +29,8 @@ class App extends React.Component {
 
   getData() {
     axios
-      .get('/api')
-      .then((result) => this.setState({ QApairs: result.data }))
+      .get('http://localhost:8080/api')
+      .then((result) => this.setState({ QApairs: result.data[0].QApairs }))
       .catch((err) => console.error(err));
   };
 

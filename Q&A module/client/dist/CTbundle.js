@@ -27571,8 +27571,8 @@ var App = function (_React$Component) {
     value: function getData() {
       var _this2 = this;
 
-      _axios2.default.get('/api').then(function (result) {
-        return _this2.setState({ QApairs: result.data });
+      _axios2.default.get('http://localhost:8080/api').then(function (result) {
+        return _this2.setState({ QApairs: result.data[0].QApairs });
       }).catch(function (err) {
         return console.error(err);
       });

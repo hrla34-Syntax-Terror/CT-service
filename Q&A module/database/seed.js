@@ -4,7 +4,6 @@ const QApair = require('./'); // ./ defaults to index
 var questions = require('./questions.js'); // real data from web
 var answers = require('./answers.js'); // real data from web
 const faker = require('faker');
-let products = [];
 
 
 // for each of the 100 products
@@ -56,22 +55,27 @@ for (var i = 0; i < 100; i++) {
     })
     product.QApairs.push(qa);
   }
-  products.push(product);
-}
-
-// generate a random index and seed that index in the products array to database
-let randomIndex = faker.random.number({ min: 1, max: 100 });
-let randomProduct = products[randomIndex].QApairs;
-var seedData = () => {
-  QApair.create(randomProduct)
+  QApair.create(product)
     .then(() => {
       console.log('database seeded');
       mongoose.connection.close();
     })
     .catch(err => console.error(err));
-};
+}
 
-seedData();
+// generate a random index and seed that index in the products array to database
+// let randomIndex = faker.random.number({ min: 1, max: 100 });
+// let randomProduct = products[randomIndex].QApairs;
+// var seedData = () => {
+//   QApair.create(randomProduct)
+//     .then(() => {
+//       console.log('database seeded');
+//       mongoose.connection.close();
+//     })
+//     .catch(err => console.error(err));
+// };
+
+// seedData();
 // NOTE: DO NOT invoke this function as part of your
 // server code - it is meant to only be run once so that
 // you have access to data to work with
