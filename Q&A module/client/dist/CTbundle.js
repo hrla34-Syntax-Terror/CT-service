@@ -27639,14 +27639,18 @@ var App = function (_React$Component) {
           'Questions & Answers'
         ),
         _react2.default.createElement(
-          'a',
-          { href: '#ct-ask-q-form' },
+          'div',
+          { className: 'ct-blue-btn-container' },
           _react2.default.createElement(
-            'button',
-            { className: 'ct-blue-btn', id: 'ct-ask-q-btn', onClick: function onClick() {
-                return _this4.showAskAQuestion();
-              } },
-            'Ask a question'
+            'a',
+            { href: '#ct-ask-q-form' },
+            _react2.default.createElement(
+              'button',
+              { className: 'ct-blue-btn', id: 'ct-ask-q-btn', onClick: function onClick() {
+                  return _this4.showAskAQuestion();
+                } },
+              'Ask a question'
+            )
           )
         ),
         _react2.default.createElement(

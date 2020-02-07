@@ -184,12 +184,16 @@ table {
   border-left-style: none;
   border-left-color: transparent;
   float: right;
-  display: block;
+  display: inline-block;
   cursor: pointer;
 }
 
 .ct-blue-btn:hover {
   box-shadow: inset 0 0 0 50px rgba(0, 0, 0, 0.2);
+}
+
+.ct-blue-btn-container {
+  display: block;
 }
 
 

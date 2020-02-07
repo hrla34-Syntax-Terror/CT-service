@@ -76,7 +76,7 @@ class App extends React.Component {
       
       <div id='ct-qa-container'><a href='ct-qa-container'></a>
         <h2 className='ct-q-and-a'>Questions &amp; Answers</h2>
-        <a href='#ct-ask-q-form'><button className='ct-blue-btn' id='ct-ask-q-btn' onClick={() => this.showAskAQuestion()}>Ask a question</button></a>
+        <div className='ct-blue-btn-container'><a href='#ct-ask-q-form'><button className='ct-blue-btn' id='ct-ask-q-btn' onClick={() => this.showAskAQuestion()}>Ask a question</button></a></div>
         <div className='ct-qa-block'>
           <div id='ct-qa-total'>
             <span className='ct-num-of-q'>1 &ndash; {this.state.QApairs.length} of {this.state.QApairs.length} Questions</span>
