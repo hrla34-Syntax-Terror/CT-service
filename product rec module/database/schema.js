@@ -1,13 +1,8 @@
 var mongoose = require('mongoose');
 
 var PRSchema = new mongoose.Schema({
-  number: { type: Number, unique: true, required: true, dropDups: true },
-  image: { type: String, required: true},
-  rating: { type: Number, required: true },
-  numReviews: { type: Number, required: true },
-  brand: { type: String, required: true },
-  name: { type: String, required: true },
-  price: { type: String, required: true },
+  productID: { type: Number, unique: true, required: true, dropDups: true },
+  productName: { type: String, required: true},
   desc: { type: String },
   features: [{ type: String }],
   specs: {
@@ -23,7 +18,16 @@ var PRSchema = new mongoose.Schema({
     weight: [{ type: String }]
   },
   notes: String,
-  view: String
+  view: String,
+  list: [{
+    number: { type: Number, unique: true, required: true, dropDups: true },
+    image: { type: String, required: true},
+    rating: { type: Number, required: true },
+    numReviews: { type: Number, required: true },
+    brand: { type: String, required: true },
+    name: { type: String, required: true },
+    price: { type: String, required: true },
+  }]
 });
 
 module.exports = PRSchema;
