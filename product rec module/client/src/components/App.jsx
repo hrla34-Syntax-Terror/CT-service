@@ -20,7 +20,7 @@ class App extends React.Component {
 
   getData() {
     axios
-      .get('/api')
+      .get('http://localhost:8090/api/3')
       .then((result) => this.setState({ 
         products: result.data,
         currentProduct: result.data[0]
@@ -29,7 +29,7 @@ class App extends React.Component {
   }
 
   render() {
-    // console.log(this.state.products)
+    console.log(this.state.currentProduct)
     return (
       <div>
         <div className = 'ct2-product-details'>
@@ -38,11 +38,11 @@ class App extends React.Component {
         <div className='ct2-product-rec'>
           <h2 className='ct2-title'>Previously viewed</h2>
           <div className='ct2-product-list'>
-            { this.state.products.slice(0,6).map((product, index) => (<ProductListEntry product={product} key={index}/>))}
+            { this.state.currentProduct && this.state.currentProduct.list.slice(0,6).map((product, index) => (<ProductListEntry product={product} key={index}/>))}
           </div>
           <h2 className='ct2-title'>People who bought this item also bought</h2>
           <div className='ct2-product-list'>
-            { this.state.products.slice(6).map((product, index) => (<ProductListEntry product={product} key={index}/>))}
+            { this.state.currentProduct && this.state.currentProduct.list.slice(6).map((product, index) => (<ProductListEntry product={product} key={index}/>))}
           </div>
         </div>
       </div>

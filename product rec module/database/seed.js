@@ -47,10 +47,10 @@ for (var i = 0; i < 100; i++) {
       product.features.push(feature);
     }
     product.specs = {
-      bestUse: faker.hacker.ingverb(),
-      materials: faker.hacker.noun(),
-      dimensions: `${faker.random.number({ min: 1, max: 20 })} x ${faker.random.number({ min: 1, max: 20 })} x ${faker.random.number({ min: 1, max: 20 })} inches`,
-      weight: `${faker.random.number({ min: 2, max: 20 })} ounces`
+      bestUse: ['Best Use', faker.hacker.ingverb()],
+      materials: ['Material(s)', faker.hacker.noun()],
+      dimensions: ['Dimensions', `${faker.random.number({ min: 1, max: 20 })} x ${faker.random.number({ min: 1, max: 20 })} x ${faker.random.number({ min: 1, max: 20 })} inches`],
+      weight: ['Weight', `${faker.random.number({ min: 2, max: 20 })} ounces`]
     }
     product.view = `View all related products`;
   }

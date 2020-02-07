@@ -10541,7 +10541,7 @@ var App = function (_React$Component) {
     value: function getData() {
       var _this2 = this;
 
-      _axios2.default.get('/api').then(function (result) {
+      _axios2.default.get('http://localhost:8090/api/3').then(function (result) {
         return _this2.setState({
           products: result.data,
           currentProduct: result.data[0]
@@ -10553,7 +10553,7 @@ var App = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      // console.log(this.state.products)
+      console.log(this.state.currentProduct);
       return _react2.default.createElement(
         'div',
         null,
@@ -10573,7 +10573,7 @@ var App = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: 'ct2-product-list' },
-            this.state.products.slice(0, 6).map(function (product, index) {
+            this.state.currentProduct && this.state.currentProduct.list.slice(0, 6).map(function (product, index) {
               return _react2.default.createElement(_ProductListEntry2.default, { product: product, key: index });
             })
           ),
@@ -10585,7 +10585,7 @@ var App = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: 'ct2-product-list' },
-            this.state.products.slice(6).map(function (product, index) {
+            this.state.currentProduct && this.state.currentProduct.list.slice(6).map(function (product, index) {
               return _react2.default.createElement(_ProductListEntry2.default, { product: product, key: index });
             })
           )

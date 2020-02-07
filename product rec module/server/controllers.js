@@ -4,14 +4,17 @@ var mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 
 var controllers = {
+  // get: (req, res) => {
+  //   dbHelpers.get()
+  //     .then((data) => {
+  //       res.status(200).send(data)
+  //     })
+  //     .catch(err => {
+  //       res.status(400).send(err)
+  //     })
+  // }
   get: (req, res) => {
-    dbHelpers.get()
-      .then((data) => {
-        res.status(200).send(data)
-      })
-      .catch(err => {
-        res.status(400).send(err)
-      })
+    res.send(req.params)
   }
 };
 
