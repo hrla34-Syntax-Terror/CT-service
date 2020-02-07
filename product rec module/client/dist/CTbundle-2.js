@@ -10503,6 +10503,10 @@ var _ProductListEntry = __webpack_require__(110);
 
 var _ProductListEntry2 = _interopRequireDefault(_ProductListEntry);
 
+var _ProductDetails = __webpack_require__(215);
+
+var _ProductDetails2 = _interopRequireDefault(_ProductDetails);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -10520,7 +10524,8 @@ var App = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
     _this.state = {
-      products: []
+      products: [],
+      currentProduct: ''
     };
     _this.getData = _this.getData.bind(_this);
     return _this;
@@ -10537,7 +10542,10 @@ var App = function (_React$Component) {
       var _this2 = this;
 
       _axios2.default.get('/api').then(function (result) {
-        return _this2.setState({ products: result.data });
+        return _this2.setState({
+          products: result.data,
+          currentProduct: result.data[0]
+        });
       }).catch(function (err) {
         return console.error(err);
       });
@@ -10545,32 +10553,42 @@ var App = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      // console.log(this.state.products)
       return _react2.default.createElement(
         'div',
         null,
         _react2.default.createElement(
-          'h2',
-          { className: 'ct2-title' },
-          'Previously viewed'
+          'div',
+          { className: 'ct2-product-details' },
+          _react2.default.createElement(_ProductDetails2.default, { product: this.state.currentProduct })
         ),
         _react2.default.createElement(
           'div',
-          { className: 'ct2-product-list' },
-          this.state.products.slice(0, 6).map(function (product, index) {
-            return _react2.default.createElement(_ProductListEntry2.default, { product: product, key: index });
-          })
-        ),
-        _react2.default.createElement(
-          'h2',
-          { className: 'ct2-title' },
-          'People who bought this item also bought'
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'ct2-product-list' },
-          this.state.products.slice(6).map(function (product, index) {
-            return _react2.default.createElement(_ProductListEntry2.default, { product: product, key: index });
-          })
+          { className: 'ct2-product-rec' },
+          _react2.default.createElement(
+            'h2',
+            { className: 'ct2-title' },
+            'Previously viewed'
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'ct2-product-list' },
+            this.state.products.slice(0, 6).map(function (product, index) {
+              return _react2.default.createElement(_ProductListEntry2.default, { product: product, key: index });
+            })
+          ),
+          _react2.default.createElement(
+            'h2',
+            { className: 'ct2-title' },
+            'People who bought this item also bought'
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'ct2-product-list' },
+            this.state.products.slice(6).map(function (product, index) {
+              return _react2.default.createElement(_ProductListEntry2.default, { product: product, key: index });
+            })
+          )
         )
       );
     }
@@ -24404,6 +24422,116 @@ function traverseAllChildren(children, callback, traverseContext) {
 
 module.exports = traverseAllChildren;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 215 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(33);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ProductDetails = function ProductDetails(_ref) {
+  var product = _ref.product;
+
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(
+      'div',
+      { className: 'ct2-desc-container' },
+      product.desc
+    ),
+    _react2.default.createElement(
+      'div',
+      { className: 'ct2-details-container' },
+      _react2.default.createElement(
+        'h1',
+        { className: 'ct2-nitty-gritty' },
+        'The nitty gritty'
+      ),
+      _react2.default.createElement(
+        'div',
+        { className: 'ct2-features-specs' },
+        _react2.default.createElement(
+          'div',
+          { className: 'ct2-features' },
+          _react2.default.createElement(
+            'h2',
+            { id: 'ct2-h2' },
+            'Features'
+          ),
+          _react2.default.createElement(
+            'ul',
+            { id: 'ct2-features-content' },
+            product && product.features.map(function (feature, index) {
+              return _react2.default.createElement(
+                'li',
+                { key: index },
+                feature
+              );
+            })
+          ),
+          _react2.default.createElement(
+            'div',
+            { id: 'ct2-view' },
+            product.view
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'ct2-specs' },
+          _react2.default.createElement(
+            'h2',
+            { id: 'ct2-h2' },
+            'Technical specs'
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'ct2-spec-table' },
+            _react2.default.createElement(
+              'table',
+              { id: 'ct2-spec-table' },
+              _react2.default.createElement(
+                'tbody',
+                null,
+                product && Object.keys(product.specs).filter(function (spec) {
+                  return product.specs[spec].length;
+                }).map(function (spec, index) {
+                  return _react2.default.createElement(
+                    'tr',
+                    { key: index },
+                    _react2.default.createElement(
+                      'td',
+                      { id: 'ct-spec-key' },
+                      product.specs[spec][0]
+                    ),
+                    _react2.default.createElement(
+                      'td',
+                      { id: 'ct-spec-value' },
+                      product.specs[spec][1]
+                    )
+                  );
+                })
+              )
+            )
+          )
+        )
+      )
+    )
+  );
+};
+
+exports.default = ProductDetails;
 
 /***/ })
 /******/ ]);

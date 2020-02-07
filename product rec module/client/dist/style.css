@@ -55,10 +55,15 @@ table {
 #ct2-app {
   font-family:"Graphik","Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
   background-color: #fafafa;
-  padding-left: 18.5em;
-  padding-right: 18.5em;
   margin: 0 auto;
   color: #292929;
+  /* display: flex;
+  flex-direction: column; */
+}
+
+.ct2-product-rec {
+  padding-left: 18.5em;
+  padding-right: 18.5em;
 }
 
 .ct2-title {
@@ -167,3 +172,132 @@ table {
   font-size: 13px;
   letter-spacing: 2.9px;
 }
+
+
+
+/* ------------------------product details------------------------ */
+.ct2-product-details {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 140px;
+  padding-right: 140px;
+  box-sizing: border-box;
+  color: #292929;
+}
+
+.ct2-desc-container {
+  background-color: #f1efe4 ;
+  padding-left: 80px;
+  padding-right: 80px;
+  padding-top: 45px;
+  padding-bottom: 45px;
+  box-sizing: border-box;
+  font-family: Georgia, serif;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  transform: scale(1, 0.97);
+  font-size: 22px;
+  line-height: 28px;
+  text-align: center;
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+
+.ct2-details-container {
+  width: 100%;
+  height: 100%;
+  padding-left: 150px;
+  padding-right: 150px;
+  box-sizing: border-box;
+  padding-bottom: 50px;
+}
+
+.ct2-nitty-gritty {
+  text-align: center;
+  font-family: Georgia, serif;
+  letter-spacing: 1px;
+  transform: scale(1, 0.97);
+  font-size: 40px;
+}
+
+.ct2-features-specs {
+  display: inline-block;
+  flex-direction: row; 
+  white-space: nowrap;
+  padding-top: 25px;
+  width: 100%;
+}
+
+#ct2-h2 {
+  font-family: Georgia, serif;
+  font-size: 22px;
+  transform: scale(1, 0.97);
+  padding-bottom: 17px;
+}
+
+.ct2-features {
+  display: inline-block;
+  float: left;
+  width: 50%;
+  box-sizing: border-box;
+  font-family:"Graphik","Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.ct2-specs {
+  display: inline-block;
+  float: right;
+  width: 50%;
+  font-family:"Graphik","Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  padding-left: 30px;
+  padding-right: 65px;
+  box-sizing: border-box;
+
+}
+
+#ct2-features-content {
+  max-width: 100%;
+  white-space: pre-wrap;
+  display: list-item;
+  list-style-type: disc;
+  margin-left: 42px;
+  padding-right: 30px;
+}
+
+#ct2-view {
+  color: #3278ae;
+  padding-top: 18px;
+  cursor: pointer;
+}
+
+.ct2-spec-table {
+  background-color: #fafafa;
+  padding-left: 7px;
+}
+
+#ct2-spec-table {
+  width: 100%;
+  white-space: pre-wrap;
+  border-collapse: collapse;
+  table-layout: auto;
+  width: 100%;
+}
+
+
+#ct2-spec-table td {
+  padding: 3px;
+  text-align: left;
+}
+
+#ct2-spec-table tr:nth-child(odd){background-color: #f2f2f2;}
+
+
+#ct-spec-key {
+  font-weight: bold;
+  width: 34%;
+}
+

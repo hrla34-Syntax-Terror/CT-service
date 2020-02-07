@@ -7,7 +7,23 @@ var PRSchema = new mongoose.Schema({
   numReviews: { type: Number, required: true },
   brand: { type: String, required: true },
   name: { type: String, required: true },
-	price: { type: String, required: true },
+  price: { type: String, required: true },
+  desc: { type: String },
+  features: [{ type: String }],
+  specs: {
+    bestUse: [{ type: String }],
+    uvProtection: [{ type: String }],
+    lightTransmission: [{ type: String }],
+    lensShape: [{ type: String }],
+    interchangeableLenses: [{ type: String }],
+    additionalLensesIncluded: [{ type: String }],
+    fits: [{ type: String }],
+    materials: [{ type: String }],
+    dimensions: [{ type: String }],
+    weight: [{ type: String }]
+  },
+  notes: String,
+  view: String
 });
 
 module.exports = PRSchema;

@@ -1,8 +1,170 @@
 [
   {
+    "title": "Dog Goggles - X-Small",
+    "brand": "Rex Specs",
+    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Rex+Specs)+Dog+Goggles+-+X-Small.jpeg",
+    "desc": "Whether your dog deploys from helicopters or summits sunny peaks, the X-Small Rex Specs dog goggles help protect your active dog's eyes from debris, sun and environmental hazards.",
+    "features": [
+      "X-Small size commonly fits dogs between 4 and 15 lbs., including breeds like dachshunds, chihuahuas, small terriers and Pomeranians",
+      "Comes with 2 lenses—1 clear and 1 smoke lens",
+      "All lenses are interchangeable, replaceable, impact-resistant and UV400 rated to block 99.9% of UVA/UVB",
+      "Rex Specs recommends training your dog to wear dog goggles with no lens first, then with the clear lens and finally with the tinted lens",
+      "Spherical lens makes for a comfortable fit and ensures a full field of view",
+      "Strap system is fully adjustable to provide a stable and secure fit",
+      "Frame is fully vented for maximum airflow and edged with durable foam for comfort and security",
+      "Check the size chart and sizing video to ensure you get the correct size; the right fit will make a big difference in your dog's acceptance of the goggles",
+      "X-Small size fits dogs with a muzzle circumference less than 6 in. and a head circumference less than 10.5 in."
+    ],
+    "specs": {
+      "bestUse": ["Best Use", "Hiking"],
+      "uvProtection": ["UV Protection", "100 percent"],
+      "lightTransmission": ["Light Transmission", "18 / 45 percent"],
+      "lensShape": ["Lens Shape", "Spherical"],
+      "interchangeableLenses": ["Interchangeable Lenses", "Yes"],
+      "additionalLensesIncluded": ["Additional Lenses Included", "1"],
+      "materials": ["Material(s)", "Polycarbonate"],
+      "dimensions": ["Dimensions", "15.35 x 11.61 x 0.19 inches"],
+      "weight": ["Weight", "Unavailable"]
+    },
+    "notes": "Imported.",
+    "view": "View all Rex Specs Dog Clothing Accessories"
+  },
+  {
+    "title": "Front Range Dog Harness",
+    "brand": "Ruffwear",
+    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Ruffwear)+Front+Range+Dog+Harness.jpeg",
+    "desc": "The Ruffwear Front Range dog harness is a comfortable harness that your pup can wear all day, everyday. It's durable and made for fun adventure.",
+    "features": [
+      "Customizable fit with 4 points of adjustment allow for full range of motion",
+      "2 leash attachment points: Aluminum V-ring on the dog's back and reinforced webbing on the dog's chest",
+      "Padded chest and belly panel offer good load dispersion and comfortable, extended wear",
+      "Low-light visibility with reflective trim"
+    ],
+    "specs": {
+      "bestUse": ["Best Use", "Casual, Walking"],
+      "fits": ["Fits", "S: Girth: 22 - 27 inches"],
+      "material": ["Material(s)", "Nylon/closed-cell foam"],
+      "dimensions": ["Dimensions", "15.35 x 11.61 x 0.19 inches"],
+      "weight": ["Weight", "6.4 ounces"]
+    },
+    "notes": "Imported.",
+    "view": "View all Ruffwear Dog Harnesses"
+  },
+  {
+    "title": "MountainHome Collar",
+    "brand": "Wolfgang Man & Beast",
+    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Wolfgang+Man+%26+Beast)+MountainHome+Collar.jpeg",
+    "desc": "Outfit your most dependable adventure buddy in the Wolfgang Man & Beast MountainHome collar featuring a dreamy mountainscape print by Seattle-based fine artist Mimi Kvinge.",
+    "features": [
+      "Made with highly durable and abrasion-resistant sublimation-printed polyester webbing",
+      "No-stitch construction with tapered seams creates a smooth transition between layers and is stronger than stitching; ends are hot-cut to prevent fraying",
+      "Reinforced nylon side-release buckle with laser-etched logo is curved to match the shape of your dog's neck",
+      "Powder-coated steel D-ring with welded seam offers a durable attachment point for your favorite leash",
+      "UV stable; fade-, water- and mildew-resistant",
+      "Bonded and stitched woven label",
+      "Pull-tested to over 800 lbs.",
+      "Easily washable using dish soap and warm water",
+      "Collars are Made in the U.S.A. using U.S.-sourced polyester fiber/yarn, which is milled and printed in the U.S.; designed in Utah",
+      "Wolfgang Man & Beast works with select give-back programs to help humans and their 4-legged friends",
+      "Covered by Wolfgang Man & Beast's lifetime warranty for manufacturing and material defects"
+    ]
+  },
+  {
+    "title": "Dog Collar",
+    "brand": "Life is good",
+    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Life+is+good)+Dog+Collar.jpeg"
+  },
+  {
+    "title": "UnderDog Pet PFD",
+    "brand": "MTI",
+    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(MTI)+UnderDog+Pet+PFD.jpeg"
+  },
+  {
+    "title": "Hang Dogs Shoe Keepers",
+    "brand": "Metolius",
+    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Metolius)+Hang+Dogs+Shoe+Keepers.jpeg"
+  },
+  {
+    "title": "Best Hikes with Dogs- Utah",
+    "brand": "Mountaineers Books",
+    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Mountaineers+Books)+Best+Hikes+with+Dogs-+Utah.jpeg"
+  },
+  {
+    "title": "Nite Dawg LED Soft Disc",
+    "brand": "Nite Ize",
+    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Nite+Ize)+Nite+Dawg+LED+Soft+Disc.jpeg"
+  },
+  {
+    "title": "Nitehowl LED Safety Necklace",
+    "brand": "Nite Ize",
+    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Nite+Ize)+Nitehowl+LED+Safety+Necklace.jpeg"
+  },
+  {
+    "title": "Dog Pad",
+    "brand": "Pau Hana",
+    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Pau+Hana)+Dog+Pad.jpeg"
+  },
+  {
+    "title": "Lucky Cat Water Bottle Cage",
+    "brand": "Portland Design Works",
+    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Portland+Design+Works)+Lucky+Cat+Water+Bottle+Cage.jpeg"
+  },
+  {
+    "title": "Dog Goggles - Medium",
+    "brand": "Rex Specs",
+    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Rex+Specs)+Dog+Goggles+-+Medium.jpeg"
+  },
+  {
+    "title": "Dog Goggles - Large",
+    "brand": "Rex Specs",
+    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Rex+Specs)+Dog+Goggles+-+Large.jpeg"
+  },
+  {
+    "title": "Dog Goggles - Small",
+    "brand": "Rex Specs",
+    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Rex+Specs)+Dog+Goggles+-+Small.jpeg"
+  },
+  {
+    "title": "Dog Goggles - X-Large",
+    "brand": "Rex Specs",
+    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Rex+Specs)+Dog+Goggles+-+X-Large.jpeg"
+  },
+  {
+    "title": "High Roller Ball",
+    "brand": "Cycle Dog",
+    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Cycle+Dog)+High+Roller+Ball.jpeg"
+  },
+  {
+    "title": "Trail Buddy Dog Treats",
+    "brand": "Cycle Dog",
+    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Cycle+Dog)+Trail+Buddy+Dog+Treats.jpeg"
+  },
+  {
+    "title": "Dog Color Wood Sticker",
+    "brand": "Dust City Wood Stickers",
+    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Dust+City+Wood+Stickers)+Dog+Color+Wood+Sticker.jpeg"
+  },
+  {
     "title": "ADS Dog Heeler First-Aid Kit",
     "brand": "Adventure Medical Kits",
-    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Adventure+Medical+Kits)+ADS+Dog+Heeler+First-Aid+Kit.jpeg"
+    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Adventure+Medical+Kits)+ADS+Dog+Heeler+First-Aid+Kit.jpeg",
+    "desc": "Whether you're playing in the backyard or hiking the trails, the Adventure Medical Kits ADS Dog Heeler first-aid kit is compact enough to go wherever you and your buddy roam.",
+    "features": [
+      "Safely administer first aid to your dog by first muzzling them with the triangular bandage",
+      "Remove splinters and ticks from your dog's paws and body with the splinter picker/tick remover",
+      "Easily wrap injuries with the self-adhering elastic bandage which doesn't stick to fur",
+      "Wound Care: 2 dressings, 2' x 3'; 1 conforming gauze bandage, 2 in.; 2 antibacterial hand wipes; 1 elastic bandage, 1 in.; 1 triple antibiotic ointment; 2 antiseptic wipes",
+      "Medical Instruction/Instruments: 1 pet first-aid manual; 1 -splinter picker/tick remover forceps",
+      "Medication (when giving to animals, only give doses prescribed by veterinarian): 2 antihistamine (Diphenhydramine 25 mg.), package of 1 each"
+    ],
+    "specs": {
+      "Best Use": "Emergency Preparedness",
+      "Material(s)": "Nylon",
+      "Dimensions": "6.75 x 6.5 x 1.5 inches",
+      "Weight": "3.2 ounces"
+    },
+    "notes": "Made in USA.",
+    "view": "View all Adventure Medical Kits Dog First Aid"
   },
   {
     "title": "ADS Trail Dog First Aid Kit",
@@ -33,6 +195,11 @@
     "title": "Lost Dog 15 Sleeping Bag",
     "brand": "Big Agnes",
     "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Big+Agnes)+Lost+Dog+15+Sleeping+Bag.jpeg"
+  },
+  {
+    "title": "Cat Nap Rest Set",
+    "brand": "Eagle Creek",
+    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Eagle+Creek)+Cat+Nap+Rest+Set.jpeg"
   },
   {
     "title": "Dog Insect Shield Neckwear",
@@ -85,66 +252,6 @@
     "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Cycle+Dog)+Earth+Friendly+Pick-Up+Bags.jpeg"
   },
   {
-    "title": "High Roller Ball",
-    "brand": "Cycle Dog",
-    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Cycle+Dog)+High+Roller+Ball.jpeg"
-  },
-  {
-    "title": "Trail Buddy Dog Treats",
-    "brand": "Cycle Dog",
-    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Cycle+Dog)+Trail+Buddy+Dog+Treats.jpeg"
-  },
-  {
-    "title": "Dog Color Wood Sticker",
-    "brand": "Dust City Wood Stickers",
-    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Dust+City+Wood+Stickers)+Dog+Color+Wood+Sticker.jpeg"
-  },
-  {
-    "title": "Cat Nap Rest Set",
-    "brand": "Eagle Creek",
-    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Eagle+Creek)+Cat+Nap+Rest+Set.jpeg"
-  },
-  {
-    "title": "H2O Lite Water Bottle - 17 fl. oz.",
-    "brand": "GSI Outdoors",
-    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(GSI+Outdoors)+H2O+Lite+Water+Bottle+-+17+fl.+oz..jpeg"
-  },
-  {
-    "title": "Kid Classic Sport Cap Bottle - 18 fl. oz.",
-    "brand": "Klean Kanteen",
-    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Klean+Kanteen)+Kid+Classic+Sport+Cap+Bottle+-+18+fl.+oz..jpeg"
-  },
-  {
-    "title": "Dog Collar",
-    "brand": "Life is good",
-    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Life+is+good)+Dog+Collar.jpeg"
-  },
-  {
-    "title": "UnderDog Pet PFD",
-    "brand": "MTI",
-    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(MTI)+UnderDog+Pet+PFD.jpeg"
-  },
-  {
-    "title": "Hang Dogs Shoe Keepers",
-    "brand": "Metolius",
-    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Metolius)+Hang+Dogs+Shoe+Keepers.jpeg"
-  },
-  {
-    "title": "Best Hikes with Dogs- Utah",
-    "brand": "Mountaineers Books",
-    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Mountaineers+Books)+Best+Hikes+with+Dogs-+Utah.jpeg"
-  },
-  {
-    "title": "Nite Dawg LED Soft Disc",
-    "brand": "Nite Ize",
-    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Nite+Ize)+Nite+Dawg+LED+Soft+Disc.jpeg"
-  },
-  {
-    "title": "Nitehowl LED Safety Necklace",
-    "brand": "Nite Ize",
-    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Nite+Ize)+Nitehowl+LED+Safety+Necklace.jpeg"
-  },
-  {
     "title": "Nitehowl Rechargeable LED Safety Necklace",
     "brand": "Nite Ize",
     "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Nite+Ize)+Nitehowl+Rechargeable+LED+Safety+Necklace.jpeg"
@@ -165,16 +272,6 @@
     "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(OllyDog)+OllyBottle+Water+Bottle+-+34+fl.+oz..png"
   },
   {
-    "title": "Dog Pad",
-    "brand": "Pau Hana",
-    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Pau+Hana)+Dog+Pad.jpeg"
-  },
-  {
-    "title": "Lucky Cat Water Bottle Cage",
-    "brand": "Portland Design Works",
-    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Portland+Design+Works)+Lucky+Cat+Water+Bottle+Cage.jpeg"
-  },
-  {
     "title": "Waterman Salty Dog Hooded Rashguard - Men's",
     "brand": "Quiksilver",
     "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Quiksilver)+Waterman+Salty+Dog+Hooded+Rashguard+-+Men's.jpeg"
@@ -188,31 +285,6 @@
     "title": "Dog and Duck Graphic T-Shirt - Men's",
     "brand": "ROARK REVIVAL",
     "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(ROARK+REVIVAL)+Dog+and+Duck+Graphic+T-Shirt+-+Men's.jpeg"
-  },
-  {
-    "title": "Dog Goggles - Large",
-    "brand": "Rex Specs",
-    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Rex+Specs)+Dog+Goggles+-+Large.jpeg"
-  },
-  {
-    "title": "Dog Goggles - Medium",
-    "brand": "Rex Specs",
-    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Rex+Specs)+Dog+Goggles+-+Medium.jpeg"
-  },
-  {
-    "title": "Dog Goggles - Small",
-    "brand": "Rex Specs",
-    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Rex+Specs)+Dog+Goggles+-+Small.jpeg"
-  },
-  {
-    "title": "Dog Goggles - X-Large",
-    "brand": "Rex Specs",
-    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Rex+Specs)+Dog+Goggles+-+X-Large.jpeg"
-  },
-  {
-    "title": "Dog Goggles - X-Small",
-    "brand": "Rex Specs",
-    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Rex+Specs)+Dog+Goggles+-+X-Small.jpeg"
   },
   {
     "title": "Marshmallow and Hot Dog Roasting Forks - Pair",
@@ -253,11 +325,6 @@
     "title": "Front Range Collar",
     "brand": "Ruffwear",
     "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Ruffwear)+Front+Range+Collar.jpeg"
-  },
-  {
-    "title": "Front Range Dog Harness",
-    "brand": "Ruffwear",
-    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Ruffwear)+Front+Range+Dog+Harness.jpeg"
   },
   {
     "title": "Front Range Dog Leash",
@@ -430,11 +497,6 @@
     "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Wolfgang+Man+%26+Beast)+LokiWolf+Leash.jpeg"
   },
   {
-    "title": "MountainHome Collar",
-    "brand": "Wolfgang Man & Beast",
-    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Wolfgang+Man+%26+Beast)+MountainHome+Collar.jpeg"
-  },
-  {
     "title": "MountainHome Leash",
     "brand": "Wolfgang Man & Beast",
     "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Wolfgang+Man+%26+Beast)+MountainHome+Leash.jpeg"
@@ -498,5 +560,15 @@
     "title": "Best Hikes with Dogs- New Hampshire and Vermont",
     "brand": "Mountaineers Books",
     "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/Best+Hikes+with+Dogs-+New+Hampshire+and+Vermont.jpeg"
+  },
+  {
+    "title": "Kid Classic Sport Cap Bottle - 18 fl. oz.",
+    "brand": "Klean Kanteen",
+    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(Klean+Kanteen)+Kid+Classic+Sport+Cap+Bottle+-+18+fl.+oz..jpeg"
+  },
+  {
+    "title": "H2O Lite Water Bottle - 17 fl. oz.",
+    "brand": "GSI Outdoors",
+    "link": "https://fec-rei-product-img.s3-us-west-1.amazonaws.com/(GSI+Outdoors)+H2O+Lite+Water+Bottle+-+17+fl.+oz..jpeg"
   }
 ]
