@@ -4,7 +4,7 @@ var TermsAndConditions = (props) => {
   return (
     <div className='ct-popup-tc'>
       <h2 className='ct-q-and-a' style={{marginLeft:-20}}>Terms and Conditions</h2>
-      <a href='#ct-agree-to-tc-container'><span className='ct-close-tc' onClick={() => props.hidePopup()}></span></a>
+      <a href='#ct-agree-to-tc-container'><div className='ct-close-tc-container'><div className='ct-close-tc' onClick={() => props.hidePopup()}></div></div></a>
       <div id='ct-rr-and-terms'>CUSTOMER RATINGS AND REVIEWS TERMS OF USE</div>
       <div id='ct-tc-body'>
       <p id='ct-p'>These Terms of Use govern your conduct associated with the Customer Ratings and Reviews and/or Questions and Answers service offered by Recreational Equipment, Inc. ("REI", the "CRR Service").</p>

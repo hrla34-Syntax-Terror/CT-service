@@ -130,13 +130,13 @@ class AskAQuestion extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className='ct-ask-q-main'>
         <h2 className='ct-q-and-a' id='ct-ask-q-title'>Ask a Question</h2> 
-        <a href='#ct-qa-container'><span className='CTcloseAskQ' onClick={() => this.props.hideAskAQuestion()}></span></a>
+        <div className='ct-close-container'><a href='#ct-qa-container'><div className='ct-close-ask-q' onClick={() => this.props.hideAskAQuestion()}></div></a></div>
         <div id='ct-tiny-words' style={{marginBottom: -13, marginLeft: 8}}>Required fields are marked with *</div>
         <hr className='ct-hr'/>
         <div className='ct-form'>
-          <div><span style={{fontWeight:'bold'}}>Question*</span>
+          <div className='ct-ask-q-container'><span style={{fontWeight:'bold'}}>Question*</span>
           &nbsp;&nbsp;&nbsp;<span>Maximum of 255 characters.</span>
           { this.state.postQClicked && !this.state.questionBC ? (
             <span className='ct-q-required-container'>

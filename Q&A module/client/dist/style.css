@@ -55,8 +55,8 @@ table {
 #QandA {
   font-family: 'Graphik', 'Helvetica Neue', sans-serif;
   background-color: #fafafa;
-  padding-left: 18.5em;
-  padding-right: 18.5em;
+  padding-left: 17.5%;
+  padding-right: 17.5%;
   margin: 0 auto;
   color: #292929;
 }
@@ -64,6 +64,7 @@ table {
 #ct-qa-container {
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
 
@@ -91,15 +92,29 @@ table {
 
 #ct-qa-total {
   position: relative;
+  display: inline-block;
+  flex-direction: row;
   margin-top: 15px;
+  width: 100%;
+}
+
+.ct-num-of-q {
+  position: absolute;
+  display: inline-block;
+  float: left;
+  top: 50%;
+  margin: 0;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 .ct-sortby {
   position: relative;
-  float: right;
   display: inline-block;
+  float: right;
   color: #292929;
-  margin-top: -13px;
+  /* margin-top: -13px; */
   margin-right: 10px;
 }
 
@@ -187,6 +202,9 @@ table {
 
 /* ------------------------Q & A entry list------------------------ */
 
+.ct-list-entry {
+}
+
 .ct-qa-block {
   padding-left: 10px;
 }
@@ -250,12 +268,19 @@ table {
 
 /* ------------------------ask a question form------------------------ */
 
+.ct-ask-q-main {
+  display: inline-block;
+  box-sizing: border-box;
+  padding-top: 54px;
+  position: relative;
+}
+
 #ct-ask-q-form {
   font-family:"Graphik","Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 #ct-ask-q-title {
-  margin-top: 140px;
+  
 }
 
 button:focus {
@@ -281,6 +306,11 @@ button:focus {
   padding-left: 25px;
   list-style-type: disc;
 
+}
+
+.ct-ask-q-container {
+  /* background-color: red; */
+  display: inline-block;
 }
 
 
@@ -482,9 +512,13 @@ button:focus {
 
 
 /* ------------------------close popups------------------------ */
-
+.ct-close-tc-container {
+  float:right;
+  margin-right: 20px;
+}
 .ct-close-tc{
   float: right;
+  position: absolute;
   margin-top:-50px;
   margin-right: -47px;
   display: block;
@@ -504,12 +538,8 @@ button:focus {
   content: "×";
 }
 
-.CTcloseAskQ {
+.ct-close-ask-q {
   cursor: pointer;
-  float: right;
-  margin-top: -35px;
-  margin-right: 20px;
-  display: block;
   height: 20px;
   width: 20px;
   line-height: 19px;
@@ -519,25 +549,33 @@ button:focus {
   color: white;
   text-align: center;
   font-size: 1.6em;
+  top: 0;
+  position: absolute;
+  margin-top: 27px;
 }
 
-.CTcloseAskQ:before {
+.ct-close-ask-q:before {
   content: "×";
   cursor: pointer;
 }
 
-.CTcloseAskQ:hover {
+.ct-close-ask-q:hover {
   box-shadow: inset 0 0 0 50px black;
 }
 
-
+.ct-close-container {
+  float:right;
+  margin-right: 20px;
+}
 
 /* ------------------------check box------------------------ */
 
 .ct-q-check-container {
-  position: absolute;
-  margin-top: -40px; 
-  margin-left: 1070px;
+  position: relative;
+  /* margin-top: -40px; 
+  margin-left: 1070px; */
+  display: inline-block;
+  float: right;
 }
 
 .ct-q-check-container-name {
@@ -930,3 +968,4 @@ button:focus {
   border-radius: 20px;  
   background: white;  
 }
+

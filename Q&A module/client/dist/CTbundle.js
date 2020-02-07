@@ -12004,9 +12004,13 @@ var TermsAndConditions = function TermsAndConditions(props) {
     _react2.default.createElement(
       'a',
       { href: '#ct-agree-to-tc-container' },
-      _react2.default.createElement('span', { className: 'ct-close-tc', onClick: function onClick() {
-          return props.hidePopup();
-        } })
+      _react2.default.createElement(
+        'div',
+        { className: 'ct-close-tc-container' },
+        _react2.default.createElement('div', { className: 'ct-close-tc', onClick: function onClick() {
+            return props.hidePopup();
+          } })
+      )
     ),
     _react2.default.createElement(
       'div',
@@ -27653,7 +27657,7 @@ var App = function (_React$Component) {
             { id: 'ct-qa-total' },
             _react2.default.createElement(
               'span',
-              null,
+              { className: 'ct-num-of-q' },
               '1 \u2013 ',
               this.state.QApairs.length,
               ' of ',
@@ -29185,18 +29189,22 @@ var AskAQuestion = function (_React$Component) {
 
       return _react2.default.createElement(
         'div',
-        null,
+        { className: 'ct-ask-q-main' },
         _react2.default.createElement(
           'h2',
           { className: 'ct-q-and-a', id: 'ct-ask-q-title' },
           'Ask a Question'
         ),
         _react2.default.createElement(
-          'a',
-          { href: '#ct-qa-container' },
-          _react2.default.createElement('span', { className: 'CTcloseAskQ', onClick: function onClick() {
-              return _this5.props.hideAskAQuestion();
-            } })
+          'div',
+          { className: 'ct-close-container' },
+          _react2.default.createElement(
+            'a',
+            { href: '#ct-qa-container' },
+            _react2.default.createElement('div', { className: 'ct-close-ask-q', onClick: function onClick() {
+                return _this5.props.hideAskAQuestion();
+              } })
+          )
         ),
         _react2.default.createElement(
           'div',
@@ -29209,7 +29217,7 @@ var AskAQuestion = function (_React$Component) {
           { className: 'ct-form' },
           _react2.default.createElement(
             'div',
-            null,
+            { className: 'ct-ask-q-container' },
             _react2.default.createElement(
               'span',
               { style: { fontWeight: 'bold' } },

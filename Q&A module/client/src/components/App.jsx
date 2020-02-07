@@ -79,7 +79,7 @@ class App extends React.Component {
         <a href='#ct-ask-q-form'><button className='ct-blue-btn' id='ct-ask-q-btn' onClick={() => this.showAskAQuestion()}>Ask a question</button></a>
         <div className='ct-qa-block'>
           <div id='ct-qa-total'>
-            <span>1 &ndash; {this.state.QApairs.length} of {this.state.QApairs.length} Questions</span>
+            <span className='ct-num-of-q'>1 &ndash; {this.state.QApairs.length} of {this.state.QApairs.length} Questions</span>
             <span className='ct-sortby'>Sort by:&nbsp;
               <button className='ct-dropdown-btn'>{this.state.currentSelection}</button>&#9662;
               <div className='ct-dropdown-selection'>
