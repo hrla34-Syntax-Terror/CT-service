@@ -66,7 +66,7 @@ class App extends React.Component {
     var selected = e.target.getAttribute('name');
     this.setState({ currentSelection: e.target.textContent});
     axios
-      .post('/api/sort', { sort: selected })
+      .post('http://localhost:8080/api/sort', { sort: selected })
       .then((result) => this.setState({ QApairs: result.data }))
       .catch((err) => console.error(err));
   }

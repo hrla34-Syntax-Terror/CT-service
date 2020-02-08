@@ -78,6 +78,19 @@ table {
   border-color: white;
 }
 
+.ct-hr2 {
+  margin-top: 27px;
+  /* margin-bottom: 27px; */
+  margin-left: -9px;
+  border-color: white;
+}
+
+.ct-hr3 {
+  margin-top: 120px;
+  /* margin-bottom: 27px; */
+  margin-left: -9px;
+  border-color: white;
+}
 
 
 /* ------------------------top portion------------------------ */
@@ -88,6 +101,8 @@ table {
   letter-spacing: 0.5px;
   transform: scale(1, 0.97);
   font-size: 23px;
+  display: inline-block;
+  float: left;
 }
 
 #ct-qa-total {
@@ -283,8 +298,18 @@ table {
   font-family:"Graphik","Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
+.ct-close-container {
+  max-width: 0%;
+  position: relative;
+  float: right;
+  padding-bottom: 10px;
+  margin-right: 30px;
+}
+
 #ct-ask-q-title {
-  
+  width: 50%;
+  float: left;
+  top: 50%;
 }
 
 button:focus {
@@ -313,9 +338,45 @@ button:focus {
 }
 
 .ct-ask-q-container {
-  /* background-color: red; */
-  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+  height: 30px;
 }
+
+#ct-q-title {
+  float: left;
+  width: 50%;  
+}
+
+.ct-form-askq-q {
+  width: 100%;
+}
+
+.ct-ask-q-header {
+  width: 100%;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+
+
+.ct-nickname-form {
+  float: left;
+  width: 50%;
+}
+.ct-email-form {
+  float: left;
+  width: 100%;
+}
+
+#ct-name-header {
+  height: 30px;
+}
+
+#ct-email-header {
+  height: 30px;
+}
+
 
 
 /* ------------------------answer a question form------------------------ */
@@ -450,7 +511,7 @@ button:focus {
 
 #ct-tiny-words {
   font-size: 12px;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .ct-form {
@@ -462,14 +523,20 @@ button:focus {
 }
 
 .ct-location-form {
-  float: left;
+  float: right;
   padding-left: 40px;
+  width: 50%;
 }
+
 
 #ct-submit-form {
   float: left;
   margin-top: 13px;
   margin-left: 5px;
+}
+
+.ct-loc-header {
+  height: 30px;
 }
 
 
@@ -481,12 +548,27 @@ button:focus {
   border-radius: 4px 4px 4px 4px;
   box-shadow: none;
   outline: none;
-  width: 30em;
+  width: 96%;
   height: 2em;
   border: solid;
   border-width: 1.4px;
   border-color: #b8b8b8;
-  margin-top: 12px;
+  /* margin-top: 12px; */
+  padding-left: 15px;
+  font-size: 16px;
+}
+
+.ct-q-input-email {
+  background-color: transparent;
+  border-radius: 4px 4px 4px 4px;
+  box-shadow: none;
+  outline: none;
+  width: 46%;
+  height: 2em;
+  border: solid;
+  border-width: 1.4px;
+  border-color: #b8b8b8;
+  /* margin-top: 12px; */
   padding-left: 15px;
   font-size: 16px;
 }
@@ -499,7 +581,7 @@ button:focus {
   border: solid;
   border-width: 1.4px;
   border-color: #b8b8b8;
-  margin-top: 12px;
+  /* margin-top: 12px; */
   padding-left: 15px;
   font-size: 16px;
   padding-top: 9px;
@@ -513,7 +595,11 @@ button:focus {
   transform: scale(1, .95);
 }
 
-
+.ct-email-container {
+  display: flex;
+  background-color: yellow;
+  width: 100%;
+}
 
 /* ------------------------close popups------------------------ */
 .ct-close-tc-container {
@@ -554,8 +640,10 @@ button:focus {
   text-align: center;
   font-size: 1.6em;
   top: 0;
-  position: absolute;
-  margin-top: 27px;
+  display: inline-block;
+  float: right;
+  margin-top: 0;
+  position: relative;
 }
 
 .ct-close-ask-q:before {
@@ -567,52 +655,44 @@ button:focus {
   box-shadow: inset 0 0 0 50px black;
 }
 
-.ct-close-container {
-  float:right;
-  margin-right: 20px;
-}
 
 /* ------------------------check box------------------------ */
 
 .ct-q-check-container {
-  position: relative;
-  /* margin-top: -40px; 
-  margin-left: 1070px; */
-  display: inline-block;
+  max-width: 0%;
+}
+
+#ct-check {
+  width: 50%;
   float: right;
 }
 
 .ct-q-check-container-name {
-  position: absolute;
-  margin-top: -40px; 
-  margin-left: 500px;
+  max-width: 0%;
 }
 
 .ct-q-check-container-loc {
-  position: absolute;
-  margin-top: -21px; 
-  margin-left: 437px;
+  max-width: 0%;
 }
 
 .ct-q-check-container-email {
-  position: absolute;
-  margin-top: -40px; 
-  margin-left: 500px;
+  max-width: 0%;
+  right: 0;
 }
 
 .ct-check-container-tc {
-  position: absolute;
-  margin-top: -40px; 
-  margin-left: 1070px;
+  max-width: 0%;
+  right: 0;
 }
 
 .ct-checkmark-sml {
-  display:inline-block;
+  display:relative;
   width: 22px;
   height: 22px;
   -ms-transform: rotate(45deg); /* IE 9 */
   -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
   transform: rotate(45deg);
+  float: right;
 }
 
 .ct-checkmark-sml-circle {
@@ -621,7 +701,6 @@ button:focus {
   height: 19px;
   background-color: rgb(57, 154, 8);
   border-radius: 19px;
-  top: 35px;
 }
 
 .ct-checkmark-sml-stem {
@@ -629,8 +708,11 @@ button:focus {
   width: 3px;
   height: 11px;
   background-color: white;
-  left: 9px;
-  top: 38px;
+  margin: auto;
+  top: 0;
+  right: 2px;
+  bottom: 5px;
+  left: 0;
 }
 
 .ct-checkmark-sml-kick {
@@ -638,8 +720,11 @@ button:focus {
   width:7px;
   height:3px;
   background-color:#fff;
-  left:5px;
-  top:46px;
+  margin: auto;
+  top: 3px;
+  right: 10px;
+  bottom: 0px;
+  left: 3px;
 }
 
 
@@ -651,7 +736,6 @@ button:focus {
   transform: scale(1, .95);
   display: flex;
   position: absolute;
-  /* float: right; */
   font-size: 14px;
   background-color: transparent;
   border-radius: 20px 20px 20px 20px;
@@ -664,8 +748,36 @@ button:focus {
   border-color: #b8b8b8;
   padding-left: 12px;
   font-size: 14px;
-  margin-left: 967px;
-  margin-top: -22px;
+  float: right;
+  right: 0;
+  margin-top: -2px;
+}
+
+.ct-q-required-container-tc {
+  color: rgb(189, 11, 11);
+  transform: scale(1, .95);
+  display: flex;
+  position: absolute;
+  font-size: 14px;
+  background-color: transparent;
+  border-radius: 20px 20px 20px 20px;
+  box-shadow: none;
+  outline: none;
+  width: 6em;
+  height: 1.9em;
+  border: solid;
+  border-width: 1.4px;
+  border-color: #b8b8b8;
+  padding-left: 12px;
+  font-size: 14px;
+  float: right;
+  right: 0;
+  margin-top: -20px;
+}
+
+.ct-q-required-box {
+  float: right;
+  width: 50%;
 }
 
 .ct-name-required-container {
@@ -686,8 +798,10 @@ button:focus {
   border-color: #b8b8b8;
   padding-left: 12px;
   font-size: 14px;
-  margin-left: 398px;
+  /* margin-left: 398px; */
+  left: 39%;
   margin-top: -22px;
+  float: right;
 }
 
 .ct-email-required-container {
@@ -708,7 +822,7 @@ button:focus {
   border-color: #b8b8b8;
   padding-left: 12px;
   font-size: 14px;
-  margin-left: 378px;
+  left: 37%;
   margin-top: -22px;
 }
 
@@ -972,4 +1086,30 @@ button:focus {
   border-radius: 20px;  
   background: white;  
 }
+
+
+
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+
+
+.ct-q-and-a {
+  font-family: Georgia, serif;
+  font-weight: 200;
+  letter-spacing: 0.5px;
+  transform: scale(1, 0.97);
+  font-size: 23px;
+  display: inline-block;
+  float: left;
+}
+
+
+.ct-close-container {
+  max-width: 0%;
+  position: relative;
+  float: right;
+  padding-bottom: 10px;
+  margin-right: 30px;
+}
+
 

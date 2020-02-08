@@ -27618,7 +27618,7 @@ var App = function (_React$Component) {
 
       var selected = e.target.getAttribute('name');
       this.setState({ currentSelection: e.target.textContent });
-      _axios2.default.post('/api/sort', { sort: selected }).then(function (result) {
+      _axios2.default.post('http://localhost:8080/api/sort', { sort: selected }).then(function (result) {
         return _this3.setState({ QApairs: result.data });
       }).catch(function (err) {
         return console.error(err);
@@ -29162,7 +29162,7 @@ var AskAQuestion = function (_React$Component) {
           yes: 0,
           no: 0
         }];
-        _axios2.default.post('/api', newQuestion).then(function () {
+        _axios2.default.post('http://localhost:8080/api', newQuestion).then(function () {
           return _this4.props.getData();
         }).catch(function (err) {
           return console.error(err);
@@ -29195,19 +29195,23 @@ var AskAQuestion = function (_React$Component) {
         'div',
         { className: 'ct-ask-q-main' },
         _react2.default.createElement(
-          'h2',
-          { className: 'ct-q-and-a', id: 'ct-ask-q-title' },
-          'Ask a Question'
-        ),
-        _react2.default.createElement(
           'div',
-          { className: 'ct-close-container' },
+          { className: 'ct-ask-q-header' },
+          _react2.default.createElement(
+            'h2',
+            { className: 'ct-q-and-a', id: 'ct-ask-q-title' },
+            'Ask a Question'
+          ),
           _react2.default.createElement(
             'a',
             { href: '#ct-qa-container' },
-            _react2.default.createElement('div', { className: 'ct-close-ask-q', onClick: function onClick() {
-                return _this5.props.hideAskAQuestion();
-              } })
+            _react2.default.createElement(
+              'div',
+              { className: 'ct-close-container' },
+              _react2.default.createElement('div', { className: 'ct-close-ask-q', onClick: function onClick() {
+                  return _this5.props.hideAskAQuestion();
+                } })
+            )
           )
         ),
         _react2.default.createElement(
@@ -29215,45 +29219,56 @@ var AskAQuestion = function (_React$Component) {
           { id: 'ct-tiny-words', style: { marginBottom: -13, marginLeft: 8 } },
           'Required fields are marked with *'
         ),
-        _react2.default.createElement('hr', { className: 'ct-hr' }),
+        _react2.default.createElement('hr', { className: 'ct-hr2' }),
         _react2.default.createElement(
           'div',
           { className: 'ct-form' },
           _react2.default.createElement(
             'div',
-            { className: 'ct-ask-q-container' },
+            { className: 'ct-form-askq-q' },
             _react2.default.createElement(
-              'span',
-              { style: { fontWeight: 'bold' } },
-              'Question*'
-            ),
-            '\xA0\xA0\xA0',
-            _react2.default.createElement(
-              'span',
-              null,
-              'Maximum of 255 characters.'
-            ),
-            this.state.postQClicked && !this.state.questionBC ? _react2.default.createElement(
-              'span',
-              { className: 'ct-q-required-container' },
+              'div',
+              { className: 'ct-ask-q-container' },
               _react2.default.createElement(
                 'span',
-                { id: 'ct-req-content' },
-                'Required\xA0',
-                _react2.default.createElement('span', { className: 'ct-q-required' })
-              )
-            ) : _react2.default.createElement('div', null),
-            this.state.question ? _react2.default.createElement(
-              'span',
-              { className: 'ct-q-check-container' },
-              _react2.default.createElement(
+                { id: 'ct-q-title', style: { fontWeight: 'bold' } },
+                'Question* \xA0\xA0\xA0',
+                _react2.default.createElement(
+                  'span',
+                  { style: { fontWeight: 'normal' } },
+                  'Maximum of 255 characters.'
+                )
+              ),
+              this.state.postQClicked && !this.state.questionBC && _react2.default.createElement(
                 'span',
-                { className: 'ct-checkmark-sml' },
-                _react2.default.createElement('div', { className: 'ct-checkmark-sml-circle' }),
-                _react2.default.createElement('div', { className: 'ct-checkmark-sml-stem' }),
-                _react2.default.createElement('div', { className: 'ct-checkmark-sml-kick' })
+                { className: 'ct-q-required-box' },
+                _react2.default.createElement(
+                  'span',
+                  { className: 'ct-q-required-container' },
+                  _react2.default.createElement(
+                    'span',
+                    { id: 'ct-req-content' },
+                    'Required\xA0',
+                    _react2.default.createElement('span', { className: 'ct-q-required' })
+                  )
+                )
+              ),
+              this.state.question && _react2.default.createElement(
+                'div',
+                { id: 'ct-check' },
+                _react2.default.createElement(
+                  'span',
+                  { className: 'ct-q-checkmark-container' },
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'ct-checkmark-sml' },
+                    _react2.default.createElement('div', { className: 'ct-checkmark-sml-circle' }),
+                    _react2.default.createElement('div', { className: 'ct-checkmark-sml-stem' }),
+                    _react2.default.createElement('div', { className: 'ct-checkmark-sml-kick' })
+                  )
+                )
               )
-            ) : _react2.default.createElement('div', null)
+            )
           ),
           _react2.default.createElement(
             'form',
@@ -29268,28 +29283,36 @@ var AskAQuestion = function (_React$Component) {
               _react2.default.createElement(
                 'div',
                 { className: 'ct-nickname-form', style: { fontWeight: 'bold' } },
-                'Nickname*',
-                this.state.postQClicked && !this.state.qNicknameBC ? _react2.default.createElement(
-                  'span',
-                  { className: 'ct-name-required-container' },
+                _react2.default.createElement(
+                  'div',
+                  { id: 'ct-name-header' },
                   _react2.default.createElement(
                     'span',
-                    { id: 'ct-req-content', style: { fontWeight: 'normal' } },
-                    'Required\xA0',
-                    _react2.default.createElement('span', { className: 'ct-q-required' })
-                  )
-                ) : _react2.default.createElement('div', null),
-                this.state.qNickname ? _react2.default.createElement(
-                  'span',
-                  { className: 'ct-q-check-container-name' },
-                  _react2.default.createElement(
+                    null,
+                    'Nickname*'
+                  ),
+                  this.state.postQClicked && !this.state.qNicknameBC && _react2.default.createElement(
                     'span',
-                    { className: 'ct-checkmark-sml' },
-                    _react2.default.createElement('div', { className: 'ct-checkmark-sml-circle' }),
-                    _react2.default.createElement('div', { className: 'ct-checkmark-sml-stem' }),
-                    _react2.default.createElement('div', { className: 'ct-checkmark-sml-kick' })
+                    { className: 'ct-name-required-container' },
+                    _react2.default.createElement(
+                      'span',
+                      { id: 'ct-req-content', style: { fontWeight: 'normal' } },
+                      'Required\xA0',
+                      _react2.default.createElement('span', { className: 'ct-q-required' })
+                    )
+                  ),
+                  this.state.qNickname && _react2.default.createElement(
+                    'span',
+                    { className: 'ct-q-check-container-name' },
+                    _react2.default.createElement(
+                      'span',
+                      { className: 'ct-checkmark-sml' },
+                      _react2.default.createElement('div', { className: 'ct-checkmark-sml-circle' }),
+                      _react2.default.createElement('div', { className: 'ct-checkmark-sml-stem' }),
+                      _react2.default.createElement('div', { className: 'ct-checkmark-sml-kick' })
+                    )
                   )
-                ) : _react2.default.createElement('div', null),
+                ),
                 _react2.default.createElement(
                   'div',
                   null,
@@ -29301,18 +29324,22 @@ var AskAQuestion = function (_React$Component) {
               _react2.default.createElement(
                 'div',
                 { className: 'ct-location-form', style: { fontWeight: 'bold' } },
-                'Location',
-                this.state.qLocationBC ? _react2.default.createElement(
-                  'span',
-                  { className: 'ct-q-check-container-loc' },
-                  _react2.default.createElement(
+                _react2.default.createElement(
+                  'div',
+                  { className: 'ct-loc-header' },
+                  'Location',
+                  this.state.qLocationBC && _react2.default.createElement(
                     'span',
-                    { className: 'ct-checkmark-sml' },
-                    _react2.default.createElement('div', { className: 'ct-checkmark-sml-circle' }),
-                    _react2.default.createElement('div', { className: 'ct-checkmark-sml-stem' }),
-                    _react2.default.createElement('div', { className: 'ct-checkmark-sml-kick' })
+                    { className: 'ct-q-check-container-loc' },
+                    _react2.default.createElement(
+                      'span',
+                      { className: 'ct-checkmark-sml' },
+                      _react2.default.createElement('div', { className: 'ct-checkmark-sml-circle' }),
+                      _react2.default.createElement('div', { className: 'ct-checkmark-sml-stem' }),
+                      _react2.default.createElement('div', { className: 'ct-checkmark-sml-kick' })
+                    )
                   )
-                ) : _react2.default.createElement('div', null),
+                ),
                 _react2.default.createElement(
                   'div',
                   null,
@@ -29325,36 +29352,48 @@ var AskAQuestion = function (_React$Component) {
             _react2.default.createElement('hr', { className: 'ct-hr' }),
             _react2.default.createElement(
               'div',
-              { style: { fontWeight: 'bold' } },
-              'Email*',
-              this.state.postQClicked && !this.state.qEmailBC ? _react2.default.createElement(
-                'span',
-                { className: 'ct-email-required-container' },
+              { className: 'ct-email-form', style: { fontWeight: 'bold' } },
+              _react2.default.createElement(
+                'div',
+                { id: 'ct-name-header' },
                 _react2.default.createElement(
                   'span',
-                  { id: 'ct-req-content', style: { fontWeight: 'normal' } },
-                  'Invalid email\xA0',
-                  _react2.default.createElement('span', { className: 'ct-q-required' })
-                )
-              ) : _react2.default.createElement('div', null),
-              this.state.qEmail.includes('@') ? _react2.default.createElement(
-                'span',
-                { className: 'ct-q-check-container-email' },
-                _react2.default.createElement(
+                  null,
+                  'Email*'
+                ),
+                this.state.postQClicked && !this.state.qEmailBC && _react2.default.createElement(
                   'span',
-                  { className: 'ct-checkmark-sml' },
-                  _react2.default.createElement('div', { className: 'ct-checkmark-sml-circle' }),
-                  _react2.default.createElement('div', { className: 'ct-checkmark-sml-stem' }),
-                  _react2.default.createElement('div', { className: 'ct-checkmark-sml-kick' })
+                  { className: 'ct-name-required-container' },
+                  _react2.default.createElement(
+                    'span',
+                    { id: 'ct-req-content', style: { fontWeight: 'normal' } },
+                    'Required\xA0',
+                    _react2.default.createElement('span', { className: 'ct-q-required' })
+                  )
+                ),
+                this.state.qEmail.includes('@') && this.state.qEmail.includes('.') && this.state.qEmail.includes('com') && _react2.default.createElement(
+                  'span',
+                  { className: 'ct-q-check-container-name' },
+                  _react2.default.createElement(
+                    'span',
+                    { className: 'ct-checkmark-sml' },
+                    _react2.default.createElement('div', { className: 'ct-checkmark-sml-circle' }),
+                    _react2.default.createElement('div', { className: 'ct-checkmark-sml-stem' }),
+                    _react2.default.createElement('div', { className: 'ct-checkmark-sml-kick' })
+                  )
                 )
-              ) : _react2.default.createElement('div', null)
-            ),
-            _react2.default.createElement('input', { className: 'ct-q-input', placeholder: 'Example: youremail@example.com', name: 'qEmail', onChange: function onChange(e) {
-                return _this5.changeHandler(e);
-              }, style: { borderColor: this.state.qEmailBC } })
+              ),
+              _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement('input', { className: 'ct-q-input-email', placeholder: 'Example: youremail@example.com', name: 'qEmail', onChange: function onChange(e) {
+                    return _this5.changeHandler(e);
+                  }, style: { borderColor: this.state.qEmailBC } })
+              )
+            )
           )
         ),
-        _react2.default.createElement('hr', { className: 'ct-hr' }),
+        _react2.default.createElement('hr', { className: 'ct-hr3' }),
         _react2.default.createElement(
           'div',
           { id: 'ct-agree-to-tc-container' },
@@ -29376,17 +29415,17 @@ var AskAQuestion = function (_React$Component) {
               )
             )
           ),
-          this.state.postQClicked && !this.state.checkedTC ? _react2.default.createElement(
+          this.state.postQClicked && !this.state.checkedTC && _react2.default.createElement(
             'span',
-            { className: 'ct-q-required-container' },
+            { className: 'ct-q-required-container-tc' },
             _react2.default.createElement(
               'span',
               { id: 'ct-req-content' },
               'Required\xA0',
               _react2.default.createElement('span', { className: 'ct-q-required' })
             )
-          ) : _react2.default.createElement('div', null),
-          this.state.checkedTC ? _react2.default.createElement(
+          ),
+          this.state.checkedTC && _react2.default.createElement(
             'span',
             { className: 'ct-check-container-tc' },
             _react2.default.createElement(
@@ -29396,7 +29435,7 @@ var AskAQuestion = function (_React$Component) {
               _react2.default.createElement('div', { className: 'ct-checkmark-sml-stem' }),
               _react2.default.createElement('div', { className: 'ct-checkmark-sml-kick' })
             )
-          ) : _react2.default.createElement('div', null)
+          )
         ),
         _react2.default.createElement(
           'div',
@@ -29420,7 +29459,7 @@ var AskAQuestion = function (_React$Component) {
             } },
           'Post question'
         ),
-        this.state.TCPopup ? _react2.default.createElement(_TermsAndConditions2.default, { checkTCHidePopup: this.checkTCHidePopup, hidePopup: this.hidePopup }) : _react2.default.createElement('div', null)
+        this.state.TCPopup && _react2.default.createElement(_TermsAndConditions2.default, { checkTCHidePopup: this.checkTCHidePopup, hidePopup: this.hidePopup })
       );
     }
   }]);
