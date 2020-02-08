@@ -11,6 +11,7 @@ var dbHelpers = {
     return QApair.findOneAndUpdate(num,  { $push: { answers: answer  } })
   },
   sort: (category) => {
+    console.log(category)
     if (category.sort === 'newestQ') {
       return QApair.find({}).sort({'qDate': -1})
     }

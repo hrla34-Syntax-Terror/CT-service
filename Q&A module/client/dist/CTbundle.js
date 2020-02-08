@@ -29768,13 +29768,16 @@ var QAListEntry = function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      var mostHelpfulAns = this.props.QApair.answers[0];
-      this.props.QApair.answers.forEach(function (answer) {
-        if (answer.yes > mostHelpfulAns.yes) {
-          mostHelpfulAns = answer;
-        }
-      });
-      var mostRecentAns = this.props.QApair.answers[0];
+      // if (this.props.QApair) {
+      //     let mostHelpfulAns = this.props.QApair.answers[0];
+      //     this.props.QApair.answers.forEach(answer => {
+      //       if (answer.yes > mostHelpfulAns.yes) {
+      //         mostHelpfulAns = answer;
+      //       }
+      //     });
+      //     let mostRecentAns = this.props.QApair.answers[0];
+      // }
+
       return _react2.default.createElement(
         'div',
         { className: 'ct-list-entry' },
@@ -29842,7 +29845,7 @@ var QAListEntry = function (_React$Component) {
             } },
           'Answer the question'
         ),
-        this.props.QApair.ansCount > 0 && _react2.default.createElement(_QAListAns2.default, { firstAns: mostRecentAns, number: this.props.QApair.number, QApairs: this.props.QApairs }),
+        this.props.QApair.ansCount > 0 && _react2.default.createElement(_QAListAns2.default, { firstAns: this.props.QApair.answers[0], number: this.props.QApair.number, QApairs: this.props.QApairs }),
         this.state.answerQ && _react2.default.createElement(
           'div',
           { className: 'ct-popup' },

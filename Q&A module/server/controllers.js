@@ -14,7 +14,6 @@ var controllers = {
       })
   },
   post: (req, res) => {
-    console.log(req.body)
     dbHelpers.post(req.body)
       .then(() => {
         res.status(201).send('posted question')

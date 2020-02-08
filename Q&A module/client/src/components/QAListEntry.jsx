@@ -22,13 +22,16 @@ class QAListEntry extends React.Component {
   }
   
   render() {
-    let mostHelpfulAns = this.props.QApair.answers[0];
-    this.props.QApair.answers.forEach(answer => {
-      if (answer.yes > mostHelpfulAns.yes) {
-        mostHelpfulAns = answer;
-      }
-    });
-    let mostRecentAns = this.props.QApair.answers[0];
+    // if (this.props.QApair) {
+    //     let mostHelpfulAns = this.props.QApair.answers[0];
+    //     this.props.QApair.answers.forEach(answer => {
+    //       if (answer.yes > mostHelpfulAns.yes) {
+    //         mostHelpfulAns = answer;
+    //       }
+    //     });
+    //     let mostRecentAns = this.props.QApair.answers[0];
+    // }
+ 
     return (
       <div className='ct-list-entry'>
         <hr className='ct-hr'/>
@@ -49,7 +52,7 @@ class QAListEntry extends React.Component {
           <button className='ct-answer-btn' onClick={() => this.showAnsPopup()}>Answer the question</button>
         ) }
         { this.props.QApair.ansCount > 0 &&
-            <QAListAns firstAns={mostRecentAns} number={this.props.QApair.number} QApairs={this.props.QApairs}/> }
+            <QAListAns firstAns={this.props.QApair.answers[0]} number={this.props.QApair.number} QApairs={this.props.QApairs}/> }
         { this.state.answerQ &&
           <div className='ct-popup'>
           <div id='ct-page-mask'></div>
