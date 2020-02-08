@@ -10534,14 +10534,16 @@ var App = function (_React$Component) {
   _createClass(App, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      this.getData();
+      var endpoint = document.location.href.substring(22);
+      var productID = Number(endpoint.split('/')[0]);
+      this.getData(productID);
     }
   }, {
     key: 'getData',
-    value: function getData() {
+    value: function getData(productID) {
       var _this2 = this;
 
-      _axios2.default.get('http://localhost:8090/api').then(function (result) {
+      _axios2.default.get('http://localhost:8090/api/' + productID).then(function (result) {
         return _this2.setState({
           products: result.data,
           currentProduct: result.data[0]

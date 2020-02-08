@@ -15,12 +15,14 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.getData();
+    var endpoint = document.location.href.substring(22);
+    var productID = Number(endpoint.split('/')[0]);
+    this.getData(productID);
   }
 
-  getData() {
+  getData(productID) {
     axios
-      .get('http://localhost:8090/api')
+      .get(`http://localhost:8090/api/${productID}`)
       .then((result) => this.setState({ 
         products: result.data,
         currentProduct: result.data[0]

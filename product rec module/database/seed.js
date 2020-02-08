@@ -61,6 +61,8 @@ for (var i = 0; i < 100; i++) {
     if (!indexContainer.includes(randomIndex) && productRecList[randomIndex].name !== product.productName) {
       indexContainer.push(randomIndex);
       product.list.push(productRecList[randomIndex]);
+    } else {
+      k--;
     }
   }
   Product.create(product)
