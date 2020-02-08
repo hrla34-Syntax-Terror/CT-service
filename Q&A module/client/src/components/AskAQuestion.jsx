@@ -239,7 +239,8 @@ class AskAQuestion extends React.Component {
         </div>
         <hr className='ct-hr3'/>
         <div id='ct-agree-to-tc-container'><a href='ct-agree-to-tc-container'></a>
-          <input type='checkbox' style={{cursor:'pointer'}} checked={this.state.checkedTC} onChange={this.toggleCheck}/><span id='ct-agree'>&nbsp;&nbsp;&nbsp;I agree to the <a href='#ct-qa-container'><span id='ct-terms' onClick={() => this.showPopup()}>terms &amp; conditions</span></a></span>
+          <input type='checkbox' style={{cursor:'pointer'}} checked={this.state.checkedTC} onChange={this.toggleCheck}/>
+          <span id='ct-agree'>&nbsp;&nbsp;&nbsp;I agree to the <span id='ct-terms' onClick={() => this.showPopup()}>terms &amp; conditions</span></span>
           { this.state.postQClicked && !this.state.checkedTC &&
             <span className='ct-q-required-container-tc'>
              <span id='ct-req-content'>
@@ -266,7 +267,6 @@ class AskAQuestion extends React.Component {
         { this.state.TCPopup &&
           <TermsAndConditions checkTCHidePopup={this.checkTCHidePopup} hidePopup={this.hidePopup}/>
         }
-        
       </div>
     );
   }

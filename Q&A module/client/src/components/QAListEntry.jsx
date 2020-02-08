@@ -48,9 +48,9 @@ class QAListEntry extends React.Component {
         ) : (      
           <button className='ct-answer-btn' onClick={() => this.showAnsPopup()}>Answer the question</button>
         ) }
-        { this.props.QApair.ansCount > 0 ? (
-            <QAListAns firstAns={mostRecentAns} number={this.props.QApair.number} QApairs={this.props.QApairs}/>) : (<div/>) }
-        { this.state.answerQ ? (
+        { this.props.QApair.ansCount > 0 &&
+            <QAListAns firstAns={mostRecentAns} number={this.props.QApair.number} QApairs={this.props.QApairs}/> }
+        { this.state.answerQ &&
           <div className='ct-popup'>
           <div id='ct-page-mask'></div>
           <div className='ct-post-ans-popup'>
@@ -59,7 +59,7 @@ class QAListEntry extends React.Component {
             <div className='ct-post-ans-user'>
               &nbsp;<span className='ct-nickname'>{this.props.QApair.qNickname}&nbsp;</span>
                 <span>·</span>&nbsp;<span id='ct-small-font'>{moment.tz(this.props.QApair.qDate, 'America/Los_Angeles').fromNow()}</span>
-                <span id='ct-num-of-ans'>
+                <span id='ct-num-of-ans-popup'>
                 <div style={{fontWeight:"bold"}}>{this.props.QApair.ansCount || 0}</div>
                 <div> 
                 {this.props.QApair.ansCount > 1 ? (<div>answers</div>) : (<div>answer</div>)}
@@ -78,7 +78,7 @@ class QAListEntry extends React.Component {
             <AnswerAQuestion answerSubmit={this.props.answerSubmit} hideAnsPopup={this.hideAnsPopup} num={this.props.QApair.number}/>
           </div>
           </div>
-        ) : (<div/>) }
+        }
       </div>
     );
   };

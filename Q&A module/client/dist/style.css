@@ -229,12 +229,12 @@ table {
 }
 
 
-#ct-small-font, #ct-num-of-ans {
+#ct-small-font, #ct-num-of-ans, #ct-num-of-ans-popup {
   font-size: 14px;
   font-weight: 400;
 }
 
-#ct-num-of-ans {
+#ct-num-of-ans, #ct-num-of-ans-popup {
   float: right;
   text-align: center;
 }
@@ -244,7 +244,7 @@ table {
   cursor: pointer;
 }
 
-#ct-num-of-ans {
+#ct-num-of-ans, #ct-num-of-ans-popup {
   margin-top: -5px;
   line-height: 23px;
 }
@@ -381,15 +381,22 @@ button:focus {
 
 /* ------------------------answer a question form------------------------ */
 
+.ct-ans-q-main {
+  display: inline-block;
+  box-sizing: border-box;
+  padding-left: 40px;
+  position: relative;
+  padding-bottom: 40px;
+}
+
 .ct-post-ans-popup {  
   position: absolute;  
   background-color: #fafafa;
   display: flex;
   flex-direction: column;
-
   padding-right: 50px;
-  margin: auto;  
   margin-top: -500px;
+  left: -50px;
 
 }  
 
@@ -597,20 +604,16 @@ button:focus {
 
 .ct-email-container {
   display: flex;
-  background-color: yellow;
   width: 100%;
 }
 
 /* ------------------------close popups------------------------ */
 .ct-close-tc-container {
   float:right;
-  margin-right: 20px;
+  display: inline-block;
 }
-.ct-close-tc{
-  float: right;
+.ct-close-tc {
   position: absolute;
-  margin-top:-50px;
-  margin-right: -47px;
   display: block;
   height: 20px;
   width: 20px;
@@ -622,6 +625,8 @@ button:focus {
   text-align: center;
   font-size: 1.6em;
   cursor: pointer;
+  right: 3px;
+  top: 3px;
 }
 
 .ct-close-tc:before {
@@ -913,7 +918,7 @@ button:focus {
 
 #ct-rr-and-terms {
   transform: scale(1, .9);
-  padding-top: 25px;
+  padding-top: 50px;
   padding-bottom: 15px;
 }
 
@@ -1063,7 +1068,7 @@ button:focus {
   position: absolute;  
   width: 585px;  
   height: 1200px;  
-  top: 400px;  
+  top: 0;  
   left: 0;  
   right: 0;  
   bottom: 0;  
@@ -1093,7 +1098,7 @@ button:focus {
 
 
 
-.ct-q-and-a {
+.ct-q-and-a, .ct-q-and-a-tc {
   font-family: Georgia, serif;
   font-weight: 200;
   letter-spacing: 0.5px;
@@ -1102,6 +1107,7 @@ button:focus {
   display: inline-block;
   float: left;
 }
+
 
 
 .ct-close-container {

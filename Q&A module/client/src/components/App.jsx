@@ -96,7 +96,7 @@ class App extends React.Component {
         <div id='ct-ask-q-form'><a href='ct-ask-q-form'></a>
           { this.state.showAskQ ? (<AskAQuestion  QApairs={this.state.QApairs} hideAskAQuestion={this.hideAskAQuestion} questionSubmit={this.questionSubmit} getData={this.getData}/> ) : (<div/>) }
         </div>
-        { this.state.submitQuestion ? (
+        { this.state.submitQuestion &&
           <div className='ct-popup'>
             <div id='ct-page-mask'></div>
             <div className='ct-popup-submit'>
@@ -110,8 +110,8 @@ class App extends React.Component {
               <h2 id='ct-submit-msg'>Your question was submitted!</h2>
             </div>
           </div>
-        ) : (<div/>) }
-         { this.state.submitAnswer ? (
+        }
+         { this.state.submitAnswer &&
           <div>
             <div id='ct-page-mask'></div>
             <div className='ct-popup-submit'>
@@ -125,7 +125,7 @@ class App extends React.Component {
               <h2 id='ct-submit-msg'>Your answer was submitted!</h2>
             </div>
           </div>
-        ) : (<div/>) }
+        }
       </div>
     );
   };
