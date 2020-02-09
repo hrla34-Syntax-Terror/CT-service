@@ -59,11 +59,23 @@ table {
   color: #292929;
   /* display: flex;
   flex-direction: column; */
+  /* font-family: 'Graphik', 'Helvetica Neue', sans-serif;
+  background-color: #fafafa;
+  color: #292929;
+  display: flex;
+  flex-direction: column;
+  padding: 0 30px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  max-width: 1080px; */
 }
 
 .ct2-product-rec {
-  padding-left: 18.5em;
-  padding-right: 18.5em;
+  margin: 0 auto;
+  padding-left: 30px;
+  padding-right: 30px;
+  max-width: 1080px;
+  box-sizing: border-box;
 }
 
 .ct2-title {
@@ -200,17 +212,18 @@ table {
   font-size: 22px;
   line-height: 28px;
   text-align: center;
-  margin-top: 35px;
   margin-bottom: 35px;
 }
 
 .ct2-details-container {
   width: 100%;
   height: 100%;
-  padding-left: 150px;
-  padding-right: 150px;
-  box-sizing: border-box;
   padding-bottom: 50px;
+  margin: 0 auto;
+  padding-left: 30px;
+  padding-right: 30px;
+  max-width: 1080px;
+  box-sizing: border-box;
 }
 
 .ct2-nitty-gritty {
@@ -272,6 +285,7 @@ table {
   color: #3278ae;
   padding-top: 18px;
   cursor: pointer;
+  margin-left: -8px;
 }
 
 .ct2-spec-table {
