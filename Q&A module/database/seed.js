@@ -46,12 +46,13 @@ for (var i = 1; i < 100; i++) {
       });
     }
     // sort the answers by having the most recent answer at the beginning of array
-    qa.answers.sort(function(a,b) {
-      return new Date(b.aDate) - new Date(a.aDate);
-    })
-    qa.answers.sort(function(a,b) {
-      return b.yes - a.yes;
-    })
+    // qa.answers.sort(function(a,b) {
+    //   return new Date(b.aDate) - new Date(a.aDate);
+    // })
+    // sort the answers by most helpful answer at the beginning of array
+    // qa.answers.sort(function(a,b) {
+    //   return b.yes - a.yes;
+    // })
     product.QApairs.push(qa);
   }
   QApair.create(product)
@@ -67,40 +68,6 @@ let firstProduct = {
   QApairs: [
     {
       number: 0,
-      qNickname: 'smarty',
-      question: "I can't find any other human goggles as good looking as this one, will this fit on my face?",
-      qDate: faker.date.between('2020-01-30', '2020-02-02'),
-      qEmail: faker.internet.email(),
-      qLocation: faker.address.city() + ", " + faker.address.state(),
-      newQ: false,
-      ansCount: 2,
-      answers: [
-        {
-          aNickname: faker.name.firstName(),
-          answer: "LOL no, but you're welcome to try.",
-          aDate: faker.date.between('2020-01-01', '2020-01-29'),
-          aEmail: faker.internet.email(),
-          aLocation: faker.address.city() + ", " + faker.address.state(),
-          yes: 10,
-          no: 0,
-          inappropriate: faker.random.arrayElement(["yes","no"]),
-          newAns: false
-        },
-        {
-          aNickname: faker.name.firstName(),
-          answer: "Yes, take a picture when you do and post it here, I'd like to see!",
-          aDate: faker.date.between('2019-11-01', '2019-12-30'),
-          aEmail: faker.internet.email(),
-          aLocation: faker.address.city() + ", " + faker.address.state(),
-          yes: 80,
-          no: 0,
-          inappropriate: faker.random.arrayElement(["yes","no"]),
-          newAns: false
-        }
-      ]
-    },
-    {
-      number: 1,
       qNickname: faker.name.firstName(),
       question: "This is so cute, I want to buy this for my cat, what is the color of it?",
       qDate: faker.date.between('2019-01-01', '2020-02-02'),
@@ -123,6 +90,40 @@ let firstProduct = {
       ]
     },
     {
+      number: 1,
+      qNickname: 'smarty',
+      question: "I can't find any other human goggles as good looking as this one, will this fit on my face?",
+      qDate: faker.date.between('2020-01-30', '2020-02-02'),
+      qEmail: faker.internet.email(),
+      qLocation: faker.address.city() + ", " + faker.address.state(),
+      newQ: false,
+      ansCount: 2,
+      answers: [
+        {
+          aNickname: faker.name.firstName(),
+          answer: "LOL no, but you're welcome to try.",
+          aDate: faker.date.between('2020-01-01', '2020-01-29'),
+          aEmail: faker.internet.email(),
+          aLocation: faker.address.city() + ", " + faker.address.state(),
+          yes: 80,
+          no: 0,
+          inappropriate: faker.random.arrayElement(["yes","no"]),
+          newAns: false
+        },
+        {
+          aNickname: faker.name.firstName(),
+          answer: "Yes, take a picture when you do and post it here, I'd like to see!",
+          aDate: faker.date.between('2019-11-01', '2019-12-30'),
+          aEmail: faker.internet.email(),
+          aLocation: faker.address.city() + ", " + faker.address.state(),
+          yes: 10,
+          no: 0,
+          inappropriate: faker.random.arrayElement(["yes","no"]),
+          newAns: false
+        }
+      ]
+    },
+    {
       number: 2,
       qNickname: faker.name.firstName(),
       question: "Is the dog for sale?",
@@ -132,17 +133,6 @@ let firstProduct = {
       newQ: false,
       ansCount: 3,
       answers: [
-        {
-          aNickname: faker.name.firstName(),
-          answer: "How much are you willing to pay?",
-          aDate: faker.date.between('2020-01-01', '2020-02-02'),
-          aEmail: faker.internet.email(),
-          aLocation: faker.address.city() + ", " + faker.address.state(),
-          yes: 7,
-          no: 50,
-          inappropriate: faker.random.arrayElement(["yes","no"]),
-          newAns: false
-        },
         {
           aNickname: faker.name.firstName(),
           answer: "You're a terrible person.",
@@ -162,6 +152,17 @@ let firstProduct = {
           aLocation: faker.address.city() + ", " + faker.address.state(),
           yes: 90,
           no: 0,
+          inappropriate: faker.random.arrayElement(["yes","no"]),
+          newAns: false
+        },
+        {
+          aNickname: faker.name.firstName(),
+          answer: "How much are you willing to pay?",
+          aDate: faker.date.between('2020-01-01', '2020-02-02'),
+          aEmail: faker.internet.email(),
+          aLocation: faker.address.city() + ", " + faker.address.state(),
+          yes: 7,
+          no: 50,
           inappropriate: faker.random.arrayElement(["yes","no"]),
           newAns: false
         }
