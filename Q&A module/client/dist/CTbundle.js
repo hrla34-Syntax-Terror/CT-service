@@ -28744,17 +28744,21 @@ var AnswerAQuestion = function (_React$Component) {
       if (this.state.formCompleted) {
         this.props.hideAnsPopup();
         this.props.answerSubmit();
-        var answer = {};
-        answer.aNickname = this.state.qNickname;
-        answer.answer = this.state.answer;
-        answer.aDate = this.state.qDate;
-        answer.aEmail = this.state.qEmail;
-        answer.aLocation = this.state.qLocation;
-        answer.yes = 0;
-        answer.no = 0;
-        answer.inappropriate = '';
-        answer.newAns = 'true';
-        _axios2.default.post('/api/' + this.props.num, answer).then(console.log('posted')).catch(function (err) {
+        var newAns = {
+          aNickname: this.state.qNickname,
+          answer: this.state.answer,
+          aDate: this.state.qDate,
+          aEmail: this.state.qEmail,
+          aLocation: this.state.qLocation,
+          yes: 0,
+          no: 0,
+          inappropriate: '',
+          newAns: 'true'
+        };
+        var endpoint = document.location.href.substring(22);
+        var productID = Number(endpoint.split('/')[0]);
+        console.log(this.props.num);
+        _axios2.default.put('http://localhost:8080/api/' + productID, { num: this.props.num, newAns: newAns }).then(console.log('posted')).catch(function (err) {
           return console.error(err);
         });
         document.getElementById('ct-form').reset();

@@ -11,10 +11,8 @@ router
   .route('/:productID')
   .get(controllers.get)
   .post(controllers.postQ)
+  .put(controllers.postAns)
 
-// router
-//   .route('/:number')
-//   .post(controllers.postAns)
 
 
 module.exports = router;

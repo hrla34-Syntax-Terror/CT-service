@@ -23,7 +23,7 @@ var controllers = {
       });
   },
   postAns: (req, res) => {
-    dbHelpers.postAns(req.body, req.params)
+    dbHelpers.postAns(req.params.productID, req.body.num, req.body.newAns)
       .then(() => {
         res.status(201).send('posted answer')
       })

@@ -10,8 +10,11 @@ var dbHelpers = {
   postQ: (id, newQuestion) => {
     return QApair.findOneAndUpdate({ productID:id }, {$push: {QApairs: newQuestion}});
   },
-  postAns: (answer, num) => {
-    return QApair.findOneAndUpdate(num,  { $push: { answers: answer  } })
+  postAns: (id, num, newAns) => {
+    console.log(id)
+    console.log(num)
+    console.log(newAns)
+    return QApair.findOneAndUpdate({ "productID":id, "QApairs.number": num }, {$push: {"QApairs.$.answers": newAns}});
   },
   sort: (id, category) => {
     if (category === 'newestQ') {
