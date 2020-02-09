@@ -55,16 +55,22 @@ table {
 #QandA {
   font-family: 'Graphik', 'Helvetica Neue', sans-serif;
   background-color: #fafafa;
-  padding-left: 17.5%;
-  padding-right: 17.5%;
+  padding: 0 30px;
   margin: 0 auto;
   color: #292929;
 }
 
 #ct-qa-container {
+  font-family: 'Graphik', 'Helvetica Neue', sans-serif;
+  background-color: #fafafa;
+  color: #292929;
   display: flex;
   flex-direction: column;
+  padding: 0 30px;
+  margin: 0 auto;
   box-sizing: border-box;
+  max-width: 1080px;
+  /* font-weight: 200; */
 }
 
 
@@ -889,11 +895,11 @@ button:focus {
   font-weight: 400;
   border-width: 1.4px;
   border-color: #b8b8b8;
+  border-style: solid;
+  cursor: pointer;
 }
 
 .ct-helpful, .ct-inappropriate, .ct-helpful-clicked, .ct-reported {
-  border-style: solid;
-  cursor: pointer;
   padding-top: 6px;
   padding-bottom: 6px;
 }
