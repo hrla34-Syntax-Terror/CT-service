@@ -27614,10 +27614,12 @@ var App = function (_React$Component) {
     value: function clickSelection(e) {
       var _this3 = this;
 
+      var endpoint = document.location.href.substring(22);
+      var productID = Number(endpoint.split('/')[0]);
       var selected = e.target.getAttribute('name');
       this.setState({ currentSelection: e.target.textContent });
-      _axios2.default.post('http://localhost:8080/api/sort', { sort: selected }).then(function (result) {
-        return _this3.setState({ QApairs: result.data });
+      _axios2.default.post('http://localhost:8080/api/sort', { sort: selected, productID: productID }).then(function (result) {
+        return _this3.setState({ QApairs: result.data[0].QApairs });
       }).catch(function (err) {
         return console.error(err);
       });
@@ -27627,6 +27629,7 @@ var App = function (_React$Component) {
     value: function render() {
       var _this4 = this;
 
+      console.log(this.state.QApairs);
       return _react2.default.createElement(
         'div',
         { id: 'ct-qa-container' },

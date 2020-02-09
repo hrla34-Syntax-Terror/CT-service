@@ -26,14 +26,15 @@ var controllers = {
   postAns: (req, res) => {
     dbHelpers.postAns(req.body, req.params)
       .then(() => {
-        res.status(201).send('posted question')
+        res.status(201).send('posted answer')
       })
       .catch(err => {
         res.status(401).send(err)
       });
   },
   sort: (req, res) => {
-    dbHelpers.sort(req.body)
+    console.log('req.body:',req.body)
+    dbHelpers.sort(req.body.productID, req.body.sort)
       .then((data) => {
         res.status(202).send(data)
       })

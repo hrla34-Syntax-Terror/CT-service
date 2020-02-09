@@ -65,15 +65,18 @@ class App extends React.Component {
   }
 
   clickSelection(e) {
+    var endpoint = document.location.href.substring(22);
+    var productID = Number(endpoint.split('/')[0]);
     var selected = e.target.getAttribute('name');
     this.setState({ currentSelection: e.target.textContent});
     axios
-      .post('http://localhost:8080/api/sort', { sort: selected })
-      .then((result) => this.setState({ QApairs: result.data }))
+      .post('http://localhost:8080/api/sort', { sort: selected, productID: productID })
+      .then((result) => this.setState({ QApairs: result.data[0].QApairs }))
       .catch((err) => console.error(err));
   }
 
   render() {
+    console.log(this.state.QApairs)
     return (
       <div id='ct-qa-container'><a href='ct-qa-container'></a>
         <h2 className='ct-q-and-a'>Questions &amp; Answers</h2>
