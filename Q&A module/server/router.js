@@ -2,17 +2,17 @@ const router = require('express').Router();
 const controllers = require('./controllers.js');
 
 router
-  .route('/')
+  .route('/:productID')
   .get(controllers.get)
   .post(controllers.post)
 
-router
-  .route('/sort')
-  .post(controllers.sort)  
+// router
+//   .route('/sort')
+//   .post(controllers.sort)  
   
-router
-  .route('/:number')
-  .post(controllers.postAns)
+// router
+//   .route('/:number')
+//   .post(controllers.postAns)
 
 
 module.exports = router;

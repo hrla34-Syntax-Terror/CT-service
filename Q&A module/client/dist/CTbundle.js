@@ -27560,14 +27560,16 @@ var App = function (_React$Component) {
   _createClass(App, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      this.getData();
+      var endpoint = document.location.href.substring(22);
+      var productID = Number(endpoint.split('/')[0]);
+      this.getData(productID);
     }
   }, {
     key: 'getData',
-    value: function getData() {
+    value: function getData(productID) {
       var _this2 = this;
 
-      _axios2.default.get('http://localhost:8080/api').then(function (result) {
+      _axios2.default.get('http://localhost:8080/api/' + productID).then(function (result) {
         return _this2.setState({ QApairs: result.data[0].QApairs });
       }).catch(function (err) {
         return console.error(err);
@@ -27715,7 +27717,7 @@ var App = function (_React$Component) {
               )
             )
           ),
-          _react2.default.createElement(_QAList2.default, { QApairs: this.state.QApairs, answerSubmit: this.answerSubmit, currentSelection: this.currentSelection })
+          this.state.QApairs.length && _react2.default.createElement(_QAList2.default, { QApairs: this.state.QApairs, answerSubmit: this.answerSubmit, currentSelection: this.currentSelection })
         ),
         _react2.default.createElement(
           'div',

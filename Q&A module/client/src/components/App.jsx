@@ -24,12 +24,14 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.getData();
+    var endpoint = document.location.href.substring(22);
+    var productID = Number(endpoint.split('/')[0]);
+    this.getData(productID);
   };
 
-  getData() {
+  getData(productID) {
     axios
-      .get('http://localhost:8080/api')
+      .get(`http://localhost:8080/api/${productID}`)
       .then((result) => this.setState({ QApairs: result.data[0].QApairs }))
       .catch((err) => console.error(err));
   };
@@ -73,7 +75,6 @@ class App extends React.Component {
 
   render() {
     return (
-      
       <div id='ct-qa-container'><a href='ct-qa-container'></a>
         <h2 className='ct-q-and-a'>Questions &amp; Answers</h2>
         <div className='ct-blue-btn-container'><a href='#ct-ask-q-form'><button className='ct-blue-btn' id='ct-ask-q-btn' onClick={() => this.showAskAQuestion()}>Ask a question</button></a></div>
@@ -91,7 +92,9 @@ class App extends React.Component {
               </div>
             </span>
           </div>
+          { this.state.QApairs.length && 
           <QAList QApairs={this.state.QApairs} answerSubmit={this.answerSubmit} currentSelection={this.currentSelection}/>
+          }
         </div>
         <div id='ct-ask-q-form'><a href='ct-ask-q-form'></a>
           { this.state.showAskQ ? (<AskAQuestion  QApairs={this.state.QApairs} hideAskAQuestion={this.hideAskAQuestion} questionSubmit={this.questionSubmit} getData={this.getData}/> ) : (<div/>) }

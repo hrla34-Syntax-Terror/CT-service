@@ -2,7 +2,7 @@ const QApair = require('./');
 
 var dbHelpers = {
   get: (id) => {
-    return QApair.find({productID: id}).sort({'QApairs.answers.yes': -1});
+    return QApair.find({productID: id}).sort({"QApairs.answers.yes": -1});
   },
   post: (newQuestion) => {
     return QApair.create(newQuestion);
