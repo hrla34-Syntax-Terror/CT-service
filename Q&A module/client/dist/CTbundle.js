@@ -29187,6 +29187,8 @@ var AskAQuestion = function (_React$Component) {
       if (this.state.formCompleted) {
         this.props.hideAskAQuestion();
         this.props.questionSubmit();
+        var endpoint = document.location.href.substring(22);
+        var productID = Number(endpoint.split('/')[0]);
         var list = this.props.QApairs;
         var newQuestion = {
           number: list.length,
@@ -29202,8 +29204,8 @@ var AskAQuestion = function (_React$Component) {
           yes: 0,
           no: 0
         }];
-        _axios2.default.post('http://localhost:8080/api', newQuestion).then(function () {
-          return _this4.props.getData();
+        _axios2.default.post('http://localhost:8080/api/' + productID, { newQuestion: newQuestion }).then(function () {
+          return _this4.props.getData(productID);
         }).catch(function (err) {
           return console.error(err);
         });

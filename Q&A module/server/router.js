@@ -8,12 +8,13 @@ router
   .post(controllers.sort)  
   
 router
-  .route('/:number')
-  .post(controllers.postAns)
-
-router
   .route('/:productID')
   .get(controllers.get)
-  .post(controllers.post)
+  .post(controllers.postQ)
+
+// router
+//   .route('/:number')
+//   .post(controllers.postAns)
+
 
 module.exports = router;

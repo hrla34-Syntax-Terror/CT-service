@@ -7,8 +7,8 @@ var dbHelpers = {
           return sortByHelpful(data);
         })
   },
-  post: (newQuestion) => {
-    return QApair.create(newQuestion);
+  postQ: (id, newQuestion) => {
+    return QApair.findOneAndUpdate({ productID:id }, {$push: {QApairs: newQuestion}});
   },
   postAns: (answer, num) => {
     return QApair.findOneAndUpdate(num,  { $push: { answers: answer  } })

@@ -13,9 +13,8 @@ var controllers = {
         res.status(400).send(err)
       })
   },
-  post: (req, res) => {
-    console.log(req.body)
-    dbHelpers.post(req.body)
+  postQ: (req, res) => {
+    dbHelpers.postQ(req.params.productID, req.body.newQuestion)
       .then(() => {
         res.status(201).send('posted question')
       })
@@ -33,7 +32,6 @@ var controllers = {
       });
   },
   sort: (req, res) => {
-    console.log('req.body:',req.body)
     dbHelpers.sort(req.body.productID, req.body.sort)
       .then((data) => {
         res.status(202).send(data)

@@ -66,13 +66,14 @@ class AskAQuestion extends React.Component {
       [e.target.name]: e.target.value,
       [e.target.name + 'BC']: 'black',
       postQClicked: false
-    }, () => this.setFormCompleted())
+    }, () => this.setFormCompleted());
     if (e.target.value === '' && e.target.name !== 'qLocation' || (e.target.name === 'qEmail' && !e.target.value.includes('@'))) {
       this.setState({
         [e.target.name + 'BC']: ''
       }, () => this.setFormCompleted())
     }
   };
+
   componentDidMount() {
     this.getDate();
   }
@@ -91,6 +92,8 @@ class AskAQuestion extends React.Component {
     if (this.state.formCompleted) {
       this.props.hideAskAQuestion();
       this.props.questionSubmit();
+      var endpoint = document.location.href.substring(22);
+      var productID = Number(endpoint.split('/')[0]);
       let list = this.props.QApairs;
       let newQuestion = {
         number: list.length,
@@ -107,8 +110,8 @@ class AskAQuestion extends React.Component {
        no: 0
       }];
       axios
-        .post('http://localhost:8080/api', newQuestion)
-        .then(() => this.props.getData())
+        .post(`http://localhost:8080/api/${productID}`, {newQuestion})
+        .then(() => this.props.getData(productID))
         .catch((err) => console.error(err))
       document.getElementById('ct-form').reset();
       this.setState({
