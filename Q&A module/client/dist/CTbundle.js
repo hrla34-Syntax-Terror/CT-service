@@ -27629,7 +27629,6 @@ var App = function (_React$Component) {
     value: function render() {
       var _this4 = this;
 
-      console.log(this.state.QApairs);
       return _react2.default.createElement(
         'div',
         { id: 'ct-qa-container' },
@@ -29881,7 +29880,7 @@ var QAListEntry = function (_React$Component) {
             } },
           'Answer the question'
         ),
-        this.props.QApair.ansCount > 0 && _react2.default.createElement(_QAListAns2.default, { firstAns: this.props.QApair.answers[0], number: this.props.QApair.number, QApairs: this.props.QApairs }),
+        this.props.QApair.ansCount > 0 && (this.props.QApair.answers[0].newAns !== 'true' ? _react2.default.createElement(_QAListAns2.default, { firstAns: this.props.QApair.answers[0], number: this.props.QApair.number, QApairs: this.props.QApairs }) : _react2.default.createElement(_QAListAns2.default, { firstAns: this.props.QApair.answers[1], number: this.props.QApair.number, QApairs: this.props.QApairs })),
         this.state.answerQ && _react2.default.createElement(
           'div',
           { className: 'ct-popup' },

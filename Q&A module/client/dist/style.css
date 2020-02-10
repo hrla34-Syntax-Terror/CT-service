@@ -396,14 +396,13 @@ button:focus {
 }
 
 .ct-post-ans-popup {  
-  position: absolute;  
+  position: relative;  
   background-color: #fafafa;
   display: flex;
   flex-direction: column;
-  padding-right: 50px;
   margin-top: -500px;
-  left: -50px;
-
+  left: -100px;
+  padding-right: 50px;
 }  
 
 .ct-post-ans-popup\_inner {  
@@ -431,8 +430,8 @@ button:focus {
 .ct-close-post-ans-form {
   cursor: pointer;
   float: right;
-  margin-top: -130px;
-  margin-right: -45px;
+  top: 3px;
+  right: 3px;
   display: block;
   height: 20px;
   width: 20px;
@@ -443,6 +442,7 @@ button:focus {
   color: white;
   text-align: center;
   font-size: 1.6em;
+  position: absolute;
 }
 
 .ct-close-post-ans-form:before {
@@ -796,7 +796,6 @@ button:focus {
   transform: scale(1, .95);
   display: flex;
   position: absolute;
-  /* float: right; */
   font-size: 14px;
   background-color: transparent;
   border-radius: 20px 20px 20px 20px;
@@ -809,7 +808,6 @@ button:focus {
   border-color: #b8b8b8;
   padding-left: 12px;
   font-size: 14px;
-  /* margin-left: 398px; */
   left: 39%;
   margin-top: -22px;
   float: right;
@@ -846,7 +844,7 @@ button:focus {
   display: block;
   height: 20px;
   width: 20px;
-  line-height: 19px;
+  line-height: 18px;
   -moz-border-radius: 30px;
   border-radius: 30px;
   background-color: rgb(189, 11, 11);
@@ -968,26 +966,27 @@ button:focus {
 }
 
 .ct-popup {
-  position: relative;
+  position: absolute;
 }
 
 .ct-popup-submit {
-  position: absolute;  
   width: 760px;  
   height: 230px;  
-  top: 500px;  
+  top: 0;  
   left: 0;  
   right: 0;  
   bottom: 0;  
   margin: auto;  
   background-color: #fafafa;
-  padding-left: 50px;
-  padding-right: 50px;
+  /* padding-left: 50px;
+  padding-right: 50px; */
   -moz-box-shadow: 0 0 20px #888;
   -webkit-box-shadow: 0 0 20px#888;
   box-shadow: 0 0 20px #888;
   text-align: center;
   font-weight: bold;
+  position:fixed;
+  top:0;
 }
 
 .ct-popup-submit\_inner {  
@@ -1004,7 +1003,7 @@ button:focus {
   cursor: pointer;
   float: right;
   margin-top: 3px;
-  margin-right: -46px;
+  margin-right: 3px;
   display: block;
   height: 20px;
   width: 20px;

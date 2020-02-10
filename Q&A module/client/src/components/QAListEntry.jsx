@@ -64,8 +64,11 @@ class QAListEntry extends React.Component {
         ) : (      
           <button className='ct-answer-btn' onClick={() => this.showAnsPopup()}>Answer the question</button>
         ) }
-        { this.props.QApair.ansCount > 0 &&
-            <QAListAns firstAns={this.props.QApair.answers[0]} number={this.props.QApair.number} QApairs={this.props.QApairs}/> }
+        { this.props.QApair.ansCount > 0 && (this.props.QApair.answers[0].newAns !== 'true' ? (
+          <QAListAns firstAns={this.props.QApair.answers[0]} number={this.props.QApair.number} QApairs={this.props.QApairs}/>
+        ) : (
+          <QAListAns firstAns={this.props.QApair.answers[1]} number={this.props.QApair.number} QApairs={this.props.QApairs}/>
+        )) }
         { this.state.answerQ &&
           <div className='ct-popup'>
           <div id='ct-page-mask'></div>

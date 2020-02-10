@@ -76,7 +76,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.QApairs)
     return (
       <div id='ct-qa-container'><a href='ct-qa-container'></a>
         <h2 className='ct-q-and-a'>Questions &amp; Answers</h2>
