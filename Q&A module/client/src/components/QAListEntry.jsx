@@ -38,14 +38,27 @@ class QAListEntry extends React.Component {
         <div className='ct-user'>
           <span className='ct-nickname'>{this.props.QApair.qNickname}&nbsp;</span>
           <span>·</span>&nbsp;<span id='ct-small-font'>{moment.tz(this.props.QApair.qDate, 'America/Los_Angeles').fromNow()}</span>
-          <span id='ct-num-of-ans' onClick={() => this.showAnsPopup()}>
+          { this.props.QApair.newQ === 'false' ? (
+            <span id='ct-num-of-ans' onClick={() => this.showAnsPopup()}>
+              <div style={{fontWeight:"bold", fontSize:16}}>{this.props.QApair.ansCount || 0}</div>
+              <div> 
+              {this.props.QApair.ansCount > 1 ? (<div>answers</div>) : (<div>answer</div>)}
+              </div>
+            </span>
+          ) : (
+            <span id='ct-num-of-ans-new'>
             <div style={{fontWeight:"bold", fontSize:16}}>{this.props.QApair.ansCount || 0}</div>
             <div> 
             {this.props.QApair.ansCount > 1 ? (<div>answers</div>) : (<div>answer</div>)}
             </div>
           </span>
+          ) }
         </div>
-        <h3 className='ct-question' onClick={() => this.showAnsPopup()}>{this.props.QApair.question}</h3>
+        { this.props.QApair.newQ === 'false' ? (
+          <h3 className='ct-question' onClick={() => this.showAnsPopup()}>{this.props.QApair.question}</h3>
+          ) : (
+          <h3 className='ct-question-new'>{this.props.QApair.question}</h3>
+        ) }
         { this.props.QApair.newQ === 'true' ? (
           <div className='ct-thank-msg'>Thank you for submitting a question! Questions are usually answered within a few days.</div>
         ) : (      

@@ -29813,7 +29813,7 @@ var QAListEntry = function (_React$Component) {
             { id: 'ct-small-font' },
             _moment2.default.tz(this.props.QApair.qDate, 'America/Los_Angeles').fromNow()
           ),
-          _react2.default.createElement(
+          this.props.QApair.newQ === 'false' ? _react2.default.createElement(
             'span',
             { id: 'ct-num-of-ans', onClick: function onClick() {
                 return _this2.showAnsPopup();
@@ -29836,13 +29836,38 @@ var QAListEntry = function (_React$Component) {
                 'answer'
               )
             )
+          ) : _react2.default.createElement(
+            'span',
+            { id: 'ct-num-of-ans-new' },
+            _react2.default.createElement(
+              'div',
+              { style: { fontWeight: "bold", fontSize: 16 } },
+              this.props.QApair.ansCount || 0
+            ),
+            _react2.default.createElement(
+              'div',
+              null,
+              this.props.QApair.ansCount > 1 ? _react2.default.createElement(
+                'div',
+                null,
+                'answers'
+              ) : _react2.default.createElement(
+                'div',
+                null,
+                'answer'
+              )
+            )
           )
         ),
-        _react2.default.createElement(
+        this.props.QApair.newQ === 'false' ? _react2.default.createElement(
           'h3',
           { className: 'ct-question', onClick: function onClick() {
               return _this2.showAnsPopup();
             } },
+          this.props.QApair.question
+        ) : _react2.default.createElement(
+          'h3',
+          { className: 'ct-question-new' },
           this.props.QApair.question
         ),
         this.props.QApair.newQ === 'true' ? _react2.default.createElement(

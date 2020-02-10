@@ -235,12 +235,12 @@ table {
 }
 
 
-#ct-small-font, #ct-num-of-ans, #ct-num-of-ans-popup {
+#ct-small-font, #ct-num-of-ans, #ct-num-of-ans-popup, #ct-num-of-ans-new {
   font-size: 14px;
   font-weight: 400;
 }
 
-#ct-num-of-ans, #ct-num-of-ans-popup {
+#ct-num-of-ans, #ct-num-of-ans-popup, #ct-num-of-ans-new {
   float: right;
   text-align: center;
 }
@@ -250,13 +250,13 @@ table {
   cursor: pointer;
 }
 
-#ct-num-of-ans, #ct-num-of-ans-popup {
+#ct-num-of-ans, #ct-num-of-ans-popup, #ct-num-of-ans-new {
   margin-top: -5px;
   line-height: 23px;
 }
 
 
-.ct-question {
+.ct-question, .ct-question-new {
   padding-top: 16px;
   padding-right: 90px;
   padding-bottom: 50px;
