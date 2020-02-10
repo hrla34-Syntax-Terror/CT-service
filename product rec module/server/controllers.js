@@ -12,6 +12,9 @@ var controllers = {
       .catch(err => {
         res.status(400).send(err)
       })
+  },
+  post: (req, res) => {
+    res.status(201).send(req.params.productID);
   }
 };
 

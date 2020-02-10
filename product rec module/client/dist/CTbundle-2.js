@@ -10528,6 +10528,7 @@ var App = function (_React$Component) {
       currentProduct: ''
     };
     _this.getData = _this.getData.bind(_this);
+    _this.clickHandler = _this.clickHandler.bind(_this);
     return _this;
   }
 
@@ -10553,8 +10554,20 @@ var App = function (_React$Component) {
       });
     }
   }, {
+    key: 'clickHandler',
+    value: function clickHandler(e) {
+      var productID = e.target.getAttribute('name');
+      _axios2.default.post('http://localhost:8090/api/' + productID).then(function (result) {
+        window.location = '/' + result.data;
+      }).catch(function (err) {
+        return console.error(err);
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
+      var _this3 = this;
+
       return _react2.default.createElement(
         'div',
         null,
@@ -10575,7 +10588,7 @@ var App = function (_React$Component) {
             'div',
             { className: 'ct2-product-list' },
             this.state.currentProduct && this.state.currentProduct.list.slice(0, 6).map(function (product, index) {
-              return _react2.default.createElement(_ProductListEntry2.default, { product: product, key: index });
+              return _react2.default.createElement(_ProductListEntry2.default, { product: product, key: index, clickHandler: _this3.clickHandler });
             })
           ),
           _react2.default.createElement(
@@ -10587,7 +10600,7 @@ var App = function (_React$Component) {
             'div',
             { className: 'ct2-product-list' },
             this.state.currentProduct && this.state.currentProduct.list.slice(6).map(function (product, index) {
-              return _react2.default.createElement(_ProductListEntry2.default, { product: product, key: index });
+              return _react2.default.createElement(_ProductListEntry2.default, { product: product, key: index, clickHandler: _this3.clickHandler });
             })
           )
         )
@@ -11534,98 +11547,133 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = __webpack_require__(25);
 
 var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var ProductListEntry = function ProductListEntry(_ref) {
-  var product = _ref.product;
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-  return _react2.default.createElement(
-    'div',
-    { className: 'ct2-product' },
-    _react2.default.createElement(
-      'div',
-      { className: 'ct2-img-container' },
-      _react2.default.createElement('img', { id: 'ct2-img', src: product.image })
-    ),
-    _react2.default.createElement(
-      'div',
-      { className: 'ct2-ratings' },
-      product.numReviews === 0 ? _react2.default.createElement(
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ProductListEntry = function (_React$Component) {
+  _inherits(ProductListEntry, _React$Component);
+
+  function ProductListEntry(props) {
+    _classCallCheck(this, ProductListEntry);
+
+    var _this = _possibleConstructorReturn(this, (ProductListEntry.__proto__ || Object.getPrototypeOf(ProductListEntry)).call(this, props));
+
+    _this.state = {};
+
+    return _this;
+  }
+
+  _createClass(ProductListEntry, [{
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          product = _props.product,
+          clickHandler = _props.clickHandler;
+
+      return _react2.default.createElement(
         'div',
-        { className: 'ct2-avg-stars-row' },
+        { className: 'ct2-product' },
         _react2.default.createElement(
           'div',
-          null,
-          _react2.default.createElement(
-            'span',
-            { className: 'ct2-avg-stars-blank-0' },
-            '\u2605\u2605\u2605\u2605\u2605'
-          ),
-          _react2.default.createElement(
-            'span',
-            { className: 'ct2-avg-stars-fill', style: { width: 0 + '%' } },
-            '\u2605\u2605\u2605\u2605\u2605'
+          { className: 'ct2-img-container' },
+          _react2.default.createElement('img', { id: 'ct2-img', src: product.image, name: product.number, onClick: function onClick(e) {
+              clickHandler(e);
+            } })
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'ct2-ratings' },
+          product.numReviews === 0 ? _react2.default.createElement(
+            'div',
+            { className: 'ct2-avg-stars-row' },
+            _react2.default.createElement(
+              'div',
+              null,
+              _react2.default.createElement(
+                'span',
+                { className: 'ct2-avg-stars-blank-0' },
+                '\u2605\u2605\u2605\u2605\u2605'
+              ),
+              _react2.default.createElement(
+                'span',
+                { className: 'ct2-avg-stars-fill', style: { width: 0 + '%' } },
+                '\u2605\u2605\u2605\u2605\u2605'
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'ct2-num-of-reviews' },
+              '(',
+              product.numReviews,
+              ')'
+            )
+          ) : _react2.default.createElement(
+            'div',
+            { className: 'ct2-avg-stars-row' },
+            _react2.default.createElement(
+              'div',
+              null,
+              _react2.default.createElement(
+                'span',
+                { className: 'ct2-avg-stars-blank' },
+                '\u2605\u2605\u2605\u2605\u2605'
+              ),
+              _react2.default.createElement(
+                'span',
+                { className: 'ct2-avg-stars-fill', style: { width: product.rating + '%' } },
+                '\u2605\u2605\u2605\u2605\u2605'
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'ct2-num-of-reviews' },
+              '(',
+              product.numReviews,
+              ')'
+            )
           )
         ),
         _react2.default.createElement(
           'div',
-          { className: 'ct2-num-of-reviews' },
-          '(',
-          product.numReviews,
-          ')'
-        )
-      ) : _react2.default.createElement(
-        'div',
-        { className: 'ct2-avg-stars-row' },
-        _react2.default.createElement(
-          'div',
-          null,
+          { className: 'ct2-brand-and-name' },
           _react2.default.createElement(
-            'span',
-            { className: 'ct2-avg-stars-blank' },
-            '\u2605\u2605\u2605\u2605\u2605'
+            'div',
+            { id: 'ct2-brand', name: product.number, onClick: function onClick(e) {
+                clickHandler(e);
+              } },
+            product.brand
           ),
           _react2.default.createElement(
-            'span',
-            { className: 'ct2-avg-stars-fill', style: { width: product.rating + '%' } },
-            '\u2605\u2605\u2605\u2605\u2605'
+            'div',
+            { id: 'ct2-name', name: product.number, onClick: function onClick(e) {
+                clickHandler(e);
+              } },
+            product.name
           )
         ),
         _react2.default.createElement(
           'div',
-          { className: 'ct2-num-of-reviews' },
-          '(',
-          product.numReviews,
-          ')'
+          { id: 'ct2-price' },
+          '$',
+          product.price
         )
-      )
-    ),
-    _react2.default.createElement(
-      'div',
-      { className: 'ct2-brand-and-name' },
-      _react2.default.createElement(
-        'div',
-        { id: 'ct2-brand' },
-        product.brand
-      ),
-      _react2.default.createElement(
-        'div',
-        { id: 'ct2-name' },
-        product.name
-      )
-    ),
-    _react2.default.createElement(
-      'div',
-      { id: 'ct2-price' },
-      '$',
-      product.price
-    )
-  );
-};
+      );
+    }
+  }]);
+
+  return ProductListEntry;
+}(_react2.default.Component);
 
 exports.default = ProductListEntry;
 

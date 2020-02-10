@@ -12,6 +12,7 @@ class App extends React.Component {
       currentProduct: ''
     }
     this.getData = this.getData.bind(this);
+    this.clickHandler = this.clickHandler.bind(this);
   }
 
   componentDidMount() {
@@ -30,6 +31,14 @@ class App extends React.Component {
       .catch((err) => console.error(err));
   }
 
+  clickHandler(e) {
+    var productID = e.target.getAttribute('name');
+    axios
+      .post(`http://localhost:8090/api/${productID}`)
+      .then((result) => {window.location = `/${result.data}`})
+      .catch((err) => console.error(err));
+  }
+
   render() {
     return (
       <div>
@@ -39,11 +48,11 @@ class App extends React.Component {
         <div className='ct2-product-rec'>
           <h2 className='ct2-title'>Previously viewed</h2>
           <div className='ct2-product-list'>
-            { this.state.currentProduct && this.state.currentProduct.list.slice(0,6).map((product, index) => (<ProductListEntry product={product} key={index}/>))}
+            { this.state.currentProduct && this.state.currentProduct.list.slice(0,6).map((product, index) => (<ProductListEntry product={product} key={index} clickHandler={this.clickHandler}/>))}
           </div>
           <h2 className='ct2-title'>People who bought this item also bought</h2>
           <div className='ct2-product-list'>
-            { this.state.currentProduct && this.state.currentProduct.list.slice(6).map((product, index) => (<ProductListEntry product={product} key={index}/>))}
+            { this.state.currentProduct && this.state.currentProduct.list.slice(6).map((product, index) => (<ProductListEntry product={product} key={index} clickHandler={this.clickHandler}/>))}
           </div>
         </div>
       </div>
