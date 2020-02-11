@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon ./server/index.js",
-    "build": "webpack -w",
+    "build": "webpack -d -w",
     "seed": "node database/seed.js"
   },
   "author": "Christine",
@@ -24,6 +24,9 @@
     "cors": "^2.8.5",
     "express": "^4.15.0",
     "faker": "^4.1.0",
+    "grunt": "^1.0.4",
+    "grunt-run": "^0.8.1",
+    "grunt-webpack": "^3.1.3",
     "jquery": "^3.1.1",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.27",
