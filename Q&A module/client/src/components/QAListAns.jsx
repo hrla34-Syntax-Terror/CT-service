@@ -49,12 +49,12 @@ class QAListAns extends React.Component {
           <div className='ct-yesno-box'>
             <span onClick={(e) => this.upVote(e)}>
               <span name='yes' className={this.state.helpfulClass}>Yes&nbsp;·&nbsp;
-                <span name='yes' style={{color:this.state.colorR}}>{this.state.yes}</span>
+                <span name='yes' style={{color:this.state.colorG}}>{this.state.yes}</span>
               </span>&nbsp;
             </span>
             <span onClick={(e) => this.upVote(e)}>
               <span name='no' className={this.state.helpfulClass}>No&nbsp;·&nbsp;
-                <span name='no'style={{color:this.state.colorG}}>{this.state.no}</span>
+                <span name='no'style={{color:this.state.colorR}}>{this.state.no}</span>
               </span>&nbsp;
             </span>
             <span onClick={() => this.reported()} className={this.state.reportClass}>{this.state.report}</span>
