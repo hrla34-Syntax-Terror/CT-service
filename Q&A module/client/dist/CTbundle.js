@@ -27677,7 +27677,7 @@ var App = function (_React$Component) {
                 { className: 'ct-dropdown-btn' },
                 this.state.currentSelection
               ),
-              '\u25BE',
+              '\xA0\u25BE',
               _react2.default.createElement(
                 'div',
                 { className: 'ct-dropdown-selection' },

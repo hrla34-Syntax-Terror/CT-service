@@ -268,20 +268,5 @@ QApair.create(firstProduct)
       mongoose.connection.close();
     })
     .catch(err => console.error(err));
-// generate a random index and seed that index in the products array to database
-// let randomIndex = faker.random.number({ min: 1, max: 100 });
-// let randomProduct = products[randomIndex].QApairs;
-// var seedData = () => {
-//   QApair.create(randomProduct)
-//     .then(() => {
-//       console.log('database seeded');
-//       mongoose.connection.close();
-//     })
-//     .catch(err => console.error(err));
-// };
 
-// seedData();
-// NOTE: DO NOT invoke this function as part of your
-// server code - it is meant to only be run once so that
-// you have access to data to work with
 

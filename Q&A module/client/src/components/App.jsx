@@ -84,7 +84,7 @@ class App extends React.Component {
           <div id='ct-qa-total'>
             <span className='ct-num-of-q'>1 &ndash; {this.state.QApairs.length} of {this.state.QApairs.length} Questions</span>
             <span className='ct-sortby'>Sort by:&nbsp;
-              <button className='ct-dropdown-btn'>{this.state.currentSelection}</button>&#9662;
+              <button className='ct-dropdown-btn'>{this.state.currentSelection}</button>&nbsp;&#9662;
               <div className='ct-dropdown-selection'>
                 <div name='newestQ' onClick={(e) => this.clickSelection(e)}>Newest questions</div>
                 <div name='newestAns' onClick={(e) => this.clickSelection(e)}>Newest answers</div>
