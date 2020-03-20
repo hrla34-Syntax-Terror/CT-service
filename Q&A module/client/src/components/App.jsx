@@ -1,5 +1,6 @@
 import React from 'react';
 import QAList from './QAList.jsx';
+import CheckMark from './CheckMark.jsx';
 import axios from 'axios';
 import AskAQuestion from './AskAQuestion.jsx';
 
@@ -13,7 +14,8 @@ class App extends React.Component {
       submitQuestion: false,
       submitAnswer: false,
       currentSelection: 'Most helpful answers'
-    }
+    };
+
     this.showAskAQuestion = this.showAskAQuestion.bind(this);
     this.hideAskAQuestion = this.hideAskAQuestion.bind(this);
     this.questionSubmit = this.questionSubmit.bind(this);
@@ -24,8 +26,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    var endpoint = document.location.href.substring(22);
-    var productID = Number(endpoint.split('/')[0]);
+    var productID = Number(document.location.href.split('/')[3]);
     this.getData(productID);
   };
 
@@ -34,7 +35,7 @@ class App extends React.Component {
       .get(`http://localhost:8080/api/${productID}`)
       .then((result) => this.setState({ QApairs: result.data[0].QApairs }))
       .catch((err) => console.error(err));
-  };
+  }
 
   showAskAQuestion() {
     this.setState({
@@ -65,75 +66,70 @@ class App extends React.Component {
   }
 
   clickSelection(e) {
-    var endpoint = document.location.href.substring(22);
-    var productID = Number(endpoint.split('/')[0]);
+    var productID = Number(document.location.href.split('/')[3]);
     var selected = e.target.getAttribute('name');
     this.setState({ currentSelection: e.target.textContent});
     axios
-      .post('http://localhost:8080/api/sort', { sort: selected, productID: productID })
+      .post('http://localhost:8080/api/sort', { sort: selected, productID })
       .then((result) => this.setState({ QApairs: result.data[0].QApairs }))
       .catch((err) => console.error(err));
   }
 
   render() {
+    const {QApairs, currentSelection, showAskQ, submitQuestion, submitAnswer} = this.state;
+    const sortNames = ['newestQ', 'newestAns', 'mostAns', 'ansNeeded', 'mostHelpful'];
+    const sortBy = ['Newest questions', 'Newest answers', 'Most answered', 'Answers needed', 'Most helpful answers'];
     return (
-      <div id='ct-qa-container'><a href='ct-qa-container'></a>
-        <h2 className='ct-q-and-a'>Questions &amp; Answers</h2>
-        <div className='ct-blue-btn-container'><a href='#ct-ask-q-form'><button className='ct-blue-btn' id='ct-ask-q-btn' onClick={() => this.showAskAQuestion()}>Ask a question</button></a></div>
-        <div className='ct-qa-block'>
-          <div id='ct-qa-total'>
-            <span className='ct-num-of-q'>1 &ndash; {this.state.QApairs.length} of {this.state.QApairs.length} Questions</span>
-            <span className='ct-sortby'>Sort by:&nbsp;
-              <button className='ct-dropdown-btn'>{this.state.currentSelection}</button>&nbsp;&#9662;
-              <div className='ct-dropdown-selection'>
-                <div name='newestQ' onClick={(e) => this.clickSelection(e)}>Newest questions</div>
-                <div name='newestAns' onClick={(e) => this.clickSelection(e)}>Newest answers</div>
-                <div name='mostAns' onClick={(e) => this.clickSelection(e)}>Most answered</div>
-                <div name='ansNeeded' onClick={(e) => this.clickSelection(e)}>Answers needed</div>
-                <div name='mostHelpful' onClick={(e) => this.clickSelection(e)}>Most helpful answers</div>
+      <div id="ct-qa-container"><a href="ct-qa-container"></a>
+        <h2 className="ct-q-and-a">Questions &amp; Answers</h2>
+        <div className="ct-blue-btn-container">
+          <a href="#ct-ask-q-form">
+            <button className="ct-blue-btn" id="ct-ask-q-btn" onClick={() => this.showAskAQuestion()}>Ask a question</button>
+          </a>
+        </div>
+        <div className="ct-qa-block">
+          <div id="ct-qa-total">
+            <span className="ct-num-of-q">1 &ndash; {QApairs.length} of {QApairs.length} Questions</span>
+            <span className="ct-sortby">Sort by:&nbsp;
+              <button className="ct-dropdown-btn">{currentSelection}</button>&nbsp;&#9662;
+              <div className="ct-dropdown-selection">
+                { sortNames.map((name, index) => <div name={name} key={index} onClick={(e) => this.clickSelection(e)}>{sortBy[index]}</div>) }
               </div>
             </span>
           </div>
-          { this.state.QApairs.length && 
-          <QAList QApairs={this.state.QApairs} answerSubmit={this.answerSubmit} currentSelection={this.currentSelection}/>
+          { QApairs.length && 
+          <QAList QApairs={QApairs} answerSubmit={this.answerSubmit} currentSelection={this.currentSelection}/>
           }
         </div>
-        <div id='ct-ask-q-form'><a href='ct-ask-q-form'></a>
-          { this.state.showAskQ ? (<AskAQuestion  QApairs={this.state.QApairs} hideAskAQuestion={this.hideAskAQuestion} questionSubmit={this.questionSubmit} getData={this.getData}/> ) : (<div/>) }
+        <div id="ct-ask-q-form"><a href="ct-ask-q-form"></a>
+          { showAskQ && 
+            <AskAQuestion QApairs={QApairs} hideAskAQuestion={this.hideAskAQuestion} questionSubmit={this.questionSubmit} getData={this.getData}/> }
         </div>
-        { this.state.submitQuestion &&
-          <div className='ct-popup'>
-            <div id='ct-page-mask'></div>
-            <div className='ct-popup-submit'>
-              <span className='ct-close-submit-popup' onClick={() => this.closeSubmitQPopup()}></span>
-              <span className='ct-checkmark'>
-                <div className='ct-checkmark-circle'></div>
-                <div className='ct-checkmark-stem'></div>
-                <div className='ct-checkmark-kick'></div>
-              </span>
-              <div className='ct-submit-box'></div>
-              <h2 id='ct-submit-msg'>Your question was submitted!</h2>
+        { submitQuestion &&
+          <div className="ct-popup">
+            <div id="ct-page-mask"></div>
+            <div className="ct-popup-submit">
+              <span className="ct-close-submit-popup" onClick={() => this.closeSubmitQPopup()}></span>
+              <CheckMark/>
+              <div className="ct-submit-box"></div>
+              <h2 id="ct-submit-msg">Your question was submitted!</h2>
             </div>
           </div>
         }
-         { this.state.submitAnswer &&
+        { submitAnswer &&
           <div>
-            <div id='ct-page-mask'></div>
-            <div className='ct-popup-submit'>
-              <span className='ct-close-submit-popup' onClick={() => this.closeSubmitAPopup()}></span>
-              <span className='ct-checkmark'>
-                <div className='ct-checkmark-circle'></div>
-                <div className='ct-checkmark-stem'></div>
-                <div className='ct-checkmark-kick'></div>
-              </span>
-              <div className='ct-submit-box'></div>
-              <h2 id='ct-submit-msg'>Your answer was submitted!</h2>
+            <div id="ct-page-mask"></div>
+            <div className="ct-popup-submit">
+              <span className="ct-close-submit-popup" onClick={() => this.closeSubmitAPopup()}></span>
+              <CheckMark/>
+              <div className="ct-submit-box"></div>
+              <h2 id="ct-submit-msg">Your answer was submitted!</h2>
             </div>
           </div>
         }
       </div>
     );
-  };
-};
+  }
+}
 
 export default App;
