@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 var QASchema = new mongoose.Schema({
-  productID:  { type: Number, unique: true, required: true, dropDups: true },
+  productID: { type: Number, unique: true, required: true, dropDups: true },
   QApairs: [{
     number: { type: Number, unique: true, required: true, dropDups: true },
     qNickname: { type: String, unique: true, required: true, dropDups: true },
