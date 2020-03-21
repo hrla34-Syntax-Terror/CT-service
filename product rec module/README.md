@@ -23,14 +23,17 @@ npm install
 
 From within the root directory:
 
+start server
 ```sh
 npm start
 ```
 
+seed database
 ```sh
 npm run seed
 ```
 
+webpack
 ```sh
 npm run build
 ```
