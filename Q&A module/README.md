@@ -1,4 +1,4 @@
-# FEC - REI Product Page Recreation
+# FEC - REI Product Page Recreation - Q&A
 
 > Full simulation of REI (Recreational Equipment, Inc.) product page with Service Oriented Architecture (SOA) design.
 
@@ -6,19 +6,7 @@
 
   - https://github.com/hrla34-Syntax-Terror
 
-## Table of Contents
-
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
-
-## Usage
-
-> Some usage instructions
-
 ## Requirements
-
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 - Node 
 - etc
@@ -31,4 +19,23 @@ From within the root directory:
 
 ```sh
 npm install
+```
+
+### Start Application
+
+From within the root directory:
+
+start server
+```sh
+npm start
+```
+
+seed database
+```sh
+npm run seed
+```
+
+webpack
+```sh
+npm run build
 ```
