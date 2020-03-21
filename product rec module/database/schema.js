@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var PRSchema = new mongoose.Schema({
   productID: { type: Number, unique: true, required: true, dropDups: true },
   productName: { type: String, required: true},
-  desc: { type: String },
+  desc: String,
   features: [{ type: String }],
   specs: {
     bestUse: [{ type: String }],

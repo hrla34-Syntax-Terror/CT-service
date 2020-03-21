@@ -1,23 +1,35 @@
-var path = require('path');
-var SRC_DIR = path.join(__dirname, '/client/src');
-var DIST_DIR = path.join(__dirname, '/client/dist');
-
+const path = require('path');
+const webpack = require('webpack');
 module.exports = {
-  entry: `${SRC_DIR}/index.jsx`,
+  mode: 'development',
+  entry: path.resolve(__dirname, './client/src/index.jsx'),
   output: {
+    path: path.resolve(__dirname, './client/dist'),
     filename: 'CTbundle-2.js',
-    path: DIST_DIR
   },
-  module : {
-    loaders : [
+  module: {
+    rules: [
       {
-        test : /\.jsx?/,
-        include : SRC_DIR,
-        loader : 'babel-loader',      
-        query: {
-          presets: ['react', 'es2015']
+        test: /\.js[x]?/s,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-react', '@babel/preset-env'],
+            plugins: ["@babel/plugin-proposeslintal-class-properties"]
+          }
         }
+      },
+      {
+        test: /\.(scss|css)$/,
+        loaders: ['style-loader', 'css-loader'],
       }
-    ]
+    ],
+  },
+  node: {
+    fs: 'empty'
+  },
+  resolve: {
+    extensions: ['.js', '.jsx']
   }
 };

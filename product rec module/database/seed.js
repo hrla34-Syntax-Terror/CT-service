@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Product = require('./'); // ./ defaults to index
+const Product = require('./'); 
 var imageDetails = require('./imageDetails.json');
 const faker = require('faker');
 let productRecList = [];
@@ -51,8 +51,8 @@ for (var i = 0; i < 100; i++) {
       materials: ['Material(s)', faker.hacker.noun()],
       dimensions: ['Dimensions', `${faker.random.number({ min: 1, max: 20 })} x ${faker.random.number({ min: 1, max: 20 })} x ${faker.random.number({ min: 1, max: 20 })} inches`],
       weight: ['Weight', `${faker.random.number({ min: 2, max: 20 })} ounces`]
-    }
-    product.view = `View all related products`;
+    };
+    product.view = 'View all related products';
   }
   // randomly select 12 products from productRecList to store in the key 'productRecList'
   let indexContainer = [];
