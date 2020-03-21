@@ -87,14 +87,12 @@ table {
 
 .ct-hr2 {
   margin-top: 27px;
-  /* margin-bottom: 27px; */
   margin-left: -9px;
   border-color: white;
 }
 
 .ct-hr3 {
   margin-top: 120px;
-  /* margin-bottom: 27px; */
   margin-left: -9px;
   border-color: white;
 }
@@ -136,7 +134,7 @@ table {
   display: inline-block;
   float: right;
   color: #292929;
-  width: 230px;
+  width: 250px;
 }
 
 .ct-sortby:hover .ct-dropdown-selection {
@@ -566,7 +564,6 @@ button:focus {
   border: solid;
   border-width: 1.4px;
   border-color: #b8b8b8;
-  /* margin-top: 12px; */
   padding-left: 15px;
   font-size: 16px;
 }
@@ -581,7 +578,6 @@ button:focus {
   border: solid;
   border-width: 1.4px;
   border-color: #b8b8b8;
-  /* margin-top: 12px; */
   padding-left: 15px;
   font-size: 16px;
 }
@@ -594,7 +590,6 @@ button:focus {
   border: solid;
   border-width: 1.4px;
   border-color: #b8b8b8;
-  /* margin-top: 12px; */
   padding-left: 15px;
   font-size: 16px;
   padding-top: 9px;
@@ -818,7 +813,6 @@ button:focus {
   transform: scale(1, .95);
   display: flex;
   position: absolute;
-  /* float: right; */
   font-size: 14px;
   background-color: transparent;
   border-radius: 20px 20px 20px 20px;
@@ -978,8 +972,6 @@ button:focus {
   bottom: 0;  
   margin: auto;  
   background-color: #fafafa;
-  /* padding-left: 50px;
-  padding-right: 50px; */
   -moz-box-shadow: 0 0 20px #888;
   -webkit-box-shadow: 0 0 20px#888;
   box-shadow: 0 0 20px #888;
@@ -1096,10 +1088,6 @@ button:focus {
   border-radius: 20px;  
   background: white;  
 }
-
-
-
-/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 
 
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import QAList from './QAList.jsx';
-import CheckMark from './CheckMark.jsx';
+import CheckMarkSubmit from './CheckMarkSubmit.jsx';
 import axios from 'axios';
 import AskAQuestion from './AskAQuestion.jsx';
 
@@ -110,7 +110,7 @@ class App extends React.Component {
             <div id="ct-page-mask"></div>
             <div className="ct-popup-submit">
               <span className="ct-close-submit-popup" onClick={() => this.closeSubmitQPopup()}></span>
-              <CheckMark/>
+              <CheckMarkSubmit/>
               <div className="ct-submit-box"></div>
               <h2 id="ct-submit-msg">Your question was submitted!</h2>
             </div>
@@ -121,7 +121,7 @@ class App extends React.Component {
             <div id="ct-page-mask"></div>
             <div className="ct-popup-submit">
               <span className="ct-close-submit-popup" onClick={() => this.closeSubmitAPopup()}></span>
-              <CheckMark/>
+              <CheckMarkSubmit/>
               <div className="ct-submit-box"></div>
               <h2 id="ct-submit-msg">Your answer was submitted!</h2>
             </div>

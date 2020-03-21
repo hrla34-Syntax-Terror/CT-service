@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CheckMark = () => (
+const CheckMarkSubmit = () => (
   <span className="ct-checkmark">
     <div className="ct-checkmark-circle"></div>
     <div className="ct-checkmark-stem"></div>
@@ -8,4 +8,4 @@ const CheckMark = () => (
   </span>
 );
 
-export default CheckMark;
+export default CheckMarkSubmit;

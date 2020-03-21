@@ -57,21 +57,21 @@ class AnswerAQuestion extends React.Component {
   }
 
   changeHandler(e) {
-    const target = e.target;
-    if (target.name === 'qEmail' && target.value.includes('@')) {
+    const { name, value } = e.target;
+    if (name === 'qEmail' && value.includes('@')) {
       this.setState({
-        qEmail: target.value,
+        qEmail: value,
         qEmailBC: 'black'
       }, () => this.setFormCompleted());
     }
     this.setState({
-      [target.name]: target.value,
-      [target.name + 'BC']: 'black',
+      [name]: value,
+      [name + 'BC']: 'black',
       postQClicked: false
     }, () => this.setFormCompleted());
-    if (target.value === '' && target.name !== 'qLocation' || (target.name === 'qEmail' && !target.value.includes('@'))) {
+    if (value === '' && name !== 'qLocation' || (name === 'qEmail' && !value.includes('@'))) {
       this.setState({
-        [target.name + 'BC']: ''
+        [name + 'BC']: ''
       }, () => this.setFormCompleted());
     }
   }
