@@ -15,7 +15,7 @@ for (var i = 1; i < 100; i++) {
   // randomly generate qa pairs until the desired quantity is reached
   for (var j = 0; j < QApairsQty; j++) {
     // random questions are generated below
-    var qa = {
+    let qa = {
       number: j,
       qNickname: faker.name.firstName(),
       question: faker.hacker.phrase() + ' ' + faker.lorem.sentences(faker.random.number({ min: 2, max: 6 })),

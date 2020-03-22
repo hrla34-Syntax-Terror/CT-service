@@ -1,6 +1,6 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-var PRSchema = new mongoose.Schema({
+const PRSchema = new mongoose.Schema({
   productID: { type: Number, unique: true, required: true, dropDups: true },
   productName: { type: String, required: true},
   desc: String,

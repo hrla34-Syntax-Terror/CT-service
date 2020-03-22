@@ -1,6 +1,6 @@
 const dbHelpers = require('../database/dbHelpers.js');
 
-var controllers = {
+const controllers = {
   get: (req, res) => {
     dbHelpers.get(req.params.productID)
       .then((data) => {

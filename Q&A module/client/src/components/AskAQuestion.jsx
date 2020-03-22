@@ -82,7 +82,7 @@ class AskAQuestion extends React.Component {
   }
 
   getDate() {
-    var today = moment().utc().format();
+    const today = moment().utc().format();
     this.setState({
       qDate: today
     });
@@ -97,7 +97,7 @@ class AskAQuestion extends React.Component {
     if (formCompleted) {
       hideAskAQuestion();
       questionSubmit();
-      var productID = Number(document.location.href.split('/')[3]);
+      const productID = Number(document.location.href.split('/')[3]);
       let list = QApairs;
       let newQuestion = {
         number: list.length,
@@ -114,7 +114,7 @@ class AskAQuestion extends React.Component {
         no: 0
       }];
       axios
-        .post(`http://localhost:8080/api/${productID}`, {newQuestion})
+        .post(`http://localhost:8002/api/${productID}`, {newQuestion})
         .then(() => this.props.getData(productID))
         .catch((err) => console.error(err));
       document.getElementById('ct-form').reset();

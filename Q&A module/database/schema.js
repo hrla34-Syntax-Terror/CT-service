@@ -1,6 +1,6 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-var QASchema = new mongoose.Schema({
+const QASchema = new mongoose.Schema({
   productID: { type: Number, unique: true, required: true, dropDups: true },
   QApairs: [{
     number: { type: Number, unique: true, required: true, dropDups: true },

@@ -1,6 +1,6 @@
 const Product = require('./');
 
-var dbHelpers = {
+const dbHelpers = {
   get: (id) => {
     return Product.find({productID: id});
   }

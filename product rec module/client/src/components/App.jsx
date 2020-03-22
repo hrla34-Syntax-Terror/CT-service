@@ -16,13 +16,13 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    var productID = Number(document.location.href.split('/')[3]);
+    const productID = Number(document.location.href.split('/')[3]);
     this.getData(productID);
   }
 
   getData(productID) {
     axios
-      .get(`http://localhost:8090/api/${productID}`)
+      .get(`http://localhost:8001/api/${productID}`)
       .then((result) => this.setState({ 
         products: result.data,
         currentProduct: result.data[0]
@@ -31,9 +31,9 @@ class App extends React.Component {
   }
 
   clickHandler(e) {
-    var productID = e.target.getAttribute('name');
+    const productID = e.target.getAttribute('name');
     axios
-      .post(`http://localhost:8090/api/${productID}`)
+      .post(`http://localhost:8001/api/${productID}`)
       .then((result) => { window.location = `/${result.data}`; })
       .catch((err) => console.error(err));
   }

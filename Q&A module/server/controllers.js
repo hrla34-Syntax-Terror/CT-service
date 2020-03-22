@@ -1,8 +1,7 @@
 const dbHelpers = require('../database/dbHelpers.js');
-var mongoose = require('mongoose');
-mongoose.Promise = require('bluebird');
+const mongoose = require('mongoose');
 
-var controllers = {
+const controllers = {
   get: (req, res) => {
     dbHelpers.get(req.params.productID)
       .then((data) => {

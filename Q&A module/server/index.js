@@ -4,7 +4,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 const path = require('path');
 const router = require('./router.js');
-const port = 8080;
+const port = 8002;
 
 
 const app = express();
@@ -15,7 +15,7 @@ app.use(cors());
 
 app.use('/api', router);
 
-app.use('/:productID', express.static(path.join(__dirname, '../client/dist')));
+app.use(express.static(path.join(__dirname, '../client/dist')));
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 

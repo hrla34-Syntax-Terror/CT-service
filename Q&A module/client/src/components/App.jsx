@@ -26,13 +26,13 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    var productID = Number(document.location.href.split('/')[3]);
+    const productID = Number(document.location.href.split('/')[3]);
     this.getData(productID);
-  };
+  }
 
   getData(productID) {
     axios
-      .get(`http://localhost:8080/api/${productID}`)
+      .get(`http://localhost:8002/api/${productID}`)
       .then((result) => this.setState({ QApairs: result.data[0].QApairs }))
       .catch((err) => console.error(err));
   }
@@ -66,11 +66,11 @@ class App extends React.Component {
   }
 
   clickSelection(e) {
-    var productID = Number(document.location.href.split('/')[3]);
-    var selected = e.target.getAttribute('name');
+    const productID = Number(document.location.href.split('/')[3]);
+    const selected = e.target.getAttribute('name');
     this.setState({ currentSelection: e.target.textContent});
     axios
-      .post('http://localhost:8080/api/sort', { sort: selected, productID })
+      .post('http://localhost:8002/api/sort', { sort: selected, productID })
       .then((result) => this.setState({ QApairs: result.data[0].QApairs }))
       .catch((err) => console.error(err));
   }

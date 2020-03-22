@@ -1,6 +1,6 @@
 import React from 'react';
 
-var TermsAndConditions = ({ hidePopup, checkTCHidePopup }) => (
+const TermsAndConditions = ({ hidePopup, checkTCHidePopup }) => (
   <div className='ct-popup-tc'>
     <h2 className='ct-q-and-a-tc' style={{marginLeft: -20}}>Terms and Conditions</h2>
     <div className='ct-close-tc-container'><div className='ct-close-tc' onClick={() => hidePopup()}></div></div>

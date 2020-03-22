@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Product = require('./'); 
-var imageDetails = require('./imageDetails.json');
+const imageDetails = require('./imageDetails.json');
 const faker = require('faker');
 let productRecList = [];
 

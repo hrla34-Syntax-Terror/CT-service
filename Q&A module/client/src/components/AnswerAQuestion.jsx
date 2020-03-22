@@ -81,7 +81,7 @@ class AnswerAQuestion extends React.Component {
   }
 
   getDate() {
-    var today = moment().utc().format();
+    const today = moment().utc().format();
     this.setState({
       qDate: today
     });
@@ -96,7 +96,7 @@ class AnswerAQuestion extends React.Component {
     if (formCompleted) {
       hideAnsPopup();
       answerSubmit();
-      var newAns = {
+      const newAns = {
         aNickname: qNickname,
         answer,
         aDate: qDate,
@@ -107,9 +107,9 @@ class AnswerAQuestion extends React.Component {
         inappropriate: '',
         newAns: 'true'
       };
-      var productID = Number(document.location.href.split('/')[3]);
+      const productID = Number(document.location.href.split('/')[3]);
       axios
-        .put(`http://localhost:8080/api/${productID}`, {num, newAns})
+        .put(`http://localhost:8002/api/${productID}`, {num, newAns})
         .then(console.log('posted'))
         .catch((err) => console.error(err));
       document.getElementById('ct-form').reset();

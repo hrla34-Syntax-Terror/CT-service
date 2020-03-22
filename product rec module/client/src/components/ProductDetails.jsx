@@ -1,6 +1,6 @@
 import React from 'react';
 
-var ProductDetails = ({ product }) => (
+const ProductDetails = ({ product }) => (
   <div>
     <div className='ct2-desc-container'>
       {product.desc}
