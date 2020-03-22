@@ -32,7 +32,7 @@ class App extends React.Component {
 
   getData(productID) {
     axios
-      .get(`http://localhost:8002/api/${productID}`)
+      .get(`http://localhost:8005/api/${productID}`)
       .then((result) => this.setState({ QApairs: result.data[0].QApairs }))
       .catch((err) => console.error(err));
   }
@@ -70,7 +70,7 @@ class App extends React.Component {
     const selected = e.target.getAttribute('name');
     this.setState({ currentSelection: e.target.textContent});
     axios
-      .post('http://localhost:8002/api/sort', { sort: selected, productID })
+      .post('http://localhost:8005/api/sort', { sort: selected, productID })
       .then((result) => this.setState({ QApairs: result.data[0].QApairs }))
       .catch((err) => console.error(err));
   }

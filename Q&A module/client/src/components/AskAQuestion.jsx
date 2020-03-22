@@ -114,7 +114,7 @@ class AskAQuestion extends React.Component {
         no: 0
       }];
       axios
-        .post(`http://localhost:8002/api/${productID}`, {newQuestion})
+        .post(`http://localhost:8005/api/${productID}`, {newQuestion})
         .then(() => this.props.getData(productID))
         .catch((err) => console.error(err));
       document.getElementById('ct-form').reset();

@@ -109,7 +109,7 @@ class AnswerAQuestion extends React.Component {
       };
       const productID = Number(document.location.href.split('/')[3]);
       axios
-        .put(`http://localhost:8002/api/${productID}`, {num, newAns})
+        .put(`http://localhost:8005/api/${productID}`, {num, newAns})
         .then(console.log('posted'))
         .catch((err) => console.error(err));
       document.getElementById('ct-form').reset();
