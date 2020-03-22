@@ -22,7 +22,7 @@ class App extends React.Component {
 
   getData(productID) {
     axios
-      .get(`http://localhost:8001/api/${productID}`)
+      .get(`http://localhost:8003/api/${productID}`)
       .then((result) => this.setState({ 
         products: result.data,
         currentProduct: result.data[0]
@@ -33,7 +33,7 @@ class App extends React.Component {
   clickHandler(e) {
     const productID = e.target.getAttribute('name');
     axios
-      .post(`http://localhost:8001/api/${productID}`)
+      .post(`http://localhost:8003/api/${productID}`)
       .then((result) => { window.location = `/${result.data}`; })
       .catch((err) => console.error(err));
   }
